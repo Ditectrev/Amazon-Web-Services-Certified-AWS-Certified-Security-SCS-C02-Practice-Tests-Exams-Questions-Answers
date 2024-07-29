@@ -21,7 +21,7 @@
 - [ ] Configure the S3 bucket poky so that only the origin access identity (OAI) has read permission for objects in the bucket.
 - [ ] Add an origin custom header that has the name Referer to the CloudFront distribution Give the header a secret value.
 
-### A company is testing its incident response plan for compromised credentials. The company runs a database on an Amazon EC2 instance and stores the sensitive data-base credentials as a secret in AWS Secrets Manager. The secret has rotation configured with an AWS Lambda function that uses the generic rotation function template. The EC2 instance and the Lambda function are deployed in the same private subnet. The VPC has a Secrets Manager VPC endpoint. A security engineer discovers that the secret cannot rotate. The security engineer determines that the VPC endpoint is working as intended. The Amazon Cloud-Watch logs contain the following error: "setSecret: Unable to log into database". Which solution will resolve this error?
+### A company is testing its incident response plan for compromised credentials. The company runs a database on an Amazon EC2 instance and stores the sensitive data-base credentials as a secret in AWS Secrets Manager. The secret has rotation configured with an AWS Lambda function that uses the generic rotation function template. The EC2 instance and the Lambda function are deployed in the same private subnet. The VPC has a Secrets Manager VPC endpoint. A security engineer discovers that the secret cannot rotate. The security engineer determines that the VPC endpoint is working as intended. The Amazon Cloud-Watch logs contain the following error: `"setSecret: Unable to log into database"`. Which solution will resolve this error?
 
 - [ ] Use the AWS Management Console to edit the JSON structure of the secret in Secrets Manager so that the secret automatically conforms with the structure that the database requires.
 - [x] Ensure that the security group that is attached to the Lambda function al-lows outbound connections to the EC2 instance. Ensure that the security group that is attached to the EC2 instance allows inbound connections from the security group that is attached to the Lambda function.
@@ -37,7 +37,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [x] Amazon Elasticsearch.
 - [ ] Amazon EMR.
 
-### A company is evaluating the use of AWS Systems Manager Session Manager to gam access to the company's Amazon EC2 instances. However, until the company implements the change, the company must protect the key file for the EC2 instances from read and write operations by any other users. When a security administrator tries to connect to a critical EC2 Linux instance during an emergency, the security administrator receives the following error. "Error Unprotected private key file – Permissions for' ssh/my_private_key pern' are too open". Which command should the security administrator use to modify the private key Me permissions to resolve this error?
+### A company is evaluating the use of AWS Systems Manager Session Manager to gam access to the company's Amazon EC2 instances. However, until the company implements the change, the company must protect the key file for the EC2 instances from read and write operations by any other users. When a security administrator tries to connect to a critical EC2 Linux instance during an emergency, the security administrator receives the following error. `"Error Unprotected private key file – Permissions for' ssh/my_private_key pern' are too open"`. Which command should the security administrator use to modify the private key Me permissions to resolve this error?
 
 - [ ] chmod 0040 ssh/my_private_key pern.
 - [x] chmod 0400 ssh/my_private_key pern.
@@ -119,8 +119,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 
 ### A security engineer needs to implement a write-once-read-many (WORM) model for data that a company will store in Amazon S3 buckets. The company uses the S3 Standard storage class for all of its S3 buckets. The security engineer must ensure that objects cannot be overwritten or deleted by any user, including the AWS account root user. Which solution will meet these requirements?
 
-- [x] Create new S3 buckets with S3 Object Lock enabled in compliance mode. Place objects in the S3
-buckets.
+- [x] Create new S3 buckets with S3 Object Lock enabled in compliance mode. Place objects in the S3 buckets.
 - [ ] Use S3 Glacier Vault Lock to attach a Vault Lock policy to new S3 buckets. Wait 24 hours to complete the Vault Lock process. Place objects in the S3 buckets.
 - [ ] Create new S3 buckets with S3 Object Lock enabled in governance mode. Place objects in the S3 buckets.
 - [ ] Create new S3 buckets with S3 Object Lock enabled in governance mode. Add a legal hold to the S3 buckets. Place objects in the S3 buckets.
@@ -130,10 +129,10 @@ buckets.
 - [x] The CMK is used in the attempt does not exist.
 - [ ] The CMK is used in the attempt needs to be rotated.
 - [ ] The CMK is used in the attempt is using the CMK™s key ID instead of the CMK ARN.
-- [x] he CMK is used in the attempt is not enabled.
+- [x] The CMK is used in the attempt is not enabled.
 - [ ] The CMK is used in the attempt is using an alias.
 
-### A security engineer logs in to the AWS Lambda console with administrator permissions. The security engineer is trying to view logs in Amazon CloudWatch for a Lambda function that is named my Function. When the security engineer chooses the option in the Lambda console to view logs in CloudWatch, an “error loading Log Streams" message appears. The IAM policy for the Lambda function's execution role contains the following:How should the security engineer correct the error?
+### A security engineer logs in to the AWS Lambda console with administrator permissions. The security engineer is trying to view logs in Amazon CloudWatch for a Lambda function that is named my Function. When the security engineer chooses the option in the Lambda console to view logs in CloudWatch, an `error loading Log Streams` message appears. The IAM policy for the Lambda function's execution role contains the following. How should the security engineer correct the error?
 
 ![Question 17](images/question17.jpg)
 
@@ -147,13 +146,12 @@ buckets.
 - [ ] Create an IAM policy that prohibits changes to the specific CloudTrail trail and apply the policy to the IAM account root user.
 - [ ] Create an S3 bucket policy in the specified destination account for the CloudTrail trail that prohibits configuration changes from the IAM account root user in the source account.
 - [x] Create an SCP that prohibits changes to the specific CloudTrail trail and apply the SCP to the appropriate organizational unit or account in Organizations.
-- [ ] Create an IAM policy that prohibits changes to the specific CloudTrail trail and apply the policy to a
-new IAM group. Have team members use individual IAM accounts that are members of the new IAM group.
+- [ ] Create an IAM policy that prohibits changes to the specific CloudTrail trail and apply the policy to a new IAM group. Have team members use individual IAM accounts that are members of the new IAM group.
 
 ### A company uses Amazon RDS for MySQL as a database engine for its applications. A recent security audit revealed an RDS instance that is not compliant with company policy for encrypting data at rest. A security engineer at the company needs to ensure that all existing RDS databases are encrypted using server-side encryption and that any future deviations from the policy are detected. Which combination of steps should the security engineer take to accomplish this? (Select TWO)
 
-- [x] Create an IAM Config rule to detect the creation of unencrypted RDS databases. Create an Amazon EventBridge (Amazon CloudWatch Events) rule to trigger on the IAM Config rules compliance state change and use Amazon Simple Notification Service (Amazon SNS) to notify the security operations team.
-- [ ] Use IAM System Manager State Manager to detect RDS database encryption configuration drift. Create an Amazon EventBridge (Amazon CloudWatch Events) rule to track state changes and use Amazon Simple Notification Service (Amazon SNS) to notify the security operations team.
+- [x] Create an AWS Config rule to detect the creation of encrypted RDS databases. Create an Amazon EventBridge (Amazon CloudWatch Events) rule to trigger on the AWS Config rules compliance state change and use Amazon Simple Notification Service (Amazon SNS) to notify the security operations team.
+- [ ] Use AWS System Manager State Manager to detect RDS database encryption configuration drift. Create an Amazon EventBridge (Amazon CloudWatch Events) rule to track state changes and use Amazon Simple Notification Service (Amazon SNS) to notify the security operations team.
 - [ ] Create a read replica for the existing unencrypted RDS database and enable replica encryption in the process. Once the replica becomes active, promote it into a standalone database instance and terminate the unencrypted database instance.
 - [x] Take a snapshot of the unencrypted RDS database. Copy the snapshot and enable snapshot encryption in the process. Restore the database instance from the newly created encrypted snapshot. Terminate the unencrypted database instance.
 - [ ] Enable encryption for the identified unencrypted RDS instance by changing the configurations of the existing database.
@@ -354,7 +352,7 @@ new IAM group. Have team members use individual IAM accounts that are members of
 - [ ] Create an IPsec tunnel for private connectivity, which increases network consistency and reduces latency.
 - [ ] Create a VPC peering connection between IAM and the Customer gateway.
 
-### A company uses a third-party identity provider and SAML-based SSO for its AWS accounts. After the third-party identity provider renewed an expired signing certificate, users saw the following message when trying to log in: Error: Response Signature Invalid (Service: AWSSecurityTokenService; Status Code: 400; Error Code:InvalidldentityToken). A security engineer needs to provide a solution that corrects the error and minimizes operational overhead. Which solution meets these requirements?
+### A company uses a third-party identity provider and SAML-based SSO for its AWS accounts. After the third-party identity provider renewed an expired signing certificate, users saw the following message when trying to log in: Error: `Response Signature Invalid (Service: AWSSecurityTokenService; Status Code: 400; Error Code:InvalidldentityToken)`. A security engineer needs to provide a solution that corrects the error and minimizes operational overhead. Which solution meets these requirements?
 
 ![Question 45](images/question45.png)
 
@@ -531,7 +529,7 @@ new IAM group. Have team members use individual IAM accounts that are members of
 - [ ] Search the IAM CloudTrail logs for the Terminatelnstances event and note the event time. Review the IAM Access Advisor tab for all federated roles. The last accessed time should match the time when the instance was terminated.
 - [ ] Use Amazon Athena to run a SQL query on the IAM CloudTrail logs stored in an Amazon S3 bucket and filter on the Terminatelnstances event. Identify the corresponding role and run another query to filter the AssumeRoleWithWebldentity event for the user name.
 
-### A company Is planning to use Amazon Elastic File System (Amazon EFS) with its on-premises servers. The company has an existing IAM Direct Connect connection established between its on-premises data center and an IAM Region Security policy states that the company's on-premises firewall should only have specific IP addresses added to the allow list and not a CIDR range. The company also wants to restrict access so that only certain data center-based servers have access to Amazon EFS How should a security engineer implement this solution”
+### A company Is planning to use Amazon Elastic File System (Amazon EFS) with its on-premises servers. The company has an existing IAM Direct Connect connection established between its on-premises data center and an IAM Region Security policy states that the company's on-premises firewall should only have specific IP addresses added to the allow list and not a CIDR range. The company also wants to restrict access so that only certain data center-based servers have access to Amazon EFS How should a security engineer implement this solution'
 
 - [ ] Add the file-system-id efs IAM-region amazonIAM com URL to the allow list for the data center firewall Install the IAM CLI on the data center-based servers to mount the EFS file system in the EFS security group add the data center IP range to the allow list Mount the EFS using the EFS file system name.
 - [ ] Assign an Elastic IP address to Amazon EFS and add the Elastic IP address to the allow list for the data center firewall Install the IAM CLI on the data center-based servers to mount the EFS file system In the EFS security group, add the IP addresses of the data center servers to the allow list Mount the EFS using the Elastic IP address.
@@ -679,7 +677,7 @@ Manager Agent on the ECS container instances. Run an inventory report.
 - [ ] Set up AWS Audit Manager. Run an assessment for all AWS Regions for all accounts.
 - [ ] Ensure that Amazon Inspector agents are installed on all Amazon EC2 in-stances in all accounts.
 
-### A company's security engineer has been tasked with restricting a contractor's IAM account access to the company's Amazon EC2 console without providing access to any other IAM services The contractors IAM account must not be able to gain access to any other IAM service, even it the IAM account rs assigned additional permissions based on IAM group membership What should the security engineer do to meet these requirements”
+### A company's security engineer has been tasked with restricting a contractor's IAM account access to the company's Amazon EC2 console without providing access to any other IAM services The contractors IAM account must not be able to gain access to any other IAM service, even it the IAM account rs assigned additional permissions based on IAM group membership What should the security engineer do to meet these requirements'
 
 - [ ] Create an mime IAM user policy that allows for Amazon EC2 access for the contractor's IAM user.
 - [ ] Create an IAM permissions boundary policy that allows Amazon EC2 access Associate the contractor's IAM account with the IAM permissions boundary policy.
@@ -1211,7 +1209,7 @@ generate and store a data encryption key for each customer.
 - [ ] Use an AWS Systems Manager Patch Manager predefined baseline to patch affected instances.
 - [ ] Use AWS Systems Manager Session Manager to log in to each affected instance and apply the patch.
 
-### A security engineer is asked to update an AW3 CoudTrail log file prefix for an existing trail. When attempting to save the change in the CloudTrail console, the security engineer receives the following error message. "There is a problem with the bucket policy” What will enable the security engineer to saw the change?
+### A security engineer is asked to update an AW3 CoudTrail log file prefix for an existing trail. When attempting to save the change in the CloudTrail console, the security engineer receives the following error message. `There is a problem with the bucket policy.`. What will enable the security engineer to saw the change?
 
 - [ ] Create a new trail with the updated log file prefix, and then delete the original nail Update the existing bucket policy in the Amazon S3 console with the new log the prefix, and then update the log file prefix in the CloudTrail console.
 - [x] Update the existing bucket policy in the Amazon S3 console to allow the security engineers principal to perform PutBucketPolicy. and then update the log file prefix in the CloudTrail console.
@@ -1463,7 +1461,7 @@ collect the application log dies on the EC2 tile system and send them to Amazon 
 - [ ] Option C.
 - [ ] Option D.
 
-### A company has a VPC with an IPv6 address range and a public subnet with an IPv6 address block. The VPC currently hosts some public Amazon EC2 instances but a Security Engineer needs to migrate a second application into the VPC that also requires IPv6 connectivity. This new application will occasionally make API requests to an external, internet-accessible endpoint to receive updates However, the Security team does not want the application’s EC2 instance exposed directly to the internet The Security Engineer intends to create a private subnet with a custom route table and to associate the route table with the private subnet What else does the Security Engineer need to do to ensure the application will not be exposed directly to the internet, but can still communicate as required”
+### A company has a VPC with an IPv6 address range and a public subnet with an IPv6 address block. The VPC currently hosts some public Amazon EC2 instances but a Security Engineer needs to migrate a second application into the VPC that also requires IPv6 connectivity. This new application will occasionally make API requests to an external, internet-accessible endpoint to receive updates However, the Security team does not want the application’s EC2 instance exposed directly to the internet The Security Engineer intends to create a private subnet with a custom route table and to associate the route table with the private subnet What else does the Security Engineer need to do to ensure the application will not be exposed directly to the internet, but can still communicate as required'
 
 - [ ] Launch a NAT instance in the public subnet Update the custom route table with a new
 route to the NAT instance.
@@ -1478,7 +1476,7 @@ route to the NAT instance.
 - [ ] Download a new wrapping key and a new import token Import the original key material into the existing CMK.
 - [x] Use the original wrapping key and import token Import the original key material into the existing CMK.
 
-### Authorized Administrators are unable to connect to an Amazon EC2 Linux bastion host using SSH over the internet. The connection either fails to respond or generates the following error message: Network error: Connection timed out. What could be responsible for the connection failure? (Select THREE)
+### Authorized Administrators are unable to connect to an Amazon EC2 Linux bastion host using SSH over the internet. The connection either fails to respond or generates the following error message: `Network error: Connection timed out`. What could be responsible for the connection failure? (Select THREE)
 
 - [ ] The NAT gateway in the subnet where the EC2 instance is deployed has been misconfigured
 - [ ] The internet gateway of the VPC has been reconfigured
@@ -1713,7 +1711,7 @@ Send email notifications using Amazon SNS.
 - [ ] Use Amazon inspector assessment templates to inspect the inbound traffic.
 - [x] Use Amazon Route 53 to distribute traffic.
 
-### A company always needs its Amazon Elastic Block Store (Amazon EBS) volumes to be encrypted During a security incident. EBS snapshots of suspicious instances are shared to a forensics account for analysis A security engineer attempting to share a suspicious EBS snapshot to the forensics account receives the following error "Unable to share snapshot: An error occurred (OperationNotPermitted) when calling the ModifySnapshotAttribute operation: Encrypted snapshots with EBS default key cannot be shared. Which combination of steps should the security engineer take in the incident account to complete the sharing operation? (Select THREE)
+### A company always needs its Amazon Elastic Block Store (Amazon EBS) volumes to be encrypted During a security incident. EBS snapshots of suspicious instances are shared to a forensics account for analysis A security engineer attempting to share a suspicious EBS snapshot to the forensics account receives the following error `"Unable to share snapshot: An error occurred (OperationNotPermitted) when calling the ModifySnapshotAttribute operation: Encrypted snapshots with EBS default key cannot be shared`. Which combination of steps should the security engineer take in the incident account to complete the sharing operation? (Select THREE)
 
 - [x] Create a customer managed CMK Copy the EBS snapshot encrypting the destination snapshot using the new CMK.
 - [x] Allow forensics accounting principals to use the CMK by modifying its policy.
@@ -1732,9 +1730,9 @@ Send email notifications using Amazon SNS.
 ### A Security Engineer has discovered that, although encryption was enabled on the Amazon S3 bucket example bucket, anyone who has access to the bucket has the ability to retrieve the files. The Engineer wants to limit access to each IAM user can access an assigned folder only. What should the Security Engineer do to achieve this?
 
 - [ ] Use envelope encryption with the AWS-managed CMK aws/s3.
-- [x] Create a customer-managed CMK with a key policy granting “kms:Decrypt” based on the “${aws:username}” variable.
+- [x] Create a customer-managed CMK with a key policy granting 'kms:Decrypt' based on the '${aws:username}' variable.
 - [ ] Create a customer-managed CMK for each user. Add each user as a key user in their corresponding key policy.
-- [ ] Change the applicable IAM policy to grant S3 access to “Resource”: “arn:aws:s3:::examplebucket/${aws:username}/*”
+- [ ] Change the applicable IAM policy to grant S3 access to 'Resource': 'arn:aws:s3:::examplebucket/${aws:username}/*'
 
 ### Users report intermittent availability of a web application hosted on AWS. Monitoring systems report an excess of abnormal network traffic followed by high CPU utilization on the application web tier. Which of the following techniques will improve the availability of the application? (Select TWO)
 
@@ -1896,3 +1894,44 @@ parse the file for account root user logins and email the Security team’s dist
 - [ ] Amazon SQS.
 - [ ] Amazon CloudWatch.
 - [ ] Amazon Athena.
+
+### A Security Engineer is troubleshooting a connectivity issue between a web server that is writing log files to the logging server in another VPC. The Engineer has confirmed that a peering relationship exists between the two VPCs. VPC flow logs show that requests sent from the web server are accepted by the logging server, but the web server never receives a reply. Which of the following actions could fix this issue?
+
+- [ ] Add an inbound rule to the security group associated with the logging server that allows requests from the web server.
+- [ ] Add an outbound rule to the security group associated with the web server that allows requests to the logging server.
+- [x] Add a route to the route table associated with the subnet that hosts the logging server that targets the peering connection.
+- [ ] Add a route to the route table associated with the subnet that hosts the web server that targets the peering connection.
+
+### A company's Security Engineer is copying all application logs to centralized Amazon S3 buckets. Currently, each of the company's application is in its own AWS account, and logs are pushed into S3 buckets associated with each account. The Engineer will deploy an AWS Lambda function into each account that copies the relevant log files to the centralized S3 bucket. The Security Engineer is unable to access the log files in the centralized S3 bucket. The Engineer's IAM user policy from the centralized account looks like this. The centralized S3 bucket policy looks like this. Why is the Security Engineer unable to access the log files?
+
+![Question 246 part 1](images/question246_1.png)
+![Question 246 part 2](images/question246_2.png)
+
+- [ ] The S3 bucket policy does not explicitly allow the Security Engineer access to the objects in the bucket.
+- [x] The object ACLs are not being updated to allow the users within the centralized account to access the objects.
+- [ ] The Security Engineer's IAM policy does not grant permissions to read objects in the S3 bucket.
+- [ ] The s3:PutObject and s3:PutObjectAcl permissions should be applied at the S3 bucket level.
+
+### A Security Engineer has created an Amazon CloudWatch event that invokes an AWS Lambda function daily. The Lambda function runs an Amazon Athena query that checks AWS CloudTrail logs in Amazon S3 to detect whether any IAM user accounts or credentials have been created in the past 30 days. The results of the Athena query are created in the same S3 bucket. The Engineer runs a test execution of the Lambda function via the AWS Console, and the function runs successfully. After several minutes, the Engineer finds that his Athena query has failed with the error message: `Insufficient Permissions`. The IAM permissions of the Security Engineer and the Lambda function are shown below. Security Engineer. Lambda function execution role. What is causing the error?
+
+![Question 247 part 1](images/question247_1.png)
+![Question 247 part 2](images/question247_2.png)
+
+- [ ] The Lambda function does not have permissions to start the Athena query execution.
+- [ ] The Security Engineer does not have permissions to start the Athena query execution.
+- [ ] The Athena service does not support invocation through Lambda.
+- [x] The Lambda function does not have permissions to access the CloudTrail S3 bucket.
+
+### A startup company hosts a fleet of Amazon EC2 instances in private subnets using the latest Amazon Linux 2 AMI. The company's engineers rely heavily on SSH access to the instances for troubleshooting. The company's existing architecture includes the following: A VPC with private and public subnets, and a NAT gateway. Site-to-Site VPN for connectivity with the on-premises environment. EC2 security groups with direct SSH access from the on-premises environment. The company needs to increase security controls around SSH access and provide auditing of commands run by the engineers. Which strategy should a solutions architect use?
+
+- [ ] Install and configure EC2 Instance Connect on the fleet of EC2 instances. Remove all security group rules attached to EC2 instances that allow inbound TCP on port 22. Advise the engineers to remotely access the instances by using the EC2 Instance Connect CLI.
+- [ ] Update the EC2 security groups to only allow inbound TCP on port 22 to the IP addresses of the engineer's devices. Install the Amazon CloudWatch agent on all EC2 instances and send operating system audit logs to CloudWatch Logs.
+- [ ] Update the EC2 security groups to only allow inbound TCP on port 22 to the IP addresses of the engineer's devices. Enable AWS Config for EC2 security group resource changes. Enable AWS Firewall Manager and apply a security group policy that automatically remediates changes to rules.
+- [x] Create an IAM role with the AmazonSSMManagedInstanceCore managed policy attached. Attach the IAM role to all the EC2 instances. Remove all security group rules attached to the EC2 instances that allow inbound TCP on port 22. Have the engineers install the AWS Systems Manager Session Manager plugin for their devices and remotely access the instances by using the start-session API call from Systems Manager.
+
+### A company has an AWS Lambda function that needs read access to an Amazon S3 bucket that is located in the same AWS account. Which solution will meet these requirements in the MOST secure manner?
+
+- [ ] Apply an S3 bucket policy that grants read access to the S3 bucket.
+- [x] Apply an IAM role to the Lambda function. Apply an IAM policy to the role to grant read access to the S3 bucket.
+- [ ] Embed an access key and a secret key in the Lambda function's code to grant the required IAM permissions for read access to the S3 bucket.
+- [ ] Apply an IAM role to the Lambda function. Apply an IAM policy to the role to grant read access to all S3 buckets in the account.
