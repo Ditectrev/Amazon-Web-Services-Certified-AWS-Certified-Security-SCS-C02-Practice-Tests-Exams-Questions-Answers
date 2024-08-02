@@ -418,7 +418,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 
 ### An ecommerce website was down for 1 hour following a DDoS attack Users were unable to connect to the website during the attack period. The ecommerce company's security team is worried about future potential attacks and wants to prepare for such events The company needs to minimize downtime in its response to similar attacks in the future. Which steps would help achieve this9 (Select TWO)
 
-- [x] Enable Amazon GuardDuty to automatically monitor for malicious activity and block unauthorized access.
+- [ ] Enable Amazon GuardDuty to automatically monitor for malicious activity and block unauthorized access.
 - [x] Subscribe to IAM Shield Advanced and reach out to IAM Support in the event of an attack.
 - [ ] Use VPC Flow Logs to monitor network: traffic and an IAM Lambda function to automatically block an attacker's IP using security groups.
 - [ ] Set up an Amazon CloudWatch Events rule to monitor the IAM CloudTrail events in real time use IAM Config rules to audit the configuration, and use IAM Systems Manager for remediation.
@@ -2003,3 +2003,17 @@ Send email notifications using Amazon SNS.
 - [x] Ensure GuardDuty is in master-member configuration. Add the threat list to the master account referencing the S3 object that contains the threat list.
 - [ ] Ensure all accounts are part of the same organization in AWS Organizations. Add the threat list to any company account within AWS Organizations.
 - [ ] Ensure the threat list in the S3 bucket is publicly accessible. Use an Amazon CloudWatch Events event on GuardDuty findings to match IPs against the threat list.
+
+### A company is hosting multiple applications within a single VPC in its AWS account. The applications are running behind an Application Load Balancer that is associated with an AWS WAF web ACL. The company's security team has identified that multiple port scans are originating from a specific range of IP addresses on the internet. A security engineer needs to deny access from the offending IP addresses. Which solution will meet these requirements?
+
+- [x] Modify the AWS WAF web ACL with an IP set match rule statement to deny incoming requests from the IP address range.
+- [ ] Add a rule to all security groups to deny the incoming requests from the IP address range.
+- [ ] Modify the AWS WAF web ACL with a rate-based rule statement to deny incoming requests from the IP address range.
+- [ ] Configure the AWS WAF web ACL with regex match conditions. Specify a pattern set to deny the incoming requests based on the match condition.
+
+### A company has two software development teams that are creating applications that store sensitive data in Amazon S3. Each team's data must always be separate. The company's security team must design a data encryption strategy for both teams that provides the ability to audit key usage. The solution must also minimize operational overhead. What should the security team recommend?
+
+- [ ] Tell the application teams to use two different S3 buckets with separate AWS Key Management Service (AWS KMS) AWS managed CMKs. Limit the key policies to allow encryption and decryption of the CMKs to their respective teams only. Force the teams to use encryption context to encrypt and decrypt.
+- [ ] Tell the application teams to use two different S3 buckets with a single AWS Key Management Service (AWS KMS) AWS managed CMK. Limit the key policy to allow encryption and decryption of the CMK only. Do not allow the teams to use encryption context to encrypt and decrypt.
+- [x] Tell the application teams to use two different S3 buckets with separate AWS Key Management Service (AWS KMS) customer managed CMKs. Limit the key policies to allow encryption and decryption of the CMKs to their respective teams only. Force the teams to use encryption context to encrypt and decrypt.
+- [ ] Tell the application teams to use two different S3 buckets with a single AWS Key Management Service (AWS KMS) customer managed CMK. Limit the key policy to allow encryption and decryption of the CMK only. Do not allow the teams to use encryption context to encrypt and decrypt.
