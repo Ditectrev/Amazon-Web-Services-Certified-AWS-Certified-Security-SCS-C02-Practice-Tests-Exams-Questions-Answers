@@ -409,12 +409,12 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [ ] When the volume is detached from the original instance, attach the volume to another instance as a data volume. Modify the authorized_keys file with a new private key. Move the volume back to the original instance. Start the instance.
 - [ ] When the volume is detached from the original instance, attach the volume to another instance as a data volume. Modify the authorized_keys file with a new public key. Move the volume back to the original instance that is running.
 
-### A company deployed Amazon GuardDuty In the us-east-1 Region. The company wants all DNS logs that relate to the company's Amazon EC2 instances to be inspected. What should a security engineer do to ensure that the EC2 instances are logged?
+### A company deployed Amazon GuardDuty in the us-east-1 Region. The company wants all DNS logs that relate to the company's Amazon EC2 instances to be inspected. What should a security engineer do to ensure that the EC2 instances are logged?
 
 - [ ] Use IPv6 addresses that are configured for hostnames.
 - [ ] Configure external DNS resolvers as internal resolvers that are visible only to IAM.
-- [ ] Use IAM DNS resolvers for all EC2 instances.
-- [x] Configure a third-party DNS resolver with logging for all EC2 instances.
+- [x] Use IAM DNS resolvers for all EC2 instances.
+- [ ] Configure a third-party DNS resolver with logging for all EC2 instances.
 
 ### An ecommerce website was down for 1 hour following a DDoS attack Users were unable to connect to the website during the attack period. The ecommerce company's security team is worried about future potential attacks and wants to prepare for such events The company needs to minimize downtime in its response to similar attacks in the future. Which steps would help achieve this9 (Select TWO)
 
@@ -1242,8 +1242,8 @@ generate and store a data encryption key for each customer.
 ### A company is running an application on Amazon EC2 instances in an Auto Scaling group. The application stores logs locally. A security engineer noticed that logs were lost after a scale-in event. The security engineer needs to recommend a solution to ensure the durability and availability of log data All logs must be kept for a minimum of 1 year for auditing purposes. What should the security engineer recommend?
 
 - [ ] Within the Auto Scaling lifecycle, add a hook to create and attach an Amazon Elastic Block Store (Amazon EBS) log volume each time an EC2 instance is created. When the instance is terminated, the EBS volume can be reattached to another instance for log review.
-- [x] Create an Amazon Elastic File System (Amazon EFS) file system and add a command in the user data section of the Auto Scaling launch template to mount the EFS file system during EC2 instance creation Configure a process on the instance to copy the logs once a day from an instance Amazon Elastic Block Store (Amazon EBS) volume to a directory in the EFS file system.
-- [ ] Build the Amazon CloudWatch agent into the AMI used in the Auto Scaling group. Configure the CloudWatch agent to send the logs to Amazon CloudWatch Logs for review.
+- [ ] Create an Amazon Elastic File System (Amazon EFS) file system and add a command in the user data section of the Auto Scaling launch template to mount the EFS file system during EC2 instance creation Configure a process on the instance to copy the logs once a day from an instance Amazon Elastic Block Store (Amazon EBS) volume to a directory in the EFS file system.
+- [x] Build the Amazon CloudWatch agent into the AMI used in the Auto Scaling group. Configure the CloudWatch agent to send the logs to Amazon CloudWatch Logs for review.
 - [ ] Within the Auto Scaling lifecycle, add a lifecycle hook at the terminating state transition and alert the engineering team by using a lifecycle notification to Amazon Simple Notification Service (Amazon SNS). Configure the hook to remain in the Terminating: Wait state for 1 hour to allow manual review of the security logs prior to instance termination.
 
 ### A company has multiple production AWS accounts. Each account has AWS CloudTrail configured to log to a single Amazon S3 bucket in a central account. Two of the production accounts have trails that are not logging anything to the S3 bucket. Which steps should be taken to troubleshoot the issue? (Choose THREE)
@@ -1557,8 +1557,8 @@ route to the NAT instance.
 
 ### A security engineer must use AWS Key Management Service (AWS KMS) to design a key management solution for a set of Amazon Elastic Block Store (Amazon EBS) volumes that contain sensitive data. The solution needs to ensure that the key material automatically expires in 90 days. Which solution meets these criteria?
 
-- [ ] A customer managed CMK that uses customer provided key material.
-- [x] A customer managed CMK that uses AWS provided key material.
+- [x] A customer managed CMK that uses customer provided key material.
+- [ ] A customer managed CMK that uses AWS provided key material.
 - [ ] An AWS managed CMK.
 - [ ] Operating system-native encryption that uses GnuPG.
 
@@ -1980,3 +1980,26 @@ Send email notifications using Amazon SNS.
 - [ ] Pull images from the public container registry. Publish the images to a private container registry that is hosted on Amazon EC2 instances in a centralized AWS account. Deploy host-based container scanning tools to EC2 instances that run Amazon ECS. Restrict access to the container images by using basic authentication over HTTPS.
 - [x] Pull images from the public container registry. Publish the images to Amazon Elastic Container Registry (Amazon ECR) repositories with scan on push configured in a centralized AWS account. Use a CI/CD pipeline to deploy the images to different AWS accounts. Use repository policies and identity-based policies to restrict access to which IAM principals and accounts can access the images.
 - [ ] Pull images from the public container registry. Publish the images to AWS CodeArtifact repositories in a centralized AWS account. Use a CI/CD pipeline to deploy the images to different AWS accounts. Use repository policies and identity-based policies to restrict access to which IAM principals and accounts can access the images.
+
+### A company wants to establish separate AWS Key Management Service (AWS KMS) keys to use for different AWS services. The company's security engineer created the following key policy to allow the infrastructure deployment team to create encrypted Amazon Elastic Block Store (Amazon EBS) volumes by assuming the InfrastructueDeployment IAM role. The security engineer recently discovered that IAM roles other than the InfrastructureDeployment role used this key for other services. Which change to the policy should the security engineer make to resolve these issues?
+
+![Question 256](images/question256.jpg)
+
+- [ ] In the statement block that contains the Sid Allow use of the key, under the Condition block, change StringEquals to StringLike.
+- [x] In the policy document, remove the statement block that contains the Sid Enable IAM User Permissions. Add key management policies to the KMS policy.
+- [ ] In the statement block that contains the Sid Allow use of the key, under the Condition block, change the kms:ViaService value to ec2.us-east-1.amazonaws.com.
+- [ ] In the policy document, add a new statement block that grants the kms:Disable* permission to the security engineer's IAM role.
+
+### A company has enabled Amazon GuardDuty in all Regions as part of its security monitoring strategy. In one of the VPCs, the company hosts an Amazon EC2 instance working as an FTP server that is contacted by a high number of clients from multiple locations. This is identified by GuardDuty as a brute force attack due to the high number of connections that happen every hour. The finding has been flagged as a false positive. However, GuardDuty keeps raising the issue. A Security Engineer has been asked to improve the signal-to-noise ratio. The Engineer needs to ensure that changes do not compromise the visibility of potential anomalous behavior. How can the Security Engineer address the issue?
+
+- [ ] Disable the FTP rule in GuardDuty in the Region where the FTP server is deployed.
+- [ ] Add the FTP server to a trusted IP list and deploy it to GuardDuty to stop receiving the notifications.
+- [x] Use GuardDuty filters with auto archiving enabled to close the findings.
+- [ ] Create an AWS Lambda function that closes the finding whenever a new occurrence is reported.
+
+### A company uses Amazon GuardDuty to detect threats and malicious activities in AWS accounts. The company has subscribed to a third-party threat intelligence list uploaded to an Amazon S3 bucket. How should the security engineer efficiently use the threat list across all company AWS accounts?
+
+- [ ] Ensure the S3 bucket policy allows all company AWS accounts access to the threat list. Use an AWS Lambda function to automatically add the threat list to all company AWS accounts.
+- [x] Ensure GuardDuty is in master-member configuration. Add the threat list to the master account referencing the S3 object that contains the threat list.
+- [ ] Ensure all accounts are part of the same organization in AWS Organizations. Add the threat list to any company account within AWS Organizations.
+- [ ] Ensure the threat list in the S3 bucket is publicly accessible. Use an Amazon CloudWatch Events event on GuardDuty findings to match IPs against the threat list.
