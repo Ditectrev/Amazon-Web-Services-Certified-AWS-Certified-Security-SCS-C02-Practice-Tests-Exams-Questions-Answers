@@ -245,13 +245,16 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [x] Scan all the EC2 instances with IAM Systems Manager to identify the vulnerable version of the Web framework.
 - [ ] Scan an the EC2 instances with IAM Resource Access Manager to identify the vulnerable version of the Web framework.
 
-### A developer is building a serverless application hosted on AWS that uses Amazon Redshift as a data store The application has separate modules for readwrite and read-only functionality. The modules need their own database users for compliance reasons. Which combination of steps should a security engineer implement to grant appropriate access? (Select TWO)
+### A company stores sensitive documents in Amazon S3 by using server-side encryption with an AWS Key Management Service (AWS KMS) CMK. A new requirement mandates that the CMK that is used for these documents can be used only for S3 actions. Which statement should the company add to the key policy to meet this requirement?
 
-- [ ] Configure cluster security groups for each application module to control access to database users that are required for read-only and readwrite.
-- [ ] Configure a VPC endpoint for Amazon Redshift. Configure an endpoint policy that maps database users to each application module, and allow access to the tables that are required for read-only and read/write.
-- [x] Configure an 1AM policy for each module. Specify the ARN of an Amazon Redshift database user that allows the GetClusterCredentials API call.
-- [x] Create local database users for each module.
-- [ ] Configure an 1AM policy for each module. Specify the ARN of an 1AM user that allows the GetClusterCredentials API call.
+- [ ] Option A.
+![Question 31 option A](images/question31_A.png)
+- [ ] Option B.
+![Question 31 option B](images/question31_B.png)
+- [x] Option C.
+![Question 31 option C](images/question31_C.png)
+- [ ] Option D.
+![Question 31 option D](images/question31_D.png)
 
 ### A company finds that one of its Amazon EC2 instances suddenly has a high CPU usage. The company does not know whether the EC2 instance is compromised or whether the operating system is performing background cleanup. Which combination of steps should a security engineer take before investigating the issue? (Select THREE)
 
@@ -315,12 +318,12 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 
 ### An application team wants to use IAM Certificate Manager (ACM) to request public certificates to ensure that data is secured in transit. The domains that are being used are not currently hosted on Amazon Route 53 The application team wants to use an IAM managed distribution and caching solution to optimize requests to its systems and provide better points of presence to customers The distribution solution will use a primary domain name that is customized The distribution solution also will use several alternative domain names The certificates must renew automatically over an indefinite period of time. Which combination of steps should the application team take to deploy this architecture? (Select THREE)
 
-- [x] Request a certificate for ACM in the us-west-2 Region Add the domain names that the certificate will secure.
+- [x] Request a certificate for ACM in the `us-west-2` Region Add the domain names that the certificate will secure.
 - [ ] Send an email message to the domain administrators to request vacation of the domains for ACM.
 - [x] Request validation of the domains for ACM through DNS Insert CNAME records into each domain's DNS zone.
 - [ ] Create an Application Load Balancer for me caching solution Select the newly requested certificate from ACM to be used for secure connections.
 - [x] Create an Amazon CloudFront distribution for the caching solution Enter the main CNAME record as the Origin Name Enter the subdomain names or alternate names in the Alternate Domain Names Distribution Settings Select the newly requested certificate from ACM to be used for secure connections.
-- [ ] Request a certificate from ACM in the us-east-1 Region Add the domain names that the certificate. Wil secure.
+- [ ] Request a certificate from ACM in the `us-east-1` Region Add the domain names that the certificate. Wil secure.
 
 ### A company uses Amazon API Gateway to present REST APIs to users. An API developer wants to analyze API access patterns without the need to parse the log files. Which combination of steps will meet these requirements with the LEAST effort? (Select TWO)
 
@@ -409,7 +412,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [ ] When the volume is detached from the original instance, attach the volume to another instance as a data volume. Modify the authorized_keys file with a new private key. Move the volume back to the original instance. Start the instance.
 - [ ] When the volume is detached from the original instance, attach the volume to another instance as a data volume. Modify the authorized_keys file with a new public key. Move the volume back to the original instance that is running.
 
-### A company deployed Amazon GuardDuty in the us-east-1 Region. The company wants all DNS logs that relate to the company's Amazon EC2 instances to be inspected. What should a security engineer do to ensure that the EC2 instances are logged?
+### A company deployed Amazon GuardDuty in the `us-east-1` Region. The company wants all DNS logs that relate to the company's Amazon EC2 instances to be inspected. What should a security engineer do to ensure that the EC2 instances are logged?
 
 - [ ] Use IPv6 addresses that are configured for hostnames.
 - [ ] Configure external DNS resolvers as internal resolvers that are visible only to IAM.
@@ -469,36 +472,35 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [ ] Enabling Proxy Protocol
 - [ ] Enabling sticky sessions on your load balancer
 
-### A security engineer configures Amazon S3 Cross-Region Replication (CRR) for all objects that are in an S3 bucket in the us-east-1. Region Some objects in this S3 bucket use server-side encryption with AWS KMS keys (SSE-KMS) for encryption at test. The security engineer creates a destination S3 bucket in the us-west-2 Region. The destination S3 bucket is in the same AWS account as the source S3 bucket. The security engineer also creates a customer managed key in us-west-2 to encrypt objects at rest in the destination S3 bucket. The replication configuration is set to use the key in us-west-2 to encrypt objects in the destination S3 bucket. The security engineer has provided the S3 replication configuration with an IAM role to perform the replication in Amazon S3. After a day, the security engineer notices that no encrypted objects from the source S3 bucket are replicated to the destination S3 bucket. However, all the unencrypted objects are replicated. Which combination of steps should the security engineer take to remediate this issue? (Select THREE)
+### A security engineer configures Amazon S3 Cross-Region Replication (CRR) for all objects that are in an S3 bucket in the `us-east-1`. Region Some objects in this S3 bucket use server-side encryption with AWS KMS keys (SSE-KMS) for encryption at test. The security engineer creates a destination S3 bucket in the `us-west-2` Region. The destination S3 bucket is in the same AWS account as the source S3 bucket. The security engineer also creates a customer managed key in `us-west-2` to encrypt objects at rest in the destination S3 bucket. The replication configuration is set to use the key in `us-west-2` to encrypt objects in the destination S3 bucket. The security engineer has provided the S3 replication configuration with an IAM role to perform the replication in Amazon S3. After a day, the security engineer notices that no encrypted objects from the source S3 bucket are replicated to the destination S3 bucket. However, all the unencrypted objects are replicated. Which combination of steps should the security engineer take to remediate this issue? (Select THREE)
 
-- [ ] Change the replication configuration to use the key in us-east-1 to encrypt the objects that are in the destination S3 bucket.
-- [ ] Grant the IAM role the kms. Encrypt permission for the key in us-east-1 that encrypts source objects.
-- [x] Grant the IAM role the s3 GetObjectVersionForReplication permission for objects that are in the source S3 bucket.
-- [x] Grant the IAM role the kms. Decrypt permission for the key in us-east-1 that encrypts source objects.
-- [ ] Change the key policy of the key in us-east-1 to grant the kms. Decrypt permission to the security engineer's IAM account.
-- [x] Grant the IAM role the kms Encrypt permission for the key in us-west-2 that encrypts objects that are in the destination S3 bucket.
+- [ ] Change the replication configuration to use the key in `us-east-1` to encrypt the objects that are in the destination S3 bucket.
+- [ ] Grant the IAM role the kms. Encrypt permission for the key in `us-east-1` that encrypts source objects.
+- [x] Grant the IAM role the `s3:GetObjectVersionForReplication` permission for objects that are in the source S3 bucket.
+- [x] Grant the IAM role the `kms:Decrypt` permission for the key in `us-east-1` that encrypts source objects.
+- [ ] Change the key policy of the key in `us-east-1` to grant the kms. Decrypt permission to the security engineer's IAM account.
+- [x] Grant the IAM role the `kms:Encrypt` permission for the key in `us-west-2` that encrypts objects that are in the destination S3 bucket.
 
 ### A company uses an Amazon S3 bucket to store reports Management has mandated that all new objects stored in this bucket must be encrypted at rest using server-side encryption with a client-specified IAM Key Management Service (IAM KMS) CMK owned by the same account as the S3 bucket. The IAM account number is 111122223333, and the bucket name Is report bucket. The company's security specialist must write the S3 bucket policy to ensure the mandate can be Implemented. Which statement should the security specialist include in the policy?
 
-![Question 62 part 1](images/question62_1.jpg)
-![Question 62 part 2](images/question62_2.jpg)
-![Question 62 part 3](images/question62_3.jpg)
-![Question 62 part 4](images/question62_4.jpg)
-
 - [ ] Option A.
+![Question 62 option A](images/question62_A.jpg)
 - [ ] Option B.
+![Question 62 option B](images/question62_B.jpg)
 - [ ] Option C.
+![Question 62 option C](images/question62_C.jpg)
 - [x] Option D.
+![Question 62 option D](images/question62_D.jpg)
 
-### A developer 15 building a serverless application hosted on IAM that uses Amazon Redshift in a data store. The application has separate modules for read/write and read-only functionality. The modules need their own database users for compliance reasons. Which combination of steps should a security engineer implement to grant appropriate access' (Select TWO)
+### A developer 15 building a serverless application hosted on IAM that uses Amazon Redshift in a data store. The application has separate modules for read/write and read-only functionality. The modules need their own database users for compliance reasons. Which combination of steps should a security engineer implement to grant appropriate access? (Select TWO)
 
 - [ ] Configure cluster security groups for each application module to control access to database users that are required for read-only and read/write.
 - [ ] Configure a VPC endpoint for Amazon Redshift Configure an endpoint policy that maps database users to each application module, and allow access to the tables that are required for read-only and read/write.
-- [x] Configure an IAM poky for each module Specify the ARN of an Amazon Redshift database user that allows the GetClusterCredentials API call.
+- [x] Configure an IAM policy for each module Specify the ARN of an Amazon Redshift database user that allows the `GetClusterCredentials` API call.
 - [x] Create focal database users for each module.
-- [ ] Configure an IAM policy for each module Specify the ARN of an IAM user that allows the GetClusterCredentials API call.
+- [ ] Configure an IAM policy for each module Specify the ARN of an IAM user that allows the `GetClusterCredentials` API call.
 
-### Your company uses AWS to host its resources. They have the following requirements: 1. Record all API calls and Transitions. 2. Help in understanding what resources are there in the account. 3. Facility to allow auditing credentials and logins. Which services would suffice the above requirements. Please select:
+### Your company uses AWS to host its resources. They have the following requirements: 1. Record all API calls and Transitions. 2. Help in understanding what resources are there in the account. 3. Facility to allow auditing credentials and logins. Which services would suffice the above requirements.
 
 - [ ] 1. IAM Inspector. 2. CloudTrail. 3. IAM Credential Reports.
 - [ ] 1. CloudTrail. 2. IAM Credential Reports. 3. IAM SNS.
@@ -622,12 +624,12 @@ traffic on TCP port 3306 Use outbound rule 100 to allow traffic on TCP port 443.
 - [ ] The ciphertext produced by CloudHSM provides more robust protection against brute force decryption attacks than the ciphertext produced by IAM KMS
 - [ ] CloudHSM provides the ability to copy keys to a different Region, whereas IAM KMS does not
 
-### A company wants to ensure that its IAM resources can be launched only in the us-east-1 and us-west-2 Regions. What is the MOST operationally efficient solution that will prevent developers from launching Amazon EC2 instances in other Regions?
+### A company wants to ensure that its IAM resources can be launched only in the `us-east-1` and `us-west-2` Regions. What is the MOST operationally efficient solution that will prevent developers from launching Amazon EC2 instances in other Regions?
 
-- [ ] Enable Amazon GuardDuty in all Regions. Create alerts to detect unauthorized activity outside us-east-1 and us-west-2.
-- [x] Use an organization in IAM Organizations. Attach an SCP that allows all actions when the IAM: Requested Region condition key is either us-east-1 or us-west-2. Delete the FullIAMAccess policy.
-- [ ] Provision EC2 resources by using IAM Cloud Formation templates through IAM CodePipeline. Allow only the values of us-east-1 and us-west-2 in the IAM CloudFormation template's parameters.
-- [ ] Create an IAM Config rule to prevent unauthorized activity outside us-east-1 and us-west-2.
+- [ ] Enable Amazon GuardDuty in all Regions. Create alerts to detect unauthorized activity outside `us-east-1` and `us-west-2`.
+- [x] Use an organization in IAM Organizations. Attach an SCP that allows all actions when the IAM: Requested Region condition key is either `us-east-1` or `us-west-2`. Delete the FullIAMAccess policy.
+- [ ] Provision EC2 resources by using IAM Cloud Formation templates through IAM CodePipeline. Allow only the values of `us-east-1` and `us-west-2` in the IAM CloudFormation template's parameters.
+- [ ] Create an IAM Config rule to prevent unauthorized activity outside `us-east-1` and `us-west-2`.
 
 ### A company's Security Team received an email notification from the Amazon EC2 Abuse team that one or more of the company's Amazon EC2 instances may have been compromised. Which combination of actions should the Security team take to respond to (be current modem? (Select TWO)
 
@@ -660,12 +662,12 @@ Manager Agent on the ECS container instances. Run an inventory report.
 - [ ] Update the S3 bucket policy with a deny list of countries where the company lacks a license.
 - [ ] Enable the Restrict Viewer Access option in CloudFront to create a deny list of countries where the company lacks a license.
 
-### A company wants to remove all SSH keys permanently from a specific subset of its Amazon Linux 2 Amazon EC2 instances that are using the same 1AM instance profile However three individuals who have IAM user accounts will need to access these instances by using an SSH session to perform critical duties How can a security engineer provide the access to meet these requirements?
+### A company wants to remove all SSH keys permanently from a specific subset of its Amazon Linux 2 Amazon EC2 instances that are using the same IAM instance profile However three individuals who have IAM user accounts will need to access these instances by using an SSH session to perform critical duties How can a security engineer provide the access to meet these requirements?
 
-- [ ] Assign an 1AM policy to the instance profile to allow the EC2 instances to be managed by AWS Systems Manager Provide the 1AM user accounts with permission to use Systems Manager Remove the SSH keys from the EC2 instances Use Systems Manager Inventory to select the EC2 instance and connect.
-- [ ] Assign an 1AM policy to the 1AM user accounts to provide permission to use AWS Systems Manager Run Command Remove the SSH keys from the EC2 instances Use Run Command to open an SSH connection to the EC2 instance.
-- [x] Assign an 1AM policy to the instance profile to allow the EC2 instances to be managed by AWS Systems Manager Provide the 1AM user accounts with permission to use Systems Manager Remove the SSH keys from the EC2 instances Use Systems Manager Session Manager to select the EC2 instance and connect.
-- [ ] Assign an 1AM policy to the 1AM user accounts to provide permission to use the EC2 service in the AWS Management Console Remove the SSH keys from the EC2 instances Connect to the EC2 instance as the ec2-user through the AWS Management Console's EC2 SSH client method.
+- [ ] Assign an IAM policy to the instance profile to allow the EC2 instances to be managed by AWS Systems Manager Provide the IAM user accounts with permission to use Systems Manager Remove the SSH keys from the EC2 instances Use Systems Manager Inventory to select the EC2 instance and connect.
+- [ ] Assign an IAM policy to the IAM user accounts to provide permission to use AWS Systems Manager Run Command Remove the SSH keys from the EC2 instances Use Run Command to open an SSH connection to the EC2 instance.
+- [x] Assign an IAM policy to the instance profile to allow the EC2 instances to be managed by AWS Systems Manager Provide the IAM user accounts with permission to use Systems Manager Remove the SSH keys from the EC2 instances Use Systems Manager Session Manager to select the EC2 instance and connect.
+- [ ] Assign an IAM policy to the IAM user accounts to provide permission to use the EC2 service in the AWS Management Console Remove the SSH keys from the EC2 instances Connect to the EC2 instance as the ec2-user through the AWS Management Console's EC2 SSH client method.
 
 ### A security engineer is using AWS Organizations and wants to optimize SCPs. The security engineer needs to ensure that the SCPs conform to best practices. Which approach should the security engineer take to meet this requirement?
 
@@ -718,7 +720,7 @@ Manager Agent on the ECS container instances. Run an inventory report.
 - [x] Turn on the awslogs log driver by specifying parameters for awslogs-group and awslogs-region m the LogConfiguration property.
 - [ ] Download and configure the CloudWatch agent on the container instances.
 - [ ] Set up Fluent Bit and FluentO as a DaemonSet to send logs to Amazon CloudWatch Logs.
-- [ ] Configure an 1AM policy that includes the togs CreateLogGroup action Assign the policy to the container instances.
+- [ ] Configure an IAM policy that includes the togs CreateLogGroup action Assign the policy to the container instances.
 
 ### A recent security audit found that IAM CloudTrail logs are insufficiently protected from tampering and unauthorized access. Which actions must the Security Engineer take to address these audit findings? (Select THREE)
 
@@ -1203,7 +1205,7 @@ generate and store a data encryption key for each customer.
 - [ ] Call UploadServerCertificate with /cloudfront/dev/ in the path parameter.
 - [ ] Import the certificate with a 4,096-bit RSA public key.
 - [ ] Ensure that the certificate, private key, and certificate chain are PKCS #12-encoded.
-- [x] Import the certificate in the us-east-1 (N. Virginia) Region.
+- [x] Import the certificate in the `us-east-1` (N. Virginia) Region.
 - [x] Ensure that the certificate, private key, and certificate chain are PEM-encoded.
 
 ### A company's Security Engineer has been asked to monitor and report all AWS account root user activities. Which of the following would enable the Security Engineer to monitor and report all root user activities? (Select TWO)
@@ -1420,7 +1422,7 @@ collect the application log dies on the EC2 tile system and send them to Amazon 
 - [ ] Install AWS Systems Manager Agent on the instances Configure an automation document to copy the application log files to AWS DeepLens.
 - [x] Install Amazon Kinesis Agent on the instances Stream the application log files to Amazon Kinesis Data Firehose and sot the destination to Amazon Elasticsearch Service.
 
-### To meet regulatory requirements, a Security Engineer needs to implement an IAM policy that restricts the use of AWS services to the us-east-1 Region. What policy should the Engineer implement?
+### To meet regulatory requirements, a Security Engineer needs to implement an IAM policy that restricts the use of AWS services to the `us-east-1` Region. What policy should the Engineer implement?
 
 ![Question 147 option A](images/question147_1.png)
 
@@ -1987,7 +1989,7 @@ Send email notifications using Amazon SNS.
 
 - [ ] In the statement block that contains the Sid Allow use of the key, under the Condition block, change StringEquals to StringLike.
 - [x] In the policy document, remove the statement block that contains the Sid Enable IAM User Permissions. Add key management policies to the KMS policy.
-- [ ] In the statement block that contains the Sid Allow use of the key, under the Condition block, change the kms:ViaService value to ec2.us-east-1.amazonaws.com.
+- [ ] In the statement block that contains the Sid Allow use of the key, under the Condition block, change the kms:ViaService value to ec2.`us-east-1`.amazonaws.com.
 - [ ] In the policy document, add a new statement block that grants the kms:Disable* permission to the security engineer's IAM role.
 
 ### A company has enabled Amazon GuardDuty in all Regions as part of its security monitoring strategy. In one of the VPCs, the company hosts an Amazon EC2 instance working as an FTP server that is contacted by a high number of clients from multiple locations. This is identified by GuardDuty as a brute force attack due to the high number of connections that happen every hour. The finding has been flagged as a false positive. However, GuardDuty keeps raising the issue. A Security Engineer has been asked to improve the signal-to-noise ratio. The Engineer needs to ensure that changes do not compromise the visibility of potential anomalous behavior. How can the Security Engineer address the issue?
