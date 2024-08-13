@@ -873,12 +873,12 @@ Manager Agent on the ECS container instances. Run an inventory report.
 
 ### A security engineer is working with a company to design an ecommerce application. The application will run on Amazon EC2 instances that run in an Auto Scaling group behind an Application Load Balancer (ALB). The application will use an Amazon RDS DB instance for its database. The only required connectivity from the internet is for HTTP and HTTPS traffic to the application. The application must communicate with an external payment provider that allows traffic only from a preconfigured allow list of IP addresses. The company must ensure that communications with the external payment provider are not interrupted as the environment scales. Which combination of actions should the security engineer recommend to meet these requirements? (Choose THREE)
 
-- [ ] Deploy a NAT gateway in each private subnet for every Availability Zone that is in use.
+- [x] Deploy a NAT gateway in each private subnet for every Availability Zone that is in use.
 - [ ] Place the DB instance in a public subnet.
-- [ ] Place the DB instance in a private subnet.
-- [x] Configure the Auto Scaling group to place the EC2 instances in a public subnet.
+- [x] Place the DB instance in a private subnet.
+- [ ] Configure the Auto Scaling group to place the EC2 instances in a public subnet.
 - [x] Configure the Auto Scaling group to place the EC2 instances in a private subnet.
-- [x] Deploy the ALB in a private subnet.
+- [ ] Deploy the ALB in a private subnet.
 
 ### A company uses several AWS CloudFormation stacks to handle the deployment of a suite of applications. The leader of the company's application development team notices that the stack deployments fail with permission errors when some team members try to deploy the stacks. However, other team members can deploy the stacks successfully. The team members access the account by assuming a role that has a specific set of permissions that are necessary for the job responsibilities of the team members. All team members have permissions to perform operations on the stacks. Which combination of steps will ensure consistent deployment of the stacks MOST securely? (Choose THREE)
 
