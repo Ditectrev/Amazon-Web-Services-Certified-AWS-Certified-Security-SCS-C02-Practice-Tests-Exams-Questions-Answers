@@ -874,8 +874,8 @@ Manager Agent on the ECS container instances. Run an inventory report.
 - [x] Deploy a NAT gateway in each private subnet for every Availability Zone that is in use.
 - [ ] Place the DB instance in a public subnet.
 - [x] Place the DB instance in a private subnet.
-- [x] Configure the Auto Scaling group to place the EC2 instances in a public subnet.
-- [ ] Configure the Auto Scaling group to place the EC2 instances in a private subnet.
+- [ ] Configure the Auto Scaling group to place the EC2 instances in a public subnet.
+- [x] Configure the Auto Scaling group to place the EC2 instances in a private subnet.
 - [ ] Deploy the ALB in a private subnet.
 
 ### A company uses several AWS CloudFormation stacks to handle the deployment of a suite of applications. The leader of the company's application development team notices that the stack deployments fail with permission errors when some team members try to deploy the stacks. However, other team members can deploy the stacks successfully. The team members access the account by assuming a role that has a specific set of permissions that are necessary for the job responsibilities of the team members. All team members have permissions to perform operations on the stacks. Which combination of steps will ensure consistent deployment of the stacks MOST securely? (Choose THREE)
