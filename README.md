@@ -66,8 +66,8 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 
 - [x] Create a snapshot of the DB instance. Copy the snapshot to a new snapshot, and enable encryption for the copy process. Use the new snapshot to restore the DB instance.
 - [ ] Modify the configuration of the DB instance by enabling encryption. Create a snapshot of the DB instance. Use the snapshot to restore the DB instance.
-- [ ] Use IAM Key Management Service (IAM KMS) to create a new default IAM managed awards key. Select this key as the encryption key for operations with Amazon RDS.
-- [x] Use IAM Key Management Service (IAM KMS) to create a new CMK. Select this key as the encryption key for operations with Amazon RDS.
+- [ ] Use IAM Key Management Service (AWS KMS) to create a new default IAM managed awards key. Select this key as the encryption key for operations with Amazon RDS.
+- [x] Use IAM Key Management Service (AWS KMS) to create a new CMK. Select this key as the encryption key for operations with Amazon RDS.
 - [ ] Create a snapshot of the DB instance. Enable encryption on the snapshoVUse the snapshot to restore the DB instance.
 
 ### Which of the following bucket policies will ensure that objects being uploaded to a bucket called 'demo' are encrypted.
@@ -89,7 +89,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [ ] Create an AWS CloudFormation template that will activate AWS Config. Deploy the template by using CloudFormation StackSets in the security-01 ac-count.
 - [x] Create an AWS CloudFormation template that will activate AWS Config. Deploy the template by using CloudFormation StackSets in the management-01 account.
 
-### A company has two IAM accounts within IAM Organizations. In Account-1. Amazon EC2 Auto Scaling is launched using a service-linked role. In Account-2. Amazon EBS volumes are encrypted with an IAM KMS key. A Security Engineer needs to ensure that the service-linked role can launch instances with these encrypted volumesWhich combination of steps should the Security Engineer take in both accounts? (Select TWO)
+### A company has two IAM accounts within IAM Organizations. In Account-1. Amazon EC2 Auto Scaling is launched using a service-linked role. In Account-2. Amazon EBS volumes are encrypted with an AWS KMS key. A Security Engineer needs to ensure that the service-linked role can launch instances with these encrypted volumesWhich combination of steps should the Security Engineer take in both accounts? (Select TWO)
 
 - [x] Allow Account-1 to access the KMS key in Account-2 using a key policy
 - [ ] Attach an IAM policy to the service-linked role in Account-1 that allows these actions CreateGrant. DescnbeKey, Encrypt, GenerateDataKey, Decrypt, and ReEncrypt
@@ -106,7 +106,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [ ] Default SSL certificate stored in AWS Secrets Manager.
 - [x] Custom SSL certificate stored in AWS IAM.
 
-### A Security Engineer is troubleshooting an issue with a company's custom logging application. The application logs are written to an Amazon S3 bucket with event notifications enabled to send events lo an Amazon SNS topic. All logs are encrypted at rest using an IAM KMS CMK. The SNS topic is subscribed to an encrypted Amazon SQS queue. The logging application polls the queue for new messages that contain metadata about the S3 object. The application then reads the content of the object from the S3 bucket for indexing. The Logging team reported that Amazon CloudWatch metrics for the number of messages sent or received is showing zero. No tags are being received. What should the Security Engineer do to troubleshoot this issue?
+### A Security Engineer is troubleshooting an issue with a company's custom logging application. The application logs are written to an Amazon S3 bucket with event notifications enabled to send events lo an Amazon SNS topic. All logs are encrypted at rest using an AWS KMS CMK. The SNS topic is subscribed to an encrypted Amazon SQS queue. The logging application polls the queue for new messages that contain metadata about the S3 object. The application then reads the content of the object from the S3 bucket for indexing. The Logging team reported that Amazon CloudWatch metrics for the number of messages sent or received is showing zero. No tags are being received. What should the Security Engineer do to troubleshoot this issue?
 
 - [ ] Option A: Add the following statement to the IAM managed CMKs.
 ![Question 14 option A](images/question14_A.jpg)
@@ -124,7 +124,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [ ] Create new S3 buckets with S3 Object Lock enabled in governance mode. Place objects in the S3 buckets.
 - [ ] Create new S3 buckets with S3 Object Lock enabled in governance mode. Add a legal hold to the S3 buckets. Place objects in the S3 buckets.
 
-### A development team is attempting to encrypt and decode a secure string parameter from the IAM Systems Manager Parameter Store using an IAM Key Management Service (IAM KMS) CMK. However, each attempt results in an error message being sent to the development team. Which CMK-related problems possibly account for the error? (Select TWO)
+### A development team is attempting to encrypt and decode a secure string parameter from the IAM Systems Manager Parameter Store using an IAM Key Management Service (AWS KMS) CMK. However, each attempt results in an error message being sent to the development team. Which CMK-related problems possibly account for the error? (Select TWO)
 
 - [x] The CMK is used in the attempt does not exist.
 - [ ] The CMK is used in the attempt needs to be rotated.
@@ -209,7 +209,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 ### A company has multiple Amazon S3 buckets encrypted with customer-managed CMKs Due to regulatory requirements the keys must be rotated every year. The company's Security Engineer has enabled automatic key rotation for the CMKs; however the company wants to verity that the rotation has occurred. What should the Security Engineer do to accomplish this?
 
 - [x] Filter IAM CloudTrail logs for KeyRotaton events.
-- [ ] Monitor Amazon CloudWatch Events for any IAM KMS CMK rotation events.
+- [ ] Monitor Amazon CloudWatch Events for any AWS KMS CMK rotation events.
 - [ ] Using the IAM CLI run the IAM kms gel-key-relation-status operation with the –key-id parameter to check the CMK rotation date.
 - [ ] Use Amazon Athena to query IAM CloudTrail logs saved in an S3 bucket to filter Generate New Key events.
 
@@ -422,7 +422,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 ### An ecommerce website was down for 1 hour following a DDoS attack Users were unable to connect to the website during the attack period. The ecommerce company's security team is worried about future potential attacks and wants to prepare for such events The company needs to minimize downtime in its response to similar attacks in the future. Which steps would help achieve this9 (Select TWO)
 
 - [ ] Enable Amazon GuardDuty to automatically monitor for malicious activity and block unauthorized access.
-- [x] Subscribe to IAM Shield Advanced and reach out to IAM Support in the event of an attack.
+- [x] Subscribe to AWS Shield Advanced and reach out to IAM Support in the event of an attack.
 - [ ] Use VPC Flow Logs to monitor network: traffic and an IAM Lambda function to automatically block an attacker's IP using security groups.
 - [ ] Set up an Amazon CloudWatch Events rule to monitor the IAM CloudTrail events in real time use IAM Config rules to audit the configuration, and use IAM Systems Manager for remediation.
 - [x] Use IAM WAF to create rules to respond to such attacks.
@@ -481,7 +481,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [ ] Change the key policy of the key in `us-east-1` to grant the kms. Decrypt permission to the security engineer's IAM account.
 - [x] Grant the IAM role the `kms:Encrypt` permission for the key in `us-west-2` that encrypts objects that are in the destination S3 bucket.
 
-### A company uses an Amazon S3 bucket to store reports Management has mandated that all new objects stored in this bucket must be encrypted at rest using server-side encryption with a client-specified IAM Key Management Service (IAM KMS) CMK owned by the same account as the S3 bucket. The IAM account number is 111122223333, and the bucket name is report bucket. The company's security specialist must write the S3 bucket policy to ensure the mandate can be Implemented. Which statement should the security specialist include in the policy?
+### A company uses an Amazon S3 bucket to store reports Management has mandated that all new objects stored in this bucket must be encrypted at rest using server-side encryption with a client-specified IAM Key Management Service (AWS KMS) CMK owned by the same account as the S3 bucket. The IAM account number is 111122223333, and the bucket name is report bucket. The company's security specialist must write the S3 bucket policy to ensure the mandate can be Implemented. Which statement should the security specialist include in the policy?
 
 - [ ] Option A.
 ![Question 62 option A](images/question62_A.jpg)
@@ -579,23 +579,23 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [x] Update the policy that is associated with the KMS key that is used to encrypt the forensic AMI. Configure the policy to allow the kms. Encrypt and kms Decrypt actions for the federated IAM role.
 - [ ] Update the policy that is associated with the federated IAM role to allow the kms. DescribeKey action for the KMS key that is used to encrypt the forensic AMI.
 
-### A company wants to monitor the deletion of customer managed CMKs. A security engineer must create an alarm that will notify the company before a CM׀ is deleted. The security engineer has configured the integration of AWS CloudTrail with Amazon CloudWatch. What should the security engineer do next to meet this requirement?
+### A company wants to monitor the deletion of customer managed CMKs. A security engineer must create an alarm that will notify the company before a CMK is deleted. The security engineer has configured the integration of AWS CloudTrail with Amazon CloudWatch. What should the security engineer do next to meet this requirement?
 
 - [ ] Within AWS Key Management Service (AWS KMS), specify the deletion time of the key material during CMK creation. AWS KMS will automatically create a CloudWatch alarm.
 - [ ] Create an Amazon EventBridge (Amazon CloudWatch Events) rule to look for API calls of DeleteAlias. Create an AWS Lambda function to send an Amazon Simple Notification Service (Amazon SNS) message to the company. Add the Lambda function as the target of the Eventbridge (CloudWatch Events) rule.
 - [x] Create an Amazon EventBridge (Amazon CloudWatch Events) rule to look for API calls of DisableKey and ScheduleKeyDeletion. Create an AWS Lambda function to send an Amazon Simple Notification Service (Amazon SNS) message to the company. Add the Lambda function as the target of the Eventbridge (CloudWatch Events) rule.
 - [ ] Create an Amazon Simple Notification Service (Amazon SNS) policy to look for AWS Key Management Service (AWS KMS) API calls of RevokeGrant and ScheduleKeyDeletion. Create an AWS Lambda function to generate the alarm and send the notification to the company. Add the Lambda function as the target of the SNS policy.
 
-### A company is building an application on IAM that will store sensitive Information. The company has a support team with access to the IT infrastructure, including databases. The company's security engineer must introduce measures to protect the sensitive data against any data breach while minimizing management overhead. The credentials must be regularly rotated. What should the security engineer recommend?
+### A company is building an application on AWS that will store sensitive information. The company has a support team with access to the IT infrastructure, including databases. The company's security engineer must introduce measures to protect the sensitive data against any data breach while minimizing management overhead. The credentials must be regularly rotated. What should the security engineer recommend?
 
-- [ ] Enable Amazon RDS encryption to encrypt the database and snapshots. Enable Amazon Elastic Block Store (Amazon EBS) encryption on Amazon EC2 instances. Include the database credential in the EC2 user data field. Use an IAM Lambda function to rotate database credentials. Set up TLS for the connection to the database.
-- [ ] Install a database on an Amazon EC2 Instance. Enable third-party disk encryption to encrypt the Amazon Elastic Block Store (Amazon EBS) volume. Store the database credentials in IAM CloudHSM with automatic rotation. Set up TLS for the connection to the database.
-- [x] Enable Amazon RDS encryption to encrypt the database and snapshots. Enable Amazon Elastic Block Store (Amazon EBS) encryption on Amazon EC2 instances. Store the database credentials in IAM Secrets Manager with automatic rotation. Set up TLS for the connection to the RDS hosted database.
-- [ ] Set up an IAM CloudHSM cluster with IAM Key Management Service (IAM KMS) to store KMS keys. Set up Amazon RDS encryption using IAM KMS to encrypt the database. Store database credentials in the IAM Systems Manager Parameter Store with automatic rotation. Set up TLS for the connection to the RDS hosted database.
+- [ ] Enable Amazon RDS encryption to encrypt the database and snapshots. Enable Amazon Elastic Block Store (Amazon EBS) encryption on Amazon EC2 instances. Include the database credential in the EC2 user data field. Use an AWS Lambda function to rotate database credentials. Set up TLS for the connection to the database.
+- [ ] Install a database on an Amazon EC2 instance. Enable third-party disk encryption to encrypt Amazon Elastic Block Store (Amazon EBS) volume. Store the database credentials in AWS CloudHSM with automatic rotation. Set up TLS for the connection to the database.
+- [x] Enable Amazon RDS encryption to encrypt the database and snapshots. Enable Amazon Elastic Block Store (Amazon EBS) encryption on Amazon EC2 instances. Store the database credentials in AWS Secrets Manager with automatic rotation. Set up TLS for the connection to the RDS hosted database.
+- [ ] Set up an AWS CloudHSM cluster with AWS Key Management Service (AWS KMS) to store KMS keys. Set up Amazon RDS encryption using AWS KSM to encrypt the database. Store the database credentials in AWS Systems Manager Parameter Store with automatic rotation. Set up TLS for the connection to the RDS hosted database.
 
 ### A company deployed IAM Organizations to help manage its increasing number of IAM accounts. A security engineer wants to ensure only principals in the Organization structure can access a specic Amazon S3 bucket. The solution must also minimize operational overhead. Which solution will meet these requirements?
 
-- [ ] 1 Put all users into an IAM group with an access policy granting access to the J bucket.
+- [ ] Put all users into an IAM group with an access policy granting access to the bucket.
 - [ ] Have the account creation trigger an IAM Lambda function that manages the bucket policy, allowing access to accounts listed in the policy only.
 - [ ] Add an SCP to the Organizations master account, allowing all principals access to the bucket.
 - [x] Specify the organization ID in the global key condition element of a bucket policy, allowing all principals access.
@@ -605,7 +605,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [x] Amazon Route 53.
 - [ ] IAM Certificate Manager (ACM).
 - [ ] Amazon S3.
-- [x] IAM Shield.
+- [x] AWS Shield.
 - [x] Elastic Load Balancer.
 - [ ] Amazon Guard Duty.
 
@@ -616,12 +616,12 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [ ] Use CloudTrail backed up to IAM S3 and Glacier.
 - [ ] Use IAM Config Timeline forensics.
 
-### A company is developing a highly resilient application to be hosted on multiple Amazon EC2 instances. The application will store highly sensitive user data in Amazon RDS tables The application must. Include migration to a different IAM Region in the application disaster recovery plan. Provide a full audit trail of encryption key administration events. Allow only company administrators to administer keys. Protect data at rest using application layer encryption A Security Engineer is evaluating options for encryption key management. Why should the Security Engineer choose IAM CloudHSM over IAM KMS for encryption key management in this situation?
+### A company is developing a highly resilient application to be hosted on multiple Amazon EC2 instances. The application will store highly sensitive user data in Amazon RDS tables The application must. Include migration to a different IAM Region in the application disaster recovery plan. Provide a full audit trail of encryption key administration events. Allow only company administrators to administer keys. Protect data at rest using application layer encryption A Security Engineer is evaluating options for encryption key management. Why should the Security Engineer choose AWS CloudHSM over AWS KMS for encryption key management in this situation?
 
-- [ ] The key administration event logging generated by CloudHSM is significantly more extensive than IAM KMS.
-- [x] CloudHSM ensures that only company support staff can administer encryption keys, whereas IAM KMS allows IAM staff to administer keys
-- [ ] The ciphertext produced by CloudHSM provides more robust protection against brute force decryption attacks than the ciphertext produced by IAM KMS
-- [ ] CloudHSM provides the ability to copy keys to a different Region, whereas IAM KMS does not
+- [ ] The key administration event logging generated by CloudHSM is significantly more extensive than AWS KMS.
+- [ ] CloudHSM ensures that only company support staff can administer encryption keys, whereas AWS KMS allows IAM staff to administer keys.
+- [ ] The ciphertext produced by CloudHSM provides more robust protection against brute force decryption attacks than the ciphertext produced by AWS KMS.
+- [x] CloudHSM provides the ability to copy keys to a different Region, whereas AWS KMS does not.
 
 ### A company wants to ensure that its IAM resources can be launched only in the `us-east-1` and `us-west-2` Regions. What is the MOST operationally efficient solution that will prevent developers from launching Amazon EC2 instances in other Regions?
 
@@ -630,12 +630,12 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [ ] Provision EC2 resources by using IAM Cloud Formation templates through IAM CodePipeline. Allow only the values of `us-east-1` and `us-west-2` in the IAM CloudFormation template's parameters.
 - [ ] Create an IAM Config rule to prevent unauthorized activity outside `us-east-1` and `us-west-2`.
 
-### A company's Security Team received an email notification from the Amazon EC2 Abuse team that one or more of the company's Amazon EC2 instances may have been compromised. Which combination of actions should the Security team take to respond to (be current modem? (Select TWO)
+### A company's Security Team received an email notification from the Amazon EC2 Abuse team that one or more of the company's Amazon EC2 instances may have been compromised. Which combination of actions should the Security team take to respond to be current modem? (Select TWO)
 
-- [ ] Open a support case with the IAM Security team and ask them to remove the malicious code from the affected instance
-- [x] Respond to the notification and list the actions that have been taken to address the incident
-- [ ] Delete all IAM users and resources in the account
-- [x] Detach the internet gateway from the VPC remove aft rules that contain 0.0.0.0V0 from the security groups, and create a NACL rule to deny all traffic Inbound from the internet
+- [ ] Open a support case with the IAM Security team and ask them to remove the malicious code from the affected instance.
+- [x] Respond to the notification and list the actions that have been taken to address the incident.
+- [ ] Delete all IAM users and resources in the account.
+- [x] Detach the internet gateway from the VPC remove aft rules that contain 0.0.0.0/0 from the security groups, and create a NACL rule to deny all traffic Inbound from the internet.
 - [ ] Delete the identified compromised instances and delete any associated resources that the Security team did not create.
 
 ### A company is using Amazon Macie, AWS Firewall Manager, Amazon Inspector, and AWS Shield Advanced in its AWS account. The company wants to receive alerts if a DDoS attack occurs against the account. Which solution will meet this requirement?
@@ -643,7 +643,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [ ] Use Macie to detect an active DDoS event. Create Amazon CloudWatch alarms that respond to Macie findings.
 - [ ] Use Amazon Inspector to review resources and to invoke Amazon CloudWatch alarms for any resources that are vulnerable to DDoS attacks.
 - [ ] Create an Amazon CloudWatch alarm that monitors Firewall Manager metrics for an active DDoS event.
-- [x] Create an Amazon CloudWatch alarm that monitors Shield Advanced metrics for an active DDoS event.
+- [ ] Create an Amazon CloudWatch alarm that monitors Shield Advanced metrics for an active DDoS event.
 
 ### A company is running internal microservices on Amazon Elastic Container Service (Amazon ECS) with the Amazon EC2 launch type. The company is using Amazon Elastic Container Registry (Amazon ECR) private repositories. A security engineer needs to encrypt the private repositories by using AWS Key Management Service (AWS KMS). The security engineer also needs to analyze the container images for any common vulnerabilities and exposures (CVEs). Which solution will meet these requirements?
 
@@ -699,7 +699,7 @@ Manager Agent on the ECS container instances. Run an inventory report.
 - [x] Configure CloudTrail log file integrity validation.
 - [ ] Configure Access Analyzer for S3.
 
-### A company stores sensitive documents in Amazon S3 by using server-side encryption with an IAM Key Management Service (IAM KMS) CMK. A new requirement mandates that the CMK that is used for these documents can be used only for S3 actions. Which statement should the company add to the key policy to meet this requirement?
+### A company stores sensitive documents in Amazon S3 by using server-side encryption with an IAM Key Management Service (AWS KMS) CMK. A new requirement mandates that the CMK that is used for these documents can be used only for S3 actions. Which statement should the company add to the key policy to meet this requirement?
 
 ![Question 91 part 1](images/question91_1.jpg)
 ![Question 91 part 2](images/question91_2.jpg)
@@ -728,7 +728,7 @@ Manager Agent on the ECS container instances. Run an inventory report.
 - [x] Use an S3 bucket with tight access controls that exists m a separate account.
 - [ ] Use Amazon Inspector to monitor the file integrity of CloudTrail log files.
 - [ ] Request a certificate through ACM and use a generated certificate private key to encrypt CloudTrail log files.
-- [x] Encrypt the CloudTrail log files with server-side encryption with IAM KMS-managed keys (SSE-KMS).
+- [x] Encrypt the CloudTrail log files with server-side encryption with AWS KMS-managed keys (SSE-KMS).
 
 ### Auditors for a health care company have mandated that all data volumes be encrypted at rest Infrastructure is deployed mainly via IAM CloudFormation however third-party frameworks and manual deployment are required on some legacy systems. What is the BEST way to monitor, on a recurring basis, whether all EBS volumes are encrypted?
 
@@ -786,8 +786,8 @@ Manager Agent on the ECS container instances. Run an inventory report.
 
 ### A security engineer needs to develop a process to investigate and respond to potential security events on a company's Amazon EC2 instances. All the EC2 instances are backed by Amazon Elastic Block Store (Amazon EBS). The company uses AWS Systems Manager to manage all the EC2 instances and has installed Systems Manager Agent (SSM Agent) on all the EC2 instances. The process that the security engineer is developing must comply with AWS security best practices and must meet the following requirements: A compromised EC2 instance's volatile memory and non-volatile memory must be preserved for forensic purposes. A compromised EC2 instance's metadata must be updated with corresponding incident ticket information. A compromised EC2 instance must remain online during the investigation but must be isolated to prevent the spread of malware. Any investigative activity during the collection of volatile data must be captured as part of the process. Which combination of steps should the security engineer take to meet these requirements with the LEAST operational overhead? (Choose THREE)
 
-- [ ] Gather any relevant metadata for the compromised EC2 instance. Enable termination protection. Isolate the instance by updating the instance's security groups to restrict access. Detach the instance from any Auto Scaling groups that the instance is a member of. Deregister the instance from any Elastic Load Balancing (ELB) resources.
-- [x] Gather any relevant metadata for the compromised EC2 instance. Enable termination protection. Move the instance to an isolation subnet that denies all source and destination traffic. Associate the instance with the subnet to restrict access. Detach the instance from any Auto Scaling groups that the instance is a member of. Deregister the instance from any Elastic Load Balancing (ELB) resources.
+- [x] Gather any relevant metadata for the compromised EC2 instance. Enable termination protection. Isolate the instance by updating the instance's security groups to restrict access. Detach the instance from any Auto Scaling groups that the instance is a member of. Deregister the instance from any Elastic Load Balancing (ELB) resources.
+- [ ] Gather any relevant metadata for the compromised EC2 instance. Enable termination protection. Move the instance to an isolation subnet that denies all source and destination traffic. Associate the instance with the subnet to restrict access. Detach the instance from any Auto Scaling groups that the instance is a member of. Deregister the instance from any Elastic Load Balancing (ELB) resources.
 - [x] Use Systems Manager Run Command to invoke scripts that collect volatile data.
 - [ ] Establish a Linux SSH or Windows Remote Desktop Protocol (RDP) session to the compromised EC2 instance to invoke scripts that collect volatile data.
 - [x] Create a snapshot of the compromised EC2 instance's EBS volume for follow-up investigations. Tag the instance with any relevant metadata and incident ticket information.
@@ -2012,7 +2012,7 @@ Send email notifications using Amazon SNS.
 
 ### An Amazon EC2 Auto Scaling group launches Amazon Linux EC2 instances and installs the Amazon CloudWatch agent to publish logs to Amazon CloudWatch Logs. The EC2 instances launch with an IAM role that has an IAM policy attached. The policy provides access to publish custom metrics to CloudWatch. The EC2 instances run in a private subnet inside a VPC The VPC provides access to the internet for private subnets through a NAT gateway. A security engineer notices that no logs are being published to CloudWatch Logs for the EC2 instances that the Auto Scaling group launches. The security engineer validates that the CloudWatch Logs agent is running and is configured properly on the EC2 instances. In addition, the security engineer validates that network communications are working properly to AWS services. What can the security engineer do to ensure that the logs are published to CloudWatch Logs?
 
-- [x] Configure the IAM policy in use by the IAM role to have access to the required cloudwatch: API actions that will publish logs. Most Voted
+- [x] Configure the IAM policy in use by the IAM role to have access to the required cloudwatch: API actions that will publish logs.
 - [ ] Adjust the Amazon EC2 Auto Scaling service-linked role to have permissions to write to CloudWatch Logs.
 - [ ] Configure the IAM policy in use by the IAM role to have access to the required AWS logs: API actions that will publish logs.
 - [ ] Add an interface VPC endpoint to provide a route to CloudWatch Logs.
@@ -2042,7 +2042,7 @@ Specify the certificate for the TLS listener on the ALB.
 
 ### A security engineer needs to build a solution to turn AWS CloudTrail back on in multiple AWS Regions in case it is ever turned off. What is the MOST efficient way to implement this solution?
 
-- [x] Use AWS Config with a managed rule to initiate the AWS-EnableCloudTrail remediation. Most Voted
+- [x] Use AWS Config with a managed rule to initiate the AWS-EnableCloudTrail remediation.
 - [ ] Create an Amazon EventBridge event with a cloudtrail.amazonaws.com event source and a StartLogging event name to invoke an AWS Lambda function to call the StartLogging
 API.
 - [ ] Create an Amazon CloudWatch alarm with a cloudtrail.amazonaws.com event source and a StopLoggmg event name to invoke an AWS Lambda function to call the StartLogging API.
@@ -2061,3 +2061,19 @@ API.
 - [x] Configure CloudTrail to send events to Amazon CloudWatch Logs. Create a metric filter for the relevant log group. Create a filter pattern with eventName matching ConsoleLogin and errorMessage matching "Failed authentication". Create a CloudWatch alarm with a threshold of 3 and a period of 5 minutes.
 - [ ] Create an Amazon Athena table from the CloudTrail events. Run a query for eventName matching ConsoleLogin and for errorMessage matching "Failed authentication". Create a notification action from the query to send an Amazon Simple Notification Service (Amazon SNS) notification when the count equals 3 within a period of 5 minutes.
 - [ ] In AWS Identity and Access Management Access Analyzer, create a new analyzer. Configure the analyzer to send an Amazon Simple Notification Service (Amazon SNS) notification when a failed sign-in event occurs 3 times for any IAM user within a period of 5 minutes.
+
+### A company's security engineer receives an abuse notification from AWS. The notification indicates that someone is hosting malware from the company's AWS account. After investigation, the security engineer finds a new Amazon S3 bucket that an IAM user created without authorization. Which combination of steps should the security engineer take to MINIMIZE the consequences of this compromise? (Choose three.)
+
+- [ ] Encrypt all AWS CloudTrail logs.
+- [ ] Turn on Amazon GuardDuty.
+- [x] Change the password for all IAM users.
+- [x] Rotate or delete all AWS access keys.
+- [ ] Take snapshots of all Amazon Elastic Block Store (Amazon EBS) volumes.
+- [x] Delete any resources that are unrecognized or unauthorized.
+
+### A company has a web server in the AWS Cloud. The company will store the content for the web server in an Amazon S3 bucket. A security engineer must use an Amazon CloudFront distribution to speed up delivery of the content. None of the files can be publicly accessible from the S3 bucket directly. Which solution will meet these requirements?
+
+- [ ] Configure the permissions on the individual files in the S3 bucket so that only the CloudFront distribution has access to them.
+- [x] Create an origin access control (OAC). Associate the OAC with the CloudFront distribution. Configure the S3 bucket permissions so that only the OAC can access the files in the S3 bucket.
+- [ ] Create an S3 role in AWS Identity and Access Management (IAM). Allow only the CloudFront distribution to assume the role to access the files in the S3 bucket.
+- [ ] Create an S3 bucket policy that uses only the CloudFront distribution ID as the principal and the Amazon Resource Name (ARN) as the target.
