@@ -801,8 +801,8 @@ Manager Agent on the ECS container instances. Run an inventory report.
 
 ### A company is migrating one of its legacy systems from an on-premises data center to AWS. The application server will run on AWS, but the database must remain in the on-premises data center for compliance reasons. The database is sensitive to network latency. Additionally, the data that travels between the on-premises data center and AWS must have IPsec encryption. Which combination of AWS solutions will meet these requirements? (Choose TWO)
 
-- [ ] AWS Site-to-Site VPN.
-- [ ] AWS Direct Connect.
+- [x] AWS Site-to-Site VPN.
+- [x] AWS Direct Connect.
 - [ ] AWS VPN CloudHub.
 - [ ] VPC peering.
 - [ ] NAT gateway.
