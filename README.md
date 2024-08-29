@@ -901,21 +901,28 @@ Manager Agent on the ECS container instances. Run an inventory report.
 - [ ] It takes a few minutes for a bucket policy to take effect.
 - [x] The allow permission is being overridden by the deny.
 
+### A company needs complete encryption of the traffic between external users and an application. The company hosts the application on a fleet of Amazon EC2 instances that run in an Auto Scaling group behind an Application Load Balancer (ALB). How can a security engineer meet these requirements?
+
+- [ ] Create a new Amazon-issued certificate in AWS Secrets Manager. Export the certificate from Secrets Manager. Import the certificate into the ALB and the EC2 instances.
+- [ ] Create a new Amazon-issued certificate in AWS Certificate Manager (ACM). Associate the certificate with the ALExport the certificate from ACM. Install the certificate on the EC2 instances.
+- [ ] Import a new third-party certificate into AWS Identity and Access Management (IAM). Export the certificate from IAM. Associate the certificate with the ALB and the EC2 instances.
+- [x] Import a new third-party certificate into AWS Certificate Manager (ACM). Associate the certificate with the ALB. Install the certificate on the EC2 instances.
+
 ### While securing the connection between a company's VPC and its on-premises data center, a security engineer sent a ping command from an on-premises host (IP address 203.0.113.12) to an Amazon EC2 instance (IP address 172.31.16.139). The ping command did not return a response. The flow log in the VPC showed the following: What action should be performed to allow the ping to work?
 
 ![Question 118](images/question118.jpg)
 
-- [x] In the security group of the EC2 instance, allow inbound ICMP traffic.
+- [ ] In the security group of the EC2 instance, allow inbound ICMP traffic.
 - [ ] In the security group of the EC2 instance, allow outbound ICMP traffic.
 - [ ] In the VPC's NACL, allow inbound ICMP traffic.
-- [ ] In the VPC's NACL, allow outbound ICMP traffic.
+- [x] In the VPC's NACL, allow outbound ICMP traffic.
 
 ### What are the MOST secure ways to protect the AWS account root user of a recently opened AWS account? (Choose TWO)
 
 - [ ] Use the AWS account root user access keys instead of the AWS Management Console.
 - [ ] Enable multi-factor authentication for the AWS IAM users with the AdministratorAccess managed policy attached to them.
-- [x] Use AWS KMS to encrypt all AWS account root user and AWS IAM access keys and set automatic rotation to 30 days.
-- [ ] Do not create access keys for the AWS account root user; instead, create AWS IAM users.
+- [ ] Use AWS KMS to encrypt all AWS account root user and AWS IAM access keys and set automatic rotation to 30 days.
+- [x] Do not create access keys for the AWS account root user; instead, create AWS IAM users.
 - [x] Enable multi-factor authentication for the AWS account root user.
 
 ### A company is expanding its group of stores. On the day that each new store opens, the company wants to launch a customized web application for that store. Each store's application will have a non-production environment and a production environment. Each environment will be deployed in a separate AWS account. The company uses AWS Organizations and has an OU that is used only for these accounts. The company distributes most of the development work to third-party development teams. A security engineer needs to ensure that each team follows the company's deployment plan for AWS resources. The security engineer also must limit access to the deployment plan to only the developers who need access. The security engineer already has created an AWS CloudFormation template that implements the deployment plan. What should the security engineer do next to meet the requirements in the MOST secure way?
@@ -935,8 +942,8 @@ Manager Agent on the ECS container instances. Run an inventory report.
 ### A company has hundreds of AWS accounts in an organization in AWS Organizations. The company operates out of a single AWS Region. The company has a dedicated security tooling AWS account in the organization. The security tooling account is configured as the organization's delegated administrator for Amazon GuardDuty and AWS Security Hub. The company has configured the environment to automatically enable GuardDuty and Security Hub for existing AWS accounts and new AWS accounts. The company is performing control tests on specific GuardDuty findings to make sure that the company's security team can detect and respond to security events. The security team launched an Amazon EC2 instance and attempted to run DNS requests against a test domain, example.com, to generate a DNS finding. However, the GuardDuty finding was never created in the Security Hub delegated administrator account. Why was the finding was not created in the Security Hub delegated administrator account?
 
 - [ ] VPC flow logs were not turned on for the VPC where the EC2 instance was launched.
-- [ ] The VPC where the EC2 instance was launched had the DHCP option configured for a custom OpenDNS resolver.
-- [x] The GuardDuty integration with Security Hub was never activated in the AWS account where the finding was generated.
+- [x] The VPC where the EC2 instance was launched had the DHCP option configured for a custom OpenDNS resolver.
+- [ ] The GuardDuty integration with Security Hub was never activated in the AWS account where the finding was generated.
 - [ ] Cross-Region aggregation in Security Hub was not configured.
 
 ### An ecommerce company has a web application architecture that runs primarily on containers. The application containers are deployed on Amazon Elastic Container Service (Amazon ECS). The container images for the application are stored in Amazon Elastic Container Registry (Amazon ECR). The company's security team is performing an audit of components of the application architecture. The security team identifies issues with some container images that are stored in the container repositories. The security team wants to address these issues by implementing continual scanning and on-push scanning of the container images. The security team needs to implement a solution that makes any findings from these scans visible in a centralized dashboard. The security team plans to use the dashboard to view these findings along with other security-related findings that they intend to generate in the future. There are specific repositories that the security team needs to exclude from the scanning process. Which solution will meet these requirements?
@@ -957,9 +964,9 @@ Manager Agent on the ECS container instances. Run an inventory report.
 
 ### A company is using AWS Organizations to manage multiple AWS accounts for its human resources, finance, software development, and production departments. All the company's developers are part of the software development AWS account. The company discovers that developers have launched Amazon EC2 instances that were preconfigured with software that the company has not approved for use. The company wants to implement a solution to ensure that developers can launch EC2 instances with only approved software applications and only in the software development AWS account. Which solution will meet these requirements?
 
-- [x] In the software development account, create AMIs of preconfigured instances that include only approved software. Include the AMI IDs in the condition section of an AWS CloudFormation template to launch the appropriate AMI based on the AWS Region. Provide the developers with the CloudFormation template to launch EC2 instances in the software development account.
+- [ ] In the software development account, create AMIs of preconfigured instances that include only approved software. Include the AMI IDs in the condition section of an AWS CloudFormation template to launch the appropriate AMI based on the AWS Region. Provide the developers with the CloudFormation template to launch EC2 instances in the software development account.
 - [ ] Create an Amazon EventBridge rule that runs when any EC2 RunInstances API event occurs in the software development account. Specify AWS Systems Manager Run Command as a target of the rule. Configure Run Command to run a script that will install all approved software onto the instances that the developers launch.
-- [ ] Use an AWS Service Catalog portfolio that contains EC2 products with appropriate AMIs that include only approved software. Grant the developers permission to access only the Service Catalog portfolio to launch a product in the software development account.
+- [x] Use an AWS Service Catalog portfolio that contains EC2 products with appropriate AMIs that include only approved software. Grant the developers permission to access only the Service Catalog portfolio to launch a product in the software development account.
 - [ ] In the management account, create AMIs of preconfigured instances that include only approved software. Use AWS CloudFormation StackSets to launch the AMIs across any AWS account in the organization. Grant the developers permission to launch the stack sets within the management account.
 
 ### A company has enabled Amazon GuardDuty in all AWS Regions as part of its security monitoring strategy. In one of its VPCs, the company hosts an Amazon EC2 instance that works as an FTP server. A high number of clients from multiple locations contact the FTP server. GuardDuty identifies this activity as a brute force attack because of the high number of connections that happen every hour. The company has flagged the finding as a false positive, but GuardDuty continues to raise the issue. A security engineer must improve the signal-to-noise ratio without compromising the company's visibility of potential anomalous behavior. Which solution will meet these requirements?
@@ -971,8 +978,8 @@ Manager Agent on the ECS container instances. Run an inventory report.
 
 ### A company's security engineer has been tasked with restricting a contractor's IAM account access to the company's Amazon EC2 console without providing access to any other AWS services. The contractor's IAM account must not be able to gain access to any other AWS service, even if the IAM account is assigned additional permissions based on IAM group membership. What should the security engineer do to meet these requirements?
 
-- [x] Create an inline IAM user policy that allows for Amazon EC2 access for the contractor's IAM user.
-- [ ] Create an IAM permissions boundary policy that allows Amazon EC2 access. Associate the contractor's IAM account with the IAM permissions boundary policy.
+- [ ] Create an inline IAM user policy that allows for Amazon EC2 access for the contractor's IAM user.
+- [x] Create an IAM permissions boundary policy that allows Amazon EC2 access. Associate the contractor's IAM account with the IAM permissions boundary policy.
 - [ ] Create an IAM group with an attached policy that allows for Amazon EC2 access. Associate the contractor's IAM account with the IAM group.
 - [ ] Create a IAM role that allows for EC2 and explicitly denies all other services. Instruct the contractor to always assume this role.
 
@@ -981,7 +988,7 @@ Manager Agent on the ECS container instances. Run an inventory report.
 - [ ] Create a new trail and configure it to send CloudTrail logs to Amazon S3. Use Amazon EventBridge to send notification if a trail is deleted or stopped.
 - [ ] Deploy an AWS Lambda function in every account to check if there is an existing trail and create a new trail, if needed.
 - [x] Edit the existing trail in the Organizations management account and apply it to the organization.
-- [ ] Create an SCP to deny the cloudtrail:Delete* and cloudtrail:Stop* actions. Apply the SCP to all accounts.
+- [ ] Create an SCP to deny the `cloudtrail:Delete*` and `cloudtrail:Stop*` actions. Apply the SCP to all accounts.
 
 ### A company recently had a security audit in which the auditors identified multiple potential threats. These potential threats can cause usage pattern changes such as DNS access peak, abnormal instance traffic, abnormal network interface traffic, and unusual Amazon S3 API calls. The threats can come from different sources and can occur at any time. The company needs to implement a solution to continuously monitor its system and identify all these incoming threats in near-real time. Which solution will meet these requirements?
 
@@ -2112,10 +2119,3 @@ API.
 - [ ] Use an IAM role to manage key access. Programmatically update the IAM role policies to manage vendor access.
 - [ ] Use KMS key policies to manage key access. Programmatically update the KMS key policies to manage vendor access.
 - [ ] Use delegated access across AWS accounts by using IAM roles to manage key access. Programmatically update the IAM trust policy to manage cross- account vendor access.
-
-### A company needs complete encryption of the traffic between external users and an application. The company hosts the application on a fleet of Amazon EC2 instances that run in an Auto Scaling group behind an Application Load Balancer (ALB). How can a security engineer meet these requirements?
-
-- [ ] Create a new Amazon-issued certificate in AWS Secrets Manager. Export the certificate from Secrets Manager. Import the certificate into the ALB and the EC2 instances.
-- [ ] Create a new Amazon-issued certificate in AWS Certificate Manager (ACM). Associate the certificate with the ALExport the certificate from ACM. Install the certificate on the EC2 instances.
-- [ ] Import a new third-party certificate into AWS Identity and Access Management (IAM). Export the certificate from IAM. Associate the certificate with the ALB and the EC2 instances.
-- [x] Import a new third-party certificate into AWS Certificate Manager (ACM). Associate the certificate with the ALB. Install the certificate on the EC2 instances.
