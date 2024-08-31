@@ -15,7 +15,7 @@
 
 ### A company is hosting a static website on Amazon S3 The company has configured an Amazon CloudFront distribution to serve the website contents. The company has associated an IAM WAF web ACL with the CloudFront distribution. The Web ACL ensures that requests originate from the United States to address compliance restrictions. THE company is worried that the S3 URL might still be accessible directly and that requests can bypass the CloudFront distribution. Which combination of steps should the company take to remove direct access to the S3 URL? (Select TWO)
 
-- [x] Select "Restrict Bucket Access" in the origin settings of the CloudFront distribution
+- [x] Select `Restrict Bucket Access` in the origin settings of the CloudFront distribution
 - [x] Create an origin access identity (OAI) for the S3 origin.
 - [ ] Update the S3 bucket policy to allow s3 GetObject with a condition that the IAM Referer key matches the secret value Deny all other.
 - [ ] Configure the S3 bucket poky so that only the origin access identity (OAI) has read permission for objects in the bucket.
@@ -210,7 +210,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 
 - [x] Filter AWS CloudTrail logs for KeyRotaton events.
 - [ ] Monitor Amazon CloudWatch Events for any AWS KMS CMK rotation events.
-- [ ] Using the IAM CLI run the IAM kms gel-key-relation-status operation with the –key-id parameter to check the CMK rotation date.
+- [ ] Using the IAM CLI run the `IAM kms gel-key-relation-status` operation with the `–key-id` parameter to check the CMK rotation date.
 - [ ] Use Amazon Athena to query AWS CloudTrail logs saved in an S3 bucket to filter Generate New Key events.
 
 ### A company has implemented IAM WAF and Amazon CloudFront for an application. The application runs on Amazon EC2 instances that are part of an Auto Scaling group. The Auto Scaling group is behind an Application Load Balancer (ALB). The IAM WAF web ACL uses an IAM Managed Rules rule group and is associated with the CloudFront distribution. CloudFront receives the request from IAM WAF and then uses the ALB as the distribution's origin. During a security review, a security engineer discovers that the infrastructure is susceptible to a large, layer 7 DDoS attack. How can the security engineer improve the security at the edge of the solution to defend against this type of attack?
@@ -309,7 +309,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [ ] Install a bastion host in the management account. Reconfigure all SSH and RDP to allow access only from the bastion host Install AWS Systems Manager Agent (SSM Agent) on the bastion host Attach the AmazonSSMManagedlnstanceCore role to the bastion host. Configure session data streaming to Amazon CloudWatch Logs in a separate logging account to audit log data.
 - [ ] Replace SSH and RDP with AWS Systems Manager State Manager. Install Systems Manager Agent (SSM Agent) on the instances Attach the AmazonSSMManagedlnstanceCore role to the instances. Configure session data streaming to Amazon CloudTrail. Use CloudTrail Insights to analyze the trail data.
 
-### A company became aware that one of its access keys was exposed on a code sharing website 11 days ago. A Security Engineer must review all use of the exposed access keys to determine the extent of the exposure. The company enabled AWS CloudTrail m an regions when it opened the account. Which of the following will allow (he Security Engineer 10 complete the task?
+### A company became aware that one of its access keys was exposed on a code sharing website 11 days ago. A Security Engineer must review all use of the exposed access keys to determine the extent of the exposure. The company enabled AWS CloudTrail m an regions when it opened the account. Which of the following will allow the Security Engineer 10 complete the task?
 
 - [x] Filter the event history on the exposed access key in the CloudTrail console Examine the data from the past 11 days.
 - [ ] Use the IAM CLI to generate an IAM credential report Extract all the data from the past 11 days.
@@ -492,6 +492,13 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [x] Option D.
 ![Question 62 option D](images/question62_D.jpg)
 
+### A Security Engineer is working with the development team to design a supply chain application that stores sensitive inventory data in an Amazon S3 bucket. The application will use an AWS KMS customer master key (CMK) to encrypt the data on Amazon S3. The inventory data on Amazon S3 will be shared of vendors. All vendors will use AWS principals from their own AWS accounts to access the data on Amazon S3. The vendor list may change weekly, and the solution must support cross-account access. What is the MOST efficient way to manage access control for the KMS CMK7?
+
+- [x] Use KMS grants to manage key access. Programmatically create and revoke grants to manage vendor access.
+- [ ] Use an IAM role to manage key access. Programmatically update the IAM role policies to manage vendor access.
+- [ ] Use KMS key policies to manage key access. Programmatically update the KMS key policies to manage vendor access.
+- [ ] Use delegated access across AWS accounts by using IAM roles to manage key access. Programmatically update the IAM trust policy to manage cross- account vendor access.
+
 ### A developer 15 building a serverless application hosted on IAM that uses Amazon Redshift in a data store. The application has separate modules for read/write and read-only functionality. The modules need their own database users for compliance reasons. Which combination of steps should a security engineer implement to grant appropriate access? (Select TWO)
 
 - [ ] Configure cluster security groups for each application module to control access to database users that are required for read-only and read/write.
@@ -546,10 +553,10 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 
 ### A company needs to use HTTPS when connecting to its web applications to meet compliance requirements. These web applications run in Amazon VPC on Amazon EC2 instances behind an Application Load Balancer (ALB). A security engineer wants to ensure that the load balancer win only accept connections over port 443. even if the ALB is mistakenly configured with an HTTP listener. Which configuration steps should the security engineer take to accomplish this task?
 
-- [ ] Create a security group with a rule that denies Inbound connections from 0.0.0 0/0 on port 00. Attach this security group to the ALB to overwrite more permissive rules from the ALB's default security group.
+- [ ] Create a security group with a rule that denies Inbound connections from 0.0.0.0/0 on port 00. Attach this security group to the ALB to overwrite more permissive rules from the ALB's default security group.
 - [ ] Create a network ACL that denies inbound connections from 0 0.0.0/0 on port 80 Associate the network ACL with the VPC s internet gateway.
 - [ ] Create a network ACL that allows outbound connections to the VPC IP range on port 443 only. Associate the network ACL with the VPC's internet gateway.
-- [x] Create a security group with a single inbound rule that allows connections from 0.0.0 0/0 on port 443. Ensure this security group is the only one associated with the ALB.
+- [x] Create a security group with a single inbound rule that allows connections from 0.0.0.0/0 on port 443. Ensure this security group is the only one associated with the ALB.
 
 ### Example.com is hosted on Amazon EC2 instances behind an Application Load Balancer (ALB). Third-party host intrusion detection system (HIDS) agents that capture the traffic of the EC2 instance are running on each host. The company must ensure they are using privacy enhancing technologies for users, without losing the assurance the third-party solution offers. What is the MOST secure way to meet these requirements?
 
@@ -675,13 +682,6 @@ Manager Agent on the ECS container instances. Run an inventory report.
 - [ ] Set up AWS Audit Manager. Run an assessment for all AWS Regions for all accounts.
 - [ ] Ensure that Amazon Inspector agents are installed on all Amazon EC2 in-stances in all accounts.
 
-### A company's security engineer has been tasked with restricting a contractor's IAM account access to the company's Amazon EC2 console without providing access to any other IAM services The contractors IAM account must not be able to gain access to any other IAM service, even it the IAM account rs assigned additional permissions based on IAM group membership. What should the security engineer do to meet these requirements?
-
-- [ ] Create an inline IAM user policy that allows for Amazon EC2 access for the contractor's IAM user.
-- [x] Create an IAM permissions boundary policy that allows Amazon EC2 access. Associate the contractor's IAM account with the IAM permissions boundary policy.
-- [ ] Create an IAM group with an attached policy that allows for Amazon EC2 access. Associate the contractor's IAM account with the IAM group.
-- [ ] Create an IAM role that allows for EC2 and explicitly denies all other services. Instruct the contractor to always assume this role.
-
 ### A company is using AWS Organizations to manage multiple accounts. The company needs to allow an IAM user to use a role to access resources that are in another organization's AWS account. Which combination of steps must the company perform to meet this requirement? (Select TWO)
 
 - [ ] Create an identity policy that allows the `sts:AssumeRole` action in the AWS account that contains the resources. Attach the identity policy to the IAM user.
@@ -736,7 +736,7 @@ Manager Agent on the ECS container instances. Run an inventory report.
 - [ ] Set up Amazon Inspector rules for volume encryption to run on a recurring schedule.
 - [ ] Use CloudWatch Logs to determine whether instances were created with an encrypted volume.
 
-### A startup company is using a single AWS account that has resources in a single AWS Region. A security engineer configures an AWS Cloud Trail trail in the same Region to deliver log files to an Amazon S3 bucket by using the AWS CLI. Because of expansion, the company adds resources in multiple Regions. The security engineer notices that the logs from the new Regions are not reaching the S3 bucket. What should the security engineer do to fix this issue with the LEAST amount of operational overhead?
+### A startup company is using a single AWS account that has resources in a single AWS Region. A security engineer configures an AWS CloudTrail trail in the same Region to deliver log files to an Amazon S3 bucket by using the AWS CLI. Because of expansion, the company adds resources in multiple Regions. The security engineer notices that the logs from the new Regions are not reaching the S3 bucket. What should the security engineer do to fix this issue with the LEAST amount of operational overhead?
 
 - [ ] Create a new CloudTrail trail. Select the new Regions where the company added resources.
 - [ ] Change the S3 bucket to receive notifications to track all actions from all Regions.
@@ -1025,20 +1025,14 @@ Manager Agent on the ECS container instances. Run an inventory report.
 - [ ] Create a network ACL that is associated with the target instance's subnet. Add a rule at the top of the inbound rule set to deny all traffic from 0.0.0.0/0. Add a rule at the top of the outbound rule set to deny all traffic to 0.0.0.0/0.
 - [ ] Create an AWS Systems Manager document that adds a host-level firewall rule to block all inbound traffic and outbound traffic. Run the document on the target instance.
 
-### A startup company is using a single AWS account that has resources in a single AWS Region. A security engineer configures an AWS CloudTrail trail in the same Region to deliver log files to an Amazon S3 bucket by using the AWS CLI. Because of expansion, the company adds resources in multiple Regions. The security engineer notices that the logs from the new Regions are not reaching the S3 bucket. What should the security engineer do to fix this issue with the LEAST amount of operational overhead?
+### A company has five AWS accounts and wants to use AWS CloudTrail to log API calls. The log files must be stored in an Amazon S3 bucket that resides in a new account specifically built for centralized services with a unique top-level prefix for each trail. The configuration must also enable detection of any modification to the logs. Which of the following steps will implement these requirements? (Choose three.)
 
-- [ ] Create a new CloudTrail trail. Select the new Regions where the company added resources.
-- [x] Change the S3 bucket to receive notifications to track all actions from all Regions.
-- [ ] Create a new CloudTrail trail that applies to all Regions.
-- [ ] Change the existing CloudTrail trail so that it applies to all Regions.
-
-### A company's public Application Load Balancer (ALB) recently experienced a DDoS attack. To mitigate this issue, the company deployed Amazon CloudFront in front of the ALB so that users would not directly access the Amazon EC2 instances behind the ALB. The company discovers that some traffic is still coming directly into the ALB and is still being handled by the EC2 instances. Which combination of steps should the company take to ensure that the EC2 instances will receive traffic only from CloudFront? (Choose TWO)
-
-- [ ] Configure CloudFront to add a cache key policy to allow a custom HTTP header that CloudFront sends to the ALB.
-- [x] Configure CloudFront to add a custom HTTP header to requests that CloudFront sends to the ALB.
-- [x] Configure the ALB to forward only requests that contain the custom HTTP header.
-- [ ] Configure the ALB and CloudFront to use the X-Forwarded-For header to check client IP addresses.
-- [ ] Configure the ALB and CloudFront to use the same X.509 certificate that is generated by AWS Certificate Manager (ACM).
+- [x] Create a new S3 bucket in a separate AWS account for centralized storage of CloudTrail logs, and enable Log File Validation on all trails.
+- [ ] Use an existing S3 bucket in one of the accounts, apply a bucket policy to the new centralized S3 bucket that permits the CloudTrail service to use the `s3: PutObject` action and the `s3 GetBucketACL` action, and specify the appropriate resource ARNs for the CloudTrail trails.
+- [x] Apply a bucket policy to the new centralized S3 bucket that permits the CloudTrail service to use the `s3 PutObject` action and the `s3 GelBucketACL` action, and specify the appropriate resource ARNs for the CloudTrail trails.
+- [x] Use unique log file prefixes for trails in each AWS account.
+- [ ] Configure CloudTrail in the centralized account to log all accounts to the new centralized S3 bucket.
+- [ ] Enable encryption of the log files by using AWS Key Management Service.
 
 ### A security engineer is checking an AWS CloudFormation template for vulnerabilities. The security engineer finds a parameter that has a default value that exposes an application's API key in plaintext. The parameter is referenced several times throughout the template. The security engineer must replace the parameter while maintaining the ability to reference the value in the template. Which solution will meet these requirements in the MOST secure way?
 
@@ -1120,19 +1114,10 @@ generate and store a data encryption key for each customer.
 - [ ] Obtain me latest source code for the platform and make ire necessary updates Test me updated code to ensure that the vulnerability has been irrigated, then deploy me patched version of the platform to the EC2 instances.
 - [ ] Update the security group mat is attached to the EC2 instances, removing access from the internet to the TCP port used by the SQL database Create an AWS WAF web ACL containing rules mat protect me application from this attack, men apply it to the EC2 instances Test to ensure me vulnerability has been mitigated. then restore the security group to me onginal setting.
 
-### A company is using AWS Organizations to manage multiple AWS accounts. The company has an application that allows users to assume the AppUser IAM role to download files from an Amazon S3 bucket that is encrypted with an AWS KMS CMK However when users try to access the files in the S3 bucket they get an access denied error. What should a Security Engineer do to troubleshoot this error? (Select THREE)
-
-- [x] Ensure the KMS policy allows the AppUser role to have permission to decrypt for the CMK.
-- [x] Ensure the S3 bucket policy allows the AppUser role to have permission to get objects for the S3 bucket.
-- [ ] Ensure the CMK was created before the S3 bucket.
-- [ ] Ensure the S3 block public access feature is enabled for the S3 bucket.
-- [ ] Ensure that automatic key rotation is disabled for the CMK.
-- [x] Ensure the SCPs within Organizations allow access to the S3 bucket.
-
 ### A security engineer has noticed that VPC Flow Logs are getting a lot REJECT traffic originating from a single Amazon EC2 instance in an Auto Scaling group. The security engineer is concerned that this EC2 instance may be compromised. What immediate action should the security engineer take?
 
-- [ ] Remove me instance from the Auto Seating group Close me security group mm ingress only from a single forensic P address to perform an analysis.
-- [x] Remove me instance from the Auto Seating group Change me network ACL rules to allow traffic only from a single forensic IP address to perform en analysis Add a rule to deny all other traffic.
+- [x] Remove the instance from the Auto Seating group Close me security group mm ingress only from a single forensic P address to perform an analysis.
+- [ ] Remove the instance from the Auto Seating group Change me network ACL rules to allow traffic only from a single forensic IP address to perform en analysis Add a rule to deny all other traffic.
 - [ ] Remove the instance from the Auto Scaling group Enable Amazon GuardDuty in that AWS account Install the Amazon Inspector agent cm the suspicious EC 2 instance to perform a scan.
 - [ ] Take a snapshot of the suspicious EC2 instance. Create a new EC2 instance from me snapshot in a closed security group with ingress only from a single forensic IP address to perform an analysis.
 
@@ -1143,15 +1128,6 @@ generate and store a data encryption key for each customer.
 - [ ] The IAM role used by the CloudTrail trail does not have permissions to make PutObject API calls against a folder created for the Organizations trail.
 - [x] The S3 bucket policy does not allow CloudTrail to make PutObject API calls against a folder created for the Organizations trail.
 - [ ] The CMK key policy does not allow the IAM role used by the CloudTrail trail to use the key for crypto graphicaI operations.
-
-### Which of the following are valid configurations for using SSL certificates with Amazon CloudFront? (Select THREE)
-
-- [x] Default AWS Certificate Manager certificate.
-- [ ] Custom SSL certificate stored in AWS KMS.
-- [x] Default CloudFront certificate.
-- [x] Custom SSL certificate stored in AWS Certificate Manager.
-- [ ] Default SSL certificate stored in AWS Secrets Manager.
-- [ ] Custom SSL certificate stored in AWS IAM.
 
 ### A company has implemented centralized logging and monitoring of AWS CloudTrail logs from all Regions in an Amazon S3 bucket. The log Hies are encrypted using AWS KMS. A Security Engineer is attempting to review the log files using a third-party tool hosted on an Amazon EC2 instance. The Security Engineer is unable to access the logs in the S3 bucket and receives an access denied error message. What should the Security Engineer do to fix this issue?
 
@@ -1310,15 +1286,6 @@ the new S3 bucket. Move snapshots to Amazon S3 Glacier using lifecycle policies,
 - [ ] Use AWS Certificate Manager (ACM) Private Certificate Authority Encrypt the data in transit.
 - [ ] Use a DynamoDB encryption client. Use client-side encryption and sign the table items.
 - [ ] Use the AWS Encryption SDK. Use client-side encryption and sign the table items.
-
-### A company uses a third-party identity provider and SAML-based SSO for its AWS accounts After the third-party identity provider renewed an expired signing certificate users saw the following message when trying to log in: A security engineer needs to provide a solution that corrects the error and minimizes operational overhead. Which solution meets these requirements?
-
-![Question 134](images/question134.png)
-
-- [ ] Upload the third-party signing certificate's new private key to the AWS identity provider entity defined in AWS identity and Access Management (IAM) by using the AWS Management Console.
-- [ ] Sign the identity provider's metadata file with the new public key Upload the signature to the AWS identity provider entity defined in AWS Identity and Access Management (IAM) by using the AWS CLI.
-- [x] Download the updated SAML metadata tile from the identity service provider Update the file in the AWS identity provider entity defined in AWS Identity and Access Management (IAM) by using the AWS CLI.
-- [ ] Configure the AWS identity provider entity defined in AWS Identity and Access Management (IAM) to synchronously fetch the new public key by using the AWS Management Console.
 
 ### A company has a compliance requirement to rotate its encryption keys on an annual basis. A Security Engineer needs a process to rotate the KMS Customer Master Keys (CMKs) that were created using imported key material. How can the Engineer perform the key rotation process MOST efficiently?
 
@@ -1607,13 +1574,6 @@ route to the NAT instance.
 - [ ] Review memory dump data that the AWS Systems Manager Agent sent to Amazon CloudWatch Logs.
 - [ ] Download and run the EC2Rescue for Windows Server utility from AWS.
 - [ ] Reboot the EC2 Windows Server, enter safe mode, and select memory dump.
-
-### A Security Engineer creates an Amazon S3 bucket policy that denies access to all users. A few days later, the Security Engineer adds an additional statement to the bucket policy to allow read-only access to one other employee Even after updating the policy the employee still receives an access denied message. What is the likely cause of this access denial?
-
-- [ ] The ACL in the bucket needs to be updated.
-- [ ] The IAM policy does not allow the user to access the bucket.
-- [ ] It takes a few minutes for a bucket policy to take effect.
-- [x] The allow permission is being overridden by the deny.
 
 ### A security engineer must develop an encryption tool for a company. The company requires a cryptographic solution that supports the ability to perform cryptographic erasure on all resources protected by the key material in 15 minutes or less. Which AWS Key Management Service (AWS KMS) key solution will allow the security engineer to meet these requirements?
 
@@ -2112,10 +2072,3 @@ API.
 - [ ] Turn on AWS Config. Use the prebuilt rules or customized rules. Subscribe tile CI/CD pipeline to an Amazon Simple Notification Service (Amazon SNS) topic that receives notifications from AWS Config.
 - [x] Create rule sets in AWS CloudFormation Guard. Run validation checks for CloudFormation templates as a phase of the CI/CD process.
 - [ ] Create rule sets as SCPs. Integrate the SCPs as a part of validation control in a phase of the CI/CD process.
-
-### A Security Engineer is working with the development team to design a supply chain application that stores sensitive inventory data in an Amazon S3 bucket. The application will use an AWS KMS customer master key (CMK) to encrypt the data on Amazon S3. The inventory data on Amazon S3 will be shared of vendors. All vendors will use AWS principals from their own AWS accounts to access the data on Amazon S3. The vendor list may change weekly, and the solution must support cross-account access. What is the MOST efficient way to manage access control for the KMS CMK7?
-
-- [x] Use KMS grants to manage key access. Programmatically create and revoke grants to manage vendor access.
-- [ ] Use an IAM role to manage key access. Programmatically update the IAM role policies to manage vendor access.
-- [ ] Use KMS key policies to manage key access. Programmatically update the KMS key policies to manage vendor access.
-- [ ] Use delegated access across AWS accounts by using IAM roles to manage key access. Programmatically update the IAM trust policy to manage cross- account vendor access.
