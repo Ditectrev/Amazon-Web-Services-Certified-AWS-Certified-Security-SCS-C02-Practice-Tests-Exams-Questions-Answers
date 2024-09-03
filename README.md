@@ -1123,8 +1123,8 @@ generate and store a data encryption key for each customer.
 
 ### A company is collecting AWS CloudTrail log data from multiple AWS accounts by managing individual trails in each account and forwarding log data to a centralized Amazon S3 bucket residing in a log archive account. After CloudTrail introduced support for AWS Organizations trails, the company decided to further centralize management and automate deployment of the CloudTrail logging capability across all of its AWS accounts. The company's security engineer created an AWS Organizations trail in the master account, enabled server-side encryption with AWS KMS managed keys (SSE-KMS) for the log files, and specified the same bucket as the storage location. However, the engineer noticed that logs recorded by the new trail were not delivered to the bucket. Which factors could cause this issue? (Select TWO)
 
-- [x] The CMK key policy does not allow CloudTrail to make encrypt and decrypt API calls against the key.
-- [ ] The CMK key policy does not allow CloudTrail to make GenerateDataKey API calls against the key.
+- [ ] The CMK key policy does not allow CloudTrail to make encrypt and decrypt API calls against the key.
+- [x] The CMK key policy does not allow CloudTrail to make GenerateDataKey API calls against the key.
 - [ ] The IAM role used by the CloudTrail trail does not have permissions to make PutObject API calls against a folder created for the Organizations trail.
 - [x] The S3 bucket policy does not allow CloudTrail to make PutObject API calls against a folder created for the Organizations trail.
 - [ ] The CMK key policy does not allow the IAM role used by the CloudTrail trail to use the key for crypto graphicaI operations.
@@ -1138,11 +1138,11 @@ generate and store a data encryption key for each customer.
 
 ### A company has a VPC with several Amazon EC2 instances behind a NAT gateway. The company's security policy states that all network traffic must be logged and must include the original source and destination IP addresses. The existing VPC Flow Logs do not include this information. A security engineer needs to recommend a solution. Which combination of steps should the security engineer recommend? (Select TWO)
 
-- [x] Edit the existing VPC Flow Logs. Change the log format of the VPC Flow Logs from the Amazon default format to a custom format.
-- [ ] Delete and recreate the existing VPC Flow Logs. Change the log format of the VPC Flow Logs from the Amazon default format to a custom format.
+- [ ] Edit the existing VPC Flow Logs. Change the log format of the VPC Flow Logs from the Amazon default format to a custom format.
+- [x] Delete and recreate the existing VPC Flow Logs. Change the log format of the VPC Flow Logs from the Amazon default format to a custom format.
 - [ ] Change the destination to Amazon CloudWatch Logs.
-- [ ] Include the pkt-srcaddr and pkt-dstaddr fields in the log format.
-- [x] Include the subnet-id and instance-id fields in the log format.
+- [x] Include the pkt-srcaddr and pkt-dstaddr fields in the log format.
+- [ ] Include the subnet-id and instance-id fields in the log format.
 
 ### A company recently performed an annual security assessment of its AWS environment. The assessment showed that audit logs are not available beyond 90 days and that unauthorized changes to IAM policies are made without detection. How should a security engineer resolve these issues?
 
