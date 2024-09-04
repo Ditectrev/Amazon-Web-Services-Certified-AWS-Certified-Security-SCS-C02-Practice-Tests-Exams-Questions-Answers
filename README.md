@@ -1146,30 +1146,30 @@ generate and store a data encryption key for each customer.
 
 ### A company recently performed an annual security assessment of its AWS environment. The assessment showed that audit logs are not available beyond 90 days and that unauthorized changes to IAM policies are made without detection. How should a security engineer resolve these issues?
 
-- [x] Create an Amazon S3 lifecycle policy that archives AWS CloudTrail trail logs to Amazon S3 Glacier after 90 days. Configure Amazon Inspector to provide a notification when a policy change is made to resources.
+- [ ] Create an Amazon S3 lifecycle policy that archives AWS CloudTrail trail logs to Amazon S3 Glacier after 90 days. Configure Amazon Inspector to provide a notification when a policy change is made to resources.
 - [ ] Configure AWS Artifact to archive AWS CloudTrail logs Configure AWS Trusted Advisor to provide a notification when a policy change is made to resources.
 - [ ] Configure Amazon CloudWatch to export log groups to Amazon S3. Configure AWS CloudTrail to provide a notification when a policy change is made to resources.
-- [ ] Create an AWS CloudTrail trail that stores audit logs in Amazon S3. Configure an AWS Config rule to provide a notif cation when a policy change is made to resources.
+- [x] Create an AWS CloudTrail trail that stores audit logs in Amazon S3. Configure an AWS Config rule to provide a notif cation when a policy change is made to resources.
 
 ### A company has several critical applications running on a large fleet of Amazon EC2 instances. As part of a security operations review, the company needs to apply a critical operating system patch to EC2 instances within 24 hours of the patch becoming available from the operating system vendor. The company does not have a patching solution deployed on AWS, but does have AWS Systems Manager configured. The solution must also minimize administrative overhead. What should a security engineer recommend to meet these requirements?
 
 - [ ] Create an AWS Config rule defining the patch as a required configuration for EC2 instances.
-- [x] Use the AWS Systems Manager Run Command to patch affected instances.
-- [ ] Use an AWS Systems Manager Patch Manager predefined baseline to patch affected instances.
+- [ ] Use the AWS Systems Manager Run Command to patch affected instances.
+- [x] Use an AWS Systems Manager Patch Manager predefined baseline to patch affected instances.
 - [ ] Use AWS Systems Manager Session Manager to log in to each affected instance and apply the patch.
 
 ### A security engineer is asked to update an AW3 CoudTrail log file prefix for an existing trail. When attempting to save the change in the CloudTrail console, the security engineer receives the following error message. `There is a problem with the bucket policy.`. What will enable the security engineer to saw the change?
 
 - [ ] Create a new trail with the updated log file prefix, and then delete the original nail Update the existing bucket policy in the Amazon S3 console with the new log the prefix, and then update the log file prefix in the CloudTrail console.
-- [x] Update the existing bucket policy in the Amazon S3 console to allow the security engineers principal to perform PutBucketPolicy. and then update the log file prefix in the CloudTrail console.
-- [ ] Update the existing bucket policy in the Amazon S3 console with the new log file prefix, and then update the log file prefix in the CloudTrail console.
+- [ ] Update the existing bucket policy in the Amazon S3 console to allow the security engineers principal to perform PutBucketPolicy, and then update the log file prefix in the CloudTrail console.
+- [x] Update the existing bucket policy in the Amazon S3 console with the new log file prefix, and then update the log file prefix in the CloudTrail console.
 - [ ] Update the existing bucket policy in the Amazon S3 console to allow the security engineers principal to perform GetBucketPolicy, and then update the log file prefix in the CloudTrail console.
 
 ### The rule set in the virtual appliance is correct. Which of the following are other valid items to troubleshoot in this scenario? (Choose TWO)
 
 - [ ] Verify that the 0.0.0.0/0 route in the route table for the Web server subnet points to a NAT gateway.
-- [ ] Verify which Security Group is applied to the particular web server's elastic network interface (ENI).
-- [x] Verify that the 0.0.0.0/0 route in the route table for the Web server subnet points to the virtual security appliance.
+- [x] Verify which Security Group is applied to the particular web server's elastic network interface (ENI).
+- [ ] Verify that the 0.0.0.0/0 route in the route table for the Web server subnet points to the virtual security appliance.
 - [x] Verify the registered targets in the ALB.
 - [ ] Verify that the 0.0.0.0/0 route in the public subnet points to a NAT gateway.
 
@@ -1193,10 +1193,10 @@ generate and store a data encryption key for each customer.
 
 - [ ] Enable AES-256 encryption using server-side encryption with Amazon S3-managed encryption keys (SSE-S3) on the S3 bucket.
 - [x] Enable default encryption with server-side encryption with AWS KMS-managed keys (SSE-KMS) on the S3 bucket.
-- [ ] Add a bucket policy that includes a deny if a PutObject request does not include awsiSecureTcanspoct.
-- [x] Add a bucket policy with ws: Sourcelpto Allow uploads and downloads from the corporate intranet only.
-- [ ] Add a bucket policy that includes a deny if a PutObject request does not include `s3:x-amz-sairv9r-side-enctyption: "aws: kms"`.
-- [x] Enable Amazon Macie to monitor and act on changes to the data lake's S3 bucket.
+- [x] Add a bucket policy that includes a deny if a PutObject request does not include `aws:SecureTransport`.
+- [ ] Add a bucket policy with `aws:SourceIp` to Allow uploads and downloads from the corporate intranet only.
+- [x] Add a bucket policy that includes a deny if a PutObject request does not include `s3:x-amz-server-side-encryption: "aws: kms"`.
+- [ ] Enable Amazon Macie to monitor and act on changes to the data lake's S3 bucket.
 
 ### A recent security audit identified that a company's application team injects database credentials into the environment variables of an AWS Fargate task. The company's security policy mandates that all sensitive data be encrypted at rest and in transit. When combination of actions should the security team take to make the application compliant within the security policy? (Select THREE)
 
@@ -2093,3 +2093,18 @@ API.
 - [ ] Replace the software load balancer with an AWS Network Load Balancer. Create an AWS Global Accelerator accelerator. Add an endpoint group for each Region. Configure Route 53 health checks. Add a CNAME record that points to the DNS name of the accelerator.
 - [ ] Replace the software load balancer with an AWS Application Load Balancer. Use AWS Global Accelerator to create two separate accelerators. Add an endpoint group for each Region. Configure Route 53 health checks. Add a record set that is configured for active-passive DNS failover. Point the record set to the DNS names of the two accelerators.
 - [ ] Replace the software load balancer with an AWS Network Load Balancer. Use AWS Global Accelerator to create two separate accelerators. Add an endpoint group for each Region. Configure Route 53 health checks. Add a record set that is configured for weighted round-robin DNS failover. Point the record set to the DNS names of the two accelerators.
+
+### An online media company has an application that customers use to watch events around the world. The application is hosted on a fleet of Amazon EC2 instances that run Amazon Linux 2. The company uses AWS Systems Manager to manage the EC2 instances. The company applies patches and application updates by using the AWS-AmazonLinux2DefaultPatchBaseline patching baseline in Systems Manager Patch Manager. The company is concerned about potential attacks on the application during the week of an upcoming event. The company needs a solution that can immediately deploy patches to all the EC2 instances in response to a security incident or vulnerability. The solution also must provide centralized evidence that the patches were applied successfully. Which combination of steps will meet these requirements? (Choose two.)
+
+- [x] Create a new patching baseline in Patch Manager. Specify Amazon Linux 2 as the product. Specify Security as the classification. Set the automatic approval for patches to 0 days. Ensure that the new patching baseline is the designated default for Amazon Linux 2.
+- [x] Use the Patch Now option with the scan and install operation in the Patch Manager console to apply patches against the baseline to all nodes. Specify an Amazon S3 bucket as the patching log storage option.
+- [ ] Use the Clone function of Patch Manager to create a copy of the AWS-AmazonLmux2DefaultPatchBaseline built-in baseline. Set the automatic approval for patches to 1 day.
+- [ ] Create a patch policy that patches all managed nodes and sends a patch operation log output to an Amazon S3 bucket. Use a custom scan schedule to set Patch Manager to check every hour for new patches. Assign the baseline to the patch policy.
+- [ ] Use Systems Manager Application Manager to inspect the package versions that were installed on the EC2 instances. Additionally use Application Manager to validate that the patches were correctly installed.
+
+### A company's data lake uses Amazon S3 and Amazon Athena. The company's security engineer has been asked to design an encryption solution that meets the company's data protection requirements. The encryption solution must work with Amazon S3 and keys managed by the company. The encryption solution must be protected in a hardware security module that is validated to Federal Information Processing Standards (FIPS) 140-2 Level 3. Which solution meets these requirements?
+
+- [ ] Use client-side encryption with an AWS KMS customer-managed key implemented with the AWS Encryption SDK.
+- [ ] Use AWS CloudHSM to store the keys and perform cryptographic operations. Save the encrypted text in Amazon S3.
+- [x] Use an AWS KMS customer-managed key that is backed by a custom key store using AWS CloudHSM.
+- [ ] Use an AWS KMS customer-managed key with the bring your own key (BYOK) feature to import a key stored in AWS CloudHSM.
