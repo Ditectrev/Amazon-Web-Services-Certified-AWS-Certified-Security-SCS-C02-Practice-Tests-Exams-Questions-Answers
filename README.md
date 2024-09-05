@@ -1202,12 +1202,12 @@ generate and store a data encryption key for each customer.
 
 - [ ] Store the credentials securely in a file in an Amazon S3 bucket with restricted access to the application team IAM role Ask the application team to read the credentials from the S3 object instead.
 - [x] Create an AWS Secrets Manager secret and specify the key/value pairs to be stored in this secret.
-- [ ] Modify the application to pull credentials from the AWS Secrets Manager secret instead of the environment variables.
+- [x] Modify the application to pull credentials from the AWS Secrets Manager secret instead of the environment variables.
 - [ ] Add the following statement to the container instance IAM role policy.
 - [x] Add the following statement to the execution role policy.
-- [x] Log in to the AWS Fargate instance, create a script to read the secret value from AWS Secret Manager, and inject the environment variables. Ask the application team to redeploy the application.
+- [ ] Log in to the AWS Fargate instance, create a script to read the secret value from AWS Secret Manager, and inject the environment variables. Ask the application team to redeploy the application.
 
-### A company is designing the securely architecture (or a global latency-sensitive. Web application it plans to deploy to AWS. A Security Engineer needs to configure a highly available and secure two-tier architecture. The security design must include controls to prevent common attacks such as DDoS, cross-site scripting, and SQL injection. Which solution meets these requirements?
+### A company is designing the securely architecture for a global latency-sensitive. Web application it plans to deploy to AWS. A Security Engineer needs to configure a highly available and secure two-tier architecture. The security design must include controls to prevent common attacks such as DDoS, cross-site scripting, and SQL injection. Which solution meets these requirements?
 
 - [x] Create an Application Load Balancer (ALB) that uses public subnets across multiple Availability Zones within a single Region. Point the ALB to an Auto Scaling group with Amazon EC2 instances in private subnets across multiple Availability Zones within the same Region. Create an Amazon CloudFront distribution that uses the ALB as its origin. Create appropriate AWS WAF ACLs and enable them on the CloudFront distribution.
 - [ ] Create an Application Load Balancer (ALB) that uses private subnets across multiple Availability Zones within a single Region. Point the ALB to an Auto Scaling group with Amazon EC2 instances in private subnets across multiple Availability Zones within the same Region. Create an Amazon CloudFront distribution that uses the ALB as its origin. Create appropriate AWS WAF ACLs and enable them on the CloudFront distribution.
@@ -1230,40 +1230,47 @@ generate and store a data encryption key for each customer.
 - [ ] Open the global CloudTrail configuration in the master account, and verify that the storage location is set to the correct S3 bucket.
 - [x] Confirm in the CloudTrail Console that the S3 bucket name is set correctly.
 
-### A company has a website with an Amazon CloudFront HTTPS distribution, an Application Load Balancer (ALB) with multiple Web instances for dynamic website content, and an Amazon S3 bucket for static website content. The company's security engineer recently updated the website security requirements: HTTPS needs to be enforced for all data in transit with specific ciphers. The CloudFront distribution needs to be accessible from the internet only. Which solution will meet these requirements? Set up an S3 bucket policy with the awssecuretransport key Configure the CloudFront origin access identity (OAI) with the S3 bucket Configure CloudFront to use specific ciphers. Enforce the ALB with an HTTPS listener only and select the appropriate security policy for the ciphers Link the ALB with AWS WAF to allow access from the CloudFront IP ranges. Set up an S3 bucket policy with the `aws:securetransport` key. Configure the CloudFront origin access identity (OAI) with the S3 bucket. Enforce the ALB with an HTTPS listener only and select the appropriate security policy for the ciphers. Modify the CloudFront distribution to use AWS WAF. Force HTTPS on the S3 bucket with specific ciphers in the bucket policy. Configure an HTTPS listener only for the ALB. Set up a security group to limit access to the ALB from the CloudFront IP ranges Modify the CloudFront distribution to use the ALB as the origin. Enforce an HTTPS listener on the ALB. Create a path-based routing rule on the ALB with proxies that connect to Amazon S3. Create a bucket policy to allow access from these proxies only. A company is trying to replace its on-premises bastion hosts used to access on-premises Linux servers with AWS Systems Manager Session Manager. A security engineer has installed the Systems Manager Agent on all servers. The security engineer verifies that the agent is running on all the servers, but Session Manager cannot connect to them. The security engineer needs to perform verification steps before Session Manager will work on the servers. Which combination of steps should the security engineer perform? (Select THREE)
+### A company has a website with an Amazon CloudFront HTTPS distribution, an Application Load Balancer (ALB) with multiple Web instances for dynamic website content, and an Amazon S3 bucket for static website content. The company's security engineer recently updated the website security requirements: HTTPS needs to be enforced for all data in transit with specific ciphers. The CloudFront distribution needs to be accessible from the internet only. Which solution will meet these requirements?
+
+- [ ] Set up an S3 bucket policy with the awssecuretransport key Configure the CloudFront origin access identity (OAI) with the S3 bucket Configure CloudFront to use specific ciphers. Enforce the ALB with an HTTPS listener only and select the appropriate security policy for the ciphers Link the ALB with AWS WAF to allow access from the CloudFront IP ranges.
+- [x] Set up an S3 bucket policy with the `aws:securetransport` key. Configure the CloudFront origin access identity (OAI) with the S3 bucket. Enforce the ALB with an HTTPS listener only and select the appropriate security policy for the ciphers.
+- [ ] Modify the CloudFront distribution to use AWS WAF. Force HTTPS on the S3 bucket with specific ciphers in the bucket policy. Configure an HTTPS listener only for the ALB. Set up a security group to limit access to the ALB from the CloudFront IP ranges.
+- [ ] Modify the CloudFront distribution to use the ALB as the origin. Enforce an HTTPS listener on the ALB. Create a path-based routing rule on the ALB with proxies that connect to Amazon S3. Create a bucket policy to allow access from these proxies only.
+
+### A company is trying to replace its on-premises bastion hosts used to access on-premises Linux servers with AWS Systems Manager Session Manager. A security engineer has installed the Systems Manager Agent on all servers. The security engineer verifies that the agent is running on all the servers, but Session Manager cannot connect to them. The security engineer needs to perform verification steps before Session Manager will work on the servers. Which combination of steps should the security engineer perform? (Select THREE)
 
 - [ ] Open inbound port 22 to 0 0.0.0/0 on all Linux servers.
 - [ ] Open inbound port 22 to 0 0.0.0/0 on all Linux servers.
 - [x] Create a managed-instance activation for the on-premises servers.
-- [ ] Reconfigure the Systems Manager Agent with the activation code and ID.
+- [x] Reconfigure the Systems Manager Agent with the activation code and ID.
 - [x] Assign an IAM role to all of the on-premises servers.
-- [x] Initiate an inventory collection with Systems Manager on the on-premises servers.
+- [ ] Initiate an inventory collection with Systems Manager on the on-premises servers.
 
 ### A company has recently recovered from a security incident that required the restoration of Amazon EC2 instances from snapshots. After performing a gap analysis of its disaster recovery procedures and backup strategies, the company is concerned that, next time, it will not be able to recover the EC2 instances if the AWS account was compromised and Amazon EBS snapshots were deleted. All EBS snapshots are encrypted using an AWS KMS CMK. Which solution would solve this problem?
 
-- [x] Create a new Amazon S3 bucket Use EBS lifecycle policies to move EBS snapshots to
-the new S3 bucket. Move snapshots to Amazon S3 Glacier using lifecycle policies, and apply Glacier Vault Lock policies to prevent deletion
+- [ ] Create a new Amazon S3 bucket Use EBS lifecycle policies to move EBS snapshots to the new S3 bucket. Move snapshots to Amazon S3 Glacier using lifecycle policies, and apply Glacier Vault Lock policies to prevent deletion
 - [ ] Use AWS Systems Manager to distribute a configuration that performs local backups of all attached disks to Amazon S3.
-- [ ] Create a new AWS account with limited privileges. Allow the new account to access the AWS KMS key used to encrypt the EBS snapshots, and copy the encrypted snapshots to the new account on a recuning basis
+- [x] Create a new AWS account with limited privileges. Allow the new account to access the AWS KMS key used to encrypt the EBS snapshots, and copy the encrypted snapshots to the new account on a recuning basis.
 - [ ] Use AWS Backup to copy EBS snapshots to Amazon S3.
 
 ### A Security Engineer manages AWS Organizations for a company. The Engineer would like to restrict AWS usage to allow Amazon S3 only in one of the organizational units (OUs). The Engineer adds the following SCP to the OU:
 
-![Question 130](images/question130.png)
+![Question 164](images/question164.png)
 
 - [ ] Move the account to a new OU and deny IAM:* permissions.
 - [ ] Add a Deny policy for all non-S3 services at the account level.
-- [x] Change the policy to:
-- [ ] Detach the default FullAWSAccess SCP.
+- [ ] Change the policy to:
+![Question 164 option C](images/question164_C.png)
+- [x] Detach the default FullAWSAccess SCP.
 
-### company has a serverless application for internal users deployed on AWS. The application uses AWS Lambda for the front end and for business logic. The Lambda function accesses an Amazon RDS database inside a VPC. The company uses AWS Systems Manager Parameter Store for storing database credentials. A recent security review highlighted the following issues. The Lambda function has internet access. The relational database is publicly accessible. The database credentials are not stored in an encrypted state. Which combination of steps should the company take to resolve these security issues? (Select THREE)
+### A company has a serverless application for internal users deployed on AWS. The application uses AWS Lambda for the front end and for business logic. The Lambda function accesses an Amazon RDS database inside a VPC. The company uses AWS Systems Manager Parameter Store for storing database credentials. A recent security review highlighted the following issues. The Lambda function has internet access. The relational database is publicly accessible. The database credentials are not stored in an encrypted state. Which combination of steps should the company take to resolve these security issues? (Select THREE)
 
 - [x] Disable public access to the RDS database inside the VPC.
 - [x] Move all the Lambda functions inside the VPC.
 - [ ] Edit the IAM role used by Lambda to restrict internet access.
 - [ ] Create a VPC endpoint for Systems Manager. Store the credentials as a string parameter. Change the parameter type to an advanced parameter.
-- [x] Edit the IAM role used by RDS to restrict internet access.
-- [ ] Create a VPC endpoint for Systems Manager. Store the credentials as a Secure String parameter.
+- [ ] Edit the IAM role used by RDS to restrict internet access.
+- [x] Create a VPC endpoint for Systems Manager. Store the credentials as a Secure String parameter.
 
 ### A company has decided to migrate sensitive documents from on-premises data centers to Amazon S3. Currently, the hard drives are encrypted to meet a compliance requirement regarding data encryption. The CISO wants to improve security by encrypting each file using a different key instead of a single key. Using a different key would limit the security impact of a single exposed key. Which of the following requires the LEAST amount of configuration when implementing this approach?
 
@@ -2108,3 +2115,10 @@ API.
 - [ ] Use AWS CloudHSM to store the keys and perform cryptographic operations. Save the encrypted text in Amazon S3.
 - [x] Use an AWS KMS customer-managed key that is backed by a custom key store using AWS CloudHSM.
 - [ ] Use an AWS KMS customer-managed key with the bring your own key (BYOK) feature to import a key stored in AWS CloudHSM.
+
+### A company has a serverless application that uses AWS Lambda functions and AWS Systems Manager parameters to store configuration data. The company moves the Lambda functions inside the VPC and into private subnets. The Lambda functions are now producing errors in their attempts to access Systems Manager parameters. Which solution will allow the Lambda functions to access Systems Manager parameters inside the VPC?
+
+- [ ] Configure security groups to allow access to Systems Manager.
+- [x] Create an interface VPC endpoint for Systems Manager.
+- [ ] Use an Internet gateway from inside the VPC.
+- [ ] Create a gateway VPC endpoint for Systems Manager.
