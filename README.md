@@ -1277,13 +1277,13 @@ generate and store a data encryption key for each customer.
 - [ ] Place each file into a different S3 bucket. Set the default encryption of each bucket to use a different AWS KMS customer managed key.
 - [ ] Put all the files in the same S3 bucket. Using S3 events as a trigger, write an AWS Lambda function to encrypt each file as it is added using different AWS KMS data keys.
 - [ ] Use the S3 encryption client to encrypt each file individually using S3-generated data keys.
-- [ ] Place all the files in the same S3 bucket. Use server-side encryption with AWS KMS-managed keys (SSE-KMS) to encrypt the data.
+- [x] Place all the files in the same S3 bucket. Use server-side encryption with AWS KMS-managed keys (SSE-KMS) to encrypt the data.
 
 ### A company hosts a web-based application that captures and stores sensitive data in an Amazon DynamoDB table. A security audit reveals that the application does not provide end-to-end data protection or the ability to detect unauthorized data changes. The software engineering team needs to make changes that will address the audit findings. Which set of steps should the software engineering team take?
 
-- [x] Use an AWS Key Management Service (AWS KMS) CMK. Encrypt the data at rest.
+- [ ] Use an AWS Key Management Service (AWS KMS) CMK. Encrypt the data at rest.
 - [ ] Use AWS Certificate Manager (ACM) Private Certificate Authority Encrypt the data in transit.
-- [ ] Use a DynamoDB encryption client. Use client-side encryption and sign the table items.
+- [x] Use a DynamoDB encryption client. Use client-side encryption and sign the table items.
 - [ ] Use the AWS Encryption SDK. Use client-side encryption and sign the table items.
 
 ### A company has a compliance requirement to rotate its encryption keys on an annual basis. A Security Engineer needs a process to rotate the KMS Customer Master Keys (CMKs) that were created using imported key material. How can the Engineer perform the key rotation process MOST efficiently?
