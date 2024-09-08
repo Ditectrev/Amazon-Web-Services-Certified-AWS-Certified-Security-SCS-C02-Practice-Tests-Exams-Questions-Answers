@@ -1309,7 +1309,7 @@ generate and store a data encryption key for each customer.
 - [ ] Remove the instance from the Auto Scaling group Place the Instance within an isolation security group, launch an EC2 Instance with a forensic toolkit and use the forensic toolkit imago to deploy an ENI as a network span port to inspect all traffic coming from the suspicious instance.
 - [x] Remove the instance from the Auto Scaling group and the Elastic Load Balancer Place the instance within an isolation security group, make a copy of the EBS volume from a new snapshot, launch an EC2 Instance with a forensic toolkit and attach the copy of the EBS volume to investigate.
 
-### A security engineer needs to configure monitonng and auditing for AWS Lambda. Which combination of actions using AWS services should the security engineer take to accomplish this goal? (Select TWO)
+### A security engineer needs to configure monitoring and auditing for AWS Lambda. Which combination of actions using AWS services should the security engineer take to accomplish this goal? (Select TWO)
 
 - [x] Use AWS Config to track configuration changes to Lambda functions, runtime environments, tags, handler names, code sizes, memory allocation, timeout settings, and concurrency settings, along with Lambda IAM execution role, subnet, and security group associations.
 - [x] Use AWS CloudTrail to implement governance, compliance, operational, and risk auditing for Lambda.
@@ -1319,32 +1319,24 @@ generate and store a data encryption key for each customer.
 
 ### A company has an AWS account and allows a third-party contractor who uses another AWS account, to assume certain IAM roles. The company wants to ensure that IAM roles can be assumed by the contractor only if the contractor has multi-factor authentication enabled on their IAM user accounts. What should the company do to accomplish this?
 
-![Question 139 option A](images/question139_1.png)
-
-![Question 139 option B](images/question139_2.png)
-
-![Question 139 option C](images/question139_3.png)
-
-![Question 139 option D](images/question139_4.png)
-
-- [x] Option A.
-- [ ] Option B.
-- [ ] Option C.
-- [ ] Option D.
+- [x] Add the following condition to the IAM policy attached to all IAM roles: `"Effect": "Deny", "Condition" : { "BoolItExists" : { "aws:MultiFactorAuthPresent" : false } }`.
+- [ ] Add the following condition to the IAM policy attached to all IAM roles: `"Effect": "Deny", "Condition" : { "Bool" : { "aws:MultiFactorAuthPresent" : false } }`.
+- [ ] Add the following condition to the IAM policy attached to all IAM roles: `"Effect": "Allow", "Condition" : { "Null" : { "aws:MultiFactorAuthPresent" : false } }`.
+- [ ] Add the following condition to the IAM policy attached to all IAM roles: `"Effect": "Allow", "Condition" : { "BoolItExists" : { "aws:MultiFactorAuthPresent" : false } }`.
 
 ### A company uses Microsoft Active Directory for access management for on-premises resources and wants to use the same mechanism for accessing its AWS accounts. Additionally, the development team plans to launch a public-facing application for which they need a separate authentication solution. When coma nation of the following would satisfy these requirements? (Select TWO)
 
 - [ ] Set up domain controllers on Amazon EC2 to extend the on-premises directory to AWS
 - [ ] Establish network connectivity between on-premises and the user's VPC
 - [x] Use Amazon Cognito user pools for application authentication
-- [x] Use AD Connector for application authentication.
-- [ ] Set up federated sign-in to AWS through ADFS and SAML.
+- [ ] Use AD Connector for application authentication.
+- [x] Set up federated sign-in to AWS through ADFS and SAML.
 
 ### A company wants to encrypt data locally while meeting regulatory requirements related to key exhaustion. The encryption key can be no more than 10 days old or encrypt more than 2" 16 objects Any encryption key must be generated on a FlPS-validated hardware security module (HSM). The company is cost-conscious, as plans to upload an average of 100 objects to Amazon S3 each second for sustained operations across 5 data producers. When approach MOST efficiently meets the company's needs?
 
-- [x] Use the AWS Encryption SDK and set the maximum age to 10 days and the minimum number of messages encrypted to 3" 16. Use AWS Key Management Service (AWS KMS) to generate the master key and data key Use data key caching with the Encryption SDk during the encryption process.
+- [ ] Use the AWS Encryption SDK and set the maximum age to 10 days and the minimum number of messages encrypted to 3^16. Use AWS Key Management Service (AWS KMS) to generate the master key and data key Use data key caching with the Encryption SDk during the encryption process.
 - [ ] Use AWS Key Management Service (AWS KMS) to generate an AWS managed CMK. Then use Amazon S3 client-side encryption configured to automatically rotate with every object.
-- [ ] Use AWS CloudHSM to generate the master key and data keys. Then use Boto 3 and
+- [x] Use AWS CloudHSM to generate the master key and data keys. Then use Boto 3 and
 Python to locally encrypt data before uploading the object Rotate the data key every 10 days or after 2" 16 objects have been Uploaded to Amazon 33.
 - [ ] Use server-side encryption with Amazon S3 managed encryption keys (SSE-S3) and set the master key to automatically rotate.
 
@@ -1672,7 +1664,7 @@ Send email notifications using Amazon SNS.
 - [ ] Change the value of aws MultiFactorAuthPresent to true.
 - [ ] Instruct users to run the aws sts get-session-token CLI command and pass the multi-factor authentication ―serial-number and ―token-code parameters. Use these resulting values to make API/CLI calls.
 - [ ] Implement federated API/CLI access using SAML 2.0, then configure the identity provider to enforce multi-factor authentication.
-- [x] Create a role and enforce multi-factor authentication in the role trust policy Instruct users to run the sts assume-role CLI command and pass –serial-number and ―token-code parameters Store the resulting values in environment variables. Add sts:AssumeRole to NotAction in the policy.
+- [x] Create a role and enforce multi-factor authentication in the role trust policy Instruct users to run the sts assume-role CLI command and pass –serial-number and ―token-code parameters Store the resulting values in environment variables. Add `sts:AssumeRole` to NotAction in the policy.
 
 ### The Security Engineer is managing a traditional three-tier web application that is running on Amazon EC2 instances. The application has become the target of increasing numbers of malicious attacks from the Internet. What steps should the Security Engineer take to check for known vulnerabilities and limit the attack surface? (Choose TWO)
 
@@ -2129,3 +2121,26 @@ API.
 - [ ] Use AWS Security Hub to connect to the EC2 instances. Configure Amazon CloudWatch logging for the sessions. Select the upload session logs option and allow only encrypted CloudWatch Logs log groups.
 - [ ] Use AWS Systems Manager Session Manager to connect to the EC2 instances. Configure Amazon CloudWatch monitoring to record the sessions. Select the store session logs option for the desired CloudWatch Logs log groups.
 - [x] Use AWS Systems Manager Session Manager to connect to the EC2 instances. Configure Amazon CloudWatch logging. Select the upload session logs option and allow only encrypted CloudWatch Logs log groups.
+
+### A company's security policy requires that VPC Flow Logs are enabled on all VPCs. A Security Engineer is looking to automate the process of auditing the VPC resources for compliance. What combination of actions should the Engineer take? (Choose two.)
+
+- [x] Create an AWS Lambda function that determines whether Flow Logs are enabled for a given VPC.
+- [ ] Create an AWS Config configuration item for each VPC in the company AWS account.
+- [ ] Create an AWS Config managed rule with a resource type of AWS:: Lambda:: Function.
+- [ ] Create an Amazon CloudWatch Event rule that triggers on events emitted by AWS Config.
+- [x] Create an AWS Config custom rule, and associate it with an AWS Lambda function that contains the evaluating logic.
+
+### A security engineer is creating an AWS Lambda function. The Lambda function needs to use a role that is named LambdaAuditRole to assume a role that is named AcmeAuditFactoryRole in a different AWS account. When the code is processed, the following error message appears: `An error occurred (AccessDenied) when calling the AssumeRole operation.` Which combination of steps should the security engineer take to resolve this error? (Choose two.)
+
+- [x] Ensure that LambdaAuditRole has the `sts:AssumeRole` permission for AcmeAuditFactoryRole.
+- [ ] Ensure that LambdaAuditRole has the AWSLambdaBasicExecutionRole managed policy attached.
+- [x] Ensure that the trust policy for AcmeAuditFactoryRole allows the `sts:AssumeRole` action from LambdaAuditRole.
+- [ ] Ensure that the trust policy for LambdaAuditRole allows the `sts:AssumeRole` action from the lambda.amazonaws.com service.
+- [ ] Ensure that the `sts:AssumeRole` API call is being issued to the us-east-1 Region endpoint.
+
+### A company's application uses Amazon DynamoDB to store data. The company's security policy requires all data to be encrypted at rest. The security policy also requires the company to use an on-premises hardware security module (HSM) to generate and manage the company's encryption keys. A security engineer uses the on-premises HSM to generate an encryption key. What should the security engineer do next to meet these requirements?
+
+- [x] Generate a new AWS Key Management Service (AWS KMS) customer managed key. Import the new key material. Grant DynamoDB access to use the key. Create a new DynamoDB table, and select the new key as the encryption key. Import the data into DynamoDB.
+- [ ] Generate a new AWS Key Management Service (AWS KMS) customer managed key. Import the new key material. Create a new DynamoDB table, and select the new key as the encryption key. Disable the KMS key after table creation. Import the data into DynamoDB.
+- [ ] Generate a new AWS Key Management Service (AWS KMS) AWS managed key. Import the new key material. Grant DynamoDB access to use the key. Create a new DynamoDB table, and select the new key as the encryption key. Import the data into DynamoDB.
+- [ ] Generate a new AWS Key Management Service (AWS KMS) AWS managed key. Import the new key material. Use the AWS SDK integration with AWS KMS to encrypt the data locally by using the new KMS key. Create a new DynamoDB table, and select the new key as the encryption key. Disable the KMS key after table creation. Import the data into DynamoDB.
