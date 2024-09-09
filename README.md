@@ -1399,8 +1399,8 @@ route to the NAT instance.
 
 - [ ] Create a new CMK. Download a new wrapping key and a new import token to import the original key material.
 - [ ] Create a new CMK Use the original wrapping key and import token to import the original key material.
-- [ ] Download a new wrapping key and a new import token Import the original key material into the existing CMK.
-- [x] Use the original wrapping key and import token Import the original key material into the existing CMK.
+- [x] Download a new wrapping key and a new import token Import the original key material into the existing CMK.
+- [ ] Use the original wrapping key and import token Import the original key material into the existing CMK.
 
 ### Authorized Administrators are unable to connect to an Amazon EC2 Linux bastion host using SSH over the internet. The connection either fails to respond or generates the following error message: `Network error: Connection timed out`. What could be responsible for the connection failure? (Select THREE)
 
@@ -2153,3 +2153,10 @@ API.
 - [ ] Create an IAM policy that has an `aws:RequestedRegion` condition that denies actions that are not in the designated Region. Attach the policy to the AWS account in AWS Organizations.
 - [ ] Create an IAM policy that has an `aws:RequestedRegion` condition that allows the desired actions. Attach the policy only to the users who are in the designated Region.
 - [x] Create an SCP that has an `aws:RequestedRegion` condition that denies actions that are not in the designated Region. Attach the SCP to the AWS account in AWS Organizations.
+
+### A security engineer is evaluating a company’s use of AWS Key Management Service (AWS KMS). The security engineer must implement a hybrid solution with two sets of keys to meet the following requirements: Set 1: The company needs granular control over the keys so that the company can maintain a copy of the keys in the key management infrastructure and reimport the keys at any time. The company needs the ability to set the expiration period to 3 days for the keys. Set 2: No restrictions exist regarding immediate key deletion. A waiting period of 14 days is acceptable for keys to be marked deleted. Which solution will meet these requirements?
+
+- [ ] Use imported keys for Set 1. Use AWS managed keys for Set 2. For Set 1, set an expiration period and manually delete the keys after the expiration period has elapsed.
+- [x] Use imported keys for Set 1. Use AWS managed keys for Set 2. For Set 1, set an expiration period. AWS will automatically delete the keys after the expiration period has elapsed.
+- [ ] Use AWS managed keys for Set 1. Use imported keys for Set 2. For Set 1, set an expiration period and manually delete the keys after the expiration period has elapsed.
+- [ ] Use AWS managed keys for Set 1. Use imported keys for Set 2. For Set 1, set an expiration period. AWS will automatically delete the keys after the expiration period has elapsed.
