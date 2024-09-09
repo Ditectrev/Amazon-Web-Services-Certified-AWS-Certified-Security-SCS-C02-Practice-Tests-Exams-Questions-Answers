@@ -1332,12 +1332,12 @@ generate and store a data encryption key for each customer.
 - [ ] Use AD Connector for application authentication.
 - [x] Set up federated sign-in to AWS through ADFS and SAML.
 
-### A company wants to encrypt data locally while meeting regulatory requirements related to key exhaustion. The encryption key can be no more than 10 days old or encrypt more than 2" 16 objects Any encryption key must be generated on a FlPS-validated hardware security module (HSM). The company is cost-conscious, as plans to upload an average of 100 objects to Amazon S3 each second for sustained operations across 5 data producers. When approach MOST efficiently meets the company's needs?
+### A company wants to encrypt data locally while meeting regulatory requirements related to key exhaustion. The encryption key can be no more than 10 days old or encrypt more than 2^16 objects Any encryption key must be generated on a FlPS-validated hardware security module (HSM). The company is cost-conscious, as plans to upload an average of 100 objects to Amazon S3 each second for sustained operations across 5 data producers. When approach MOST efficiently meets the company's needs?
 
 - [ ] Use the AWS Encryption SDK and set the maximum age to 10 days and the minimum number of messages encrypted to 3^16. Use AWS Key Management Service (AWS KMS) to generate the master key and data key Use data key caching with the Encryption SDk during the encryption process.
 - [ ] Use AWS Key Management Service (AWS KMS) to generate an AWS managed CMK. Then use Amazon S3 client-side encryption configured to automatically rotate with every object.
 - [x] Use AWS CloudHSM to generate the master key and data keys. Then use Boto 3 and
-Python to locally encrypt data before uploading the object Rotate the data key every 10 days or after 2" 16 objects have been Uploaded to Amazon 33.
+Python to locally encrypt data before uploading the object Rotate the data key every 10 days or after 2^16 objects have been Uploaded to Amazon 33.
 - [ ] Use server-side encryption with Amazon S3 managed encryption keys (SSE-S3) and set the master key to automatically rotate.
 
 ### A company plans to use custom AMIs to launch Amazon EC2 instances across multiple AWS accounts in a single Region to perform security monitoring and analytics tasks. The EC2 instances are launched in EC2 Auto Scaling groups. To increase the security of the solution, a Security Engineer will manage the lifecycle of the custom AMIs in a centralized account and will encrypt them with a centrally managed AWS KMS CMK. The Security Engineer configured the KMS key policy to allow cross-account access. However, the EC2 instances are still not being properly launched by the EC2 Auto Scaling groups. Which combination of configuration steps should the Security Engineer take to ensure the EC2 Auto Scaling groups have been granted the proper permissions to execute tasks?
@@ -1349,48 +1349,43 @@ Python to locally encrypt data before uploading the object Rotate the data key e
 
 ### A security engineer is designing a solution that will provide end-to-end encryption between clients and Docker containers running In Amazon Elastic Container Service (Amazon ECS). This solution will also handle volatile traffic patterns. Which solution would have the MOST scalability and LOWEST latency?
 
-- [x] Configure a Network Load Balancer to terminate the TLS traffic and then re-encrypt the traffic to the containers.
+- [ ] Configure a Network Load Balancer to terminate the TLS traffic and then re-encrypt the traffic to the containers.
 - [ ] Configure an Application Load Balancer to terminate the TLS traffic and then re-encrypt the traffic to the containers.
-- [ ] Configure a Network Load Balancer with a TCP listener to pass through TLS traffic to the containers.
+- [x] Configure a Network Load Balancer with a TCP listener to pass through TLS traffic to the containers.
 - [ ] Configure Amazon Route 53 to use multivalue answer routing to send traffic to the containers.
 
 ### A security engineer has noticed an unusually high amount of traffic coming from a single IP address. This was discovered by analyzing the Application Load Balancer's access logs. How can the security engineer limit the number of requests from a specific IP address without blocking the IP address?
 
 - [ ] Add a rule to the Application Load Balancer to route the traffic originating from the IP address in question and show a static webpage.
-- [ ] Implement a rate-based rule with AWS WAF.
+- [x] Implement a rate-based rule with AWS WAF.
 - [ ] Use AWS Shield to limit the originating traffic hit rate.
 - [ ] Implement the GeoLocation feature in Amazon Route 53.
 
 ### A Security Engineer has several thousand Amazon EC2 instances split across production and development environments. Each instance is tagged with its environment. The Engineer needs to analyze and patch all the development EC2 instances to ensure they are not currently exposed to any common vulnerabilities or exposures (CVEs). Which combination of steps is the MOST efficient way for the Engineer to meet these requirements? (Select TWO)
 
 - [ ] Log on to each EC2 instance, check and export the different software versions installed, and verify this against a list of current CVEs.
-- [ ] Install the Amazon Inspector agent on all development instances Build a custom rule package, and configure Inspector to perform a scan using this custom rule on all instances tagged as being in the development environment.
-- [ ] Install the Amazon Inspector agent on all development instances Configure Inspector to perform a scan using the CVE rule package on all instances tagged as being in the development environment.
-- [ ] Install the Amazon EC2 System Manager agent on all development instances Issue the Run command to EC2 System Manager to update all instances.
+- [ ] Install the Amazon Inspector agent on all development instances. Build a custom rule package, and configure Inspector to perform a scan using this custom rule on all instances tagged as being in the development environment.
+- [x] Install the Amazon Inspector agent on all development instances. Configure Inspector to perform a scan using the CVE rule package on all instances tagged as being in the development environment.
+- [x] Install the Amazon EC2 System Manager agent on all development instances. Issue the Run command to EC2 System Manager to update all instances.
 - [ ] Use AWS Trusted Advisor to check that all EC2 instances have been patched to the most recent version of operating system and installed software.
 
-### An application running on Amazon EC2 instances generates log files in a folder on a Linux file system. The instances block access to the console and file transfer utilities, such as Secure Copy Protocol (SCP) and Secure File Transfer Protocol (SFTP). The Application Support team wants to automatically monitor the application log files so the team can set up notifications in the future. A Security Engineer must design a solution that meets the following requirements: Make the log files available through an AWS managed service. Allow for automatic monitoring of the logs. Provide an Interlace for analyzing logs. Minimize effort. Which approach meets these requirements^
+### An application running on Amazon EC2 instances generates log files in a folder on a Linux file system. The instances block access to the console and file transfer utilities, such as Secure Copy Protocol (SCP) and Secure File Transfer Protocol (SFTP). The Application Support team wants to automatically monitor the application log files so the team can set up notifications in the future. A Security Engineer must design a solution that meets the following requirements: Make the log files available through an AWS managed service. Allow for automatic monitoring of the logs. Provide an Interlace for analyzing logs. Minimize effort. Which approach meets these requirements?
 
-- [ ] Modify the application to use the AWS SDK Write the application logs to an Amazon S3 bucket.
-- [ ] install the unified Amazon CloudWatch agent on the instances Configure the agent to
-collect the application log dies on the EC2 tile system and send them to Amazon CloudWatch Logs.
-- [ ] Install AWS Systems Manager Agent on the instances Configure an automation document to copy the application log files to AWS DeepLens.
-- [x] Install Amazon Kinesis Agent on the instances Stream the application log files to Amazon Kinesis Data Firehose and sot the destination to Amazon Elasticsearch Service.
+- [ ] Modify the application to use the AWS SDK. Write the application logs to an Amazon S3 bucket.
+- [x] Install the unified Amazon CloudWatch agent on the instances. Configure the agent to collect the application log files on the EC2 file system and send them to Amazon CloudWatch Logs.
+- [ ] Install AWS Systems Manager Agent on the instances. Configure an automation document to copy the application log files to AWS DeepLens.
+- [ ] Install Amazon Kinesis Agent on the instances. Stream the application log files to Amazon Kinesis Data Firehose and set the destination to Amazon Elasticsearch Service.
 
 ### To meet regulatory requirements, a Security Engineer needs to implement an IAM policy that restricts the use of AWS services to the `us-east-1` Region. What policy should the Engineer implement?
 
-![Question 147 option A](images/question147_1.png)
-
-![Question 147 option B](images/question147_2.png)
-
-![Question 147 option C](images/question147_3.png)
-
-![Question 147 option D](images/question147_4.png)
-
-- [x] Option A.
+- [ ] Option A.
+![Question 180 option A](images/question180_A.png)
 - [ ] Option B.
-- [ ] Option C.
+![Question 180 option B](images/question180_B.png)
+- [x] Option C.
+![Question 180 option C](images/question180_C.png)
 - [ ] Option D.
+![Question 180 option D](images/question180_D.png)
 
 ### A company has a VPC with an IPv6 address range and a public subnet with an IPv6 address block. The VPC currently hosts some public Amazon EC2 instances but a Security Engineer needs to migrate a second application into the VPC that also requires IPv6 connectivity. This new application will occasionally make API requests to an external, internet-accessible endpoint to receive updates However, the Security team does not want the application's EC2 instance exposed directly to the internet The Security Engineer intends to create a private subnet with a custom route table and to associate the route table with the private subnet. What else does the Security Engineer need to do to ensure the application will not be exposed directly to the internet, but can still communicate as required.
 
@@ -1683,7 +1678,7 @@ Send email notifications using Amazon SNS.
 
 ### A company's Director of information Security wants a daily email report from AWS that contains recommendations for each company account to meet AWS Security best practices. Which solution would meet these requirements?
 
-- [x] in every AWS account, configure AWS Lambda to query me AWS Support API for AWS Trusted Advisor security checks Send the results from Lambda to an Amazon SNS topic to send reports.
+- [x] In every AWS account, configure AWS Lambda to query me AWS Support API for AWS Trusted Advisor security checks Send the results from Lambda to an Amazon SNS topic to send reports.
 - [ ] Configure Amazon GuardDuty in a master account and invite all other accounts to be managed by the master account Use GuardDuty's integration with Amazon SNS to report on findings.
 - [ ] Use Amazon Athena and Amazon QuickSight to build reports off of AWS CloudTrail Create a daily Amazon CloudWatch trigger to run the report dally and email It using Amazon SNS.
 - [ ] Use AWS Artifact's prebuilt reports and subscriptions Subscribe the Director of Information Security to the reports by adding the Director as the security alternate contact for each account.
@@ -2144,3 +2139,17 @@ API.
 - [ ] Generate a new AWS Key Management Service (AWS KMS) customer managed key. Import the new key material. Create a new DynamoDB table, and select the new key as the encryption key. Disable the KMS key after table creation. Import the data into DynamoDB.
 - [ ] Generate a new AWS Key Management Service (AWS KMS) AWS managed key. Import the new key material. Grant DynamoDB access to use the key. Create a new DynamoDB table, and select the new key as the encryption key. Import the data into DynamoDB.
 - [ ] Generate a new AWS Key Management Service (AWS KMS) AWS managed key. Import the new key material. Use the AWS SDK integration with AWS KMS to encrypt the data locally by using the new KMS key. Create a new DynamoDB table, and select the new key as the encryption key. Disable the KMS key after table creation. Import the data into DynamoDB.
+
+### A security engineer has noticed that VPC Flow Logs are getting a lot of REJECT traffic originating from a single Amazon EC2 instance in an Auto Scaling group. The security engineer is concerned that this EC2 instance may be compromised. What immediate action should the security engineer take?
+
+- [x] Remove the instance from the Auto Scaling group. Close the security group with ingress only from a single forensic IP address to perform an analysis.
+- [ ] Remove the instance from the Auto Scaling group. Change the network ACL rules to allow traffic only from a single forensic IP address to perform an analysis. Add a rule to deny all other traffic.
+- [ ] Remove the instance from the Auto Scaling group. Enable Amazon GuardDuty in that AWS account. Install the Amazon Inspector agent on the suspicious EC2 instance to perform a scan.
+- [ ] Take a snapshot of the suspicious EC2 instance. Create a new EC2 instance from the snapshot in a closed security group with ingress only from a single forensic IP address to perform an analysis.
+
+### A company is running its workloads in a single AWS Region and uses AWS Organizations. A security engineer must implement a solution to prevent users from launching resources in other Regions. Which solution will meet these requirements with the LEAST operational overhead?
+
+- [ ] Create an IAM policy that has an `aws:RequestedRegion` condition that allows actions only in the designated Region. Attach the policy to all users.
+- [ ] Create an IAM policy that has an `aws:RequestedRegion` condition that denies actions that are not in the designated Region. Attach the policy to the AWS account in AWS Organizations.
+- [ ] Create an IAM policy that has an `aws:RequestedRegion` condition that allows the desired actions. Attach the policy only to the users who are in the designated Region.
+- [x] Create an SCP that has an `aws:RequestedRegion` condition that denies actions that are not in the designated Region. Attach the SCP to the AWS account in AWS Organizations.
