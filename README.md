@@ -1404,18 +1404,18 @@ route to the NAT instance.
 
 ### Authorized Administrators are unable to connect to an Amazon EC2 Linux bastion host using SSH over the internet. The connection either fails to respond or generates the following error message: `Network error: Connection timed out`. What could be responsible for the connection failure? (Select THREE)
 
-- [ ] The NAT gateway in the subnet where the EC2 instance is deployed has been misconfigured
-- [ ] The internet gateway of the VPC has been reconfigured
-- [x] The security group denies outbound traffic on ephemeral ports
-- [ ] The route table is missing a route to the internet gateway
-- [x] The NACL denies outbound traffic on ephemeral ports
-- [x] The host-based firewall is denying SSH traffic
+- [ ] The NAT gateway in the subnet where the EC2 instance is deployed has been misconfigured.
+- [x] The internet gateway of the VPC has been reconfigured.
+- [ ] The security group denies outbound traffic on ephemeral ports.
+- [x] The route table is missing a route to the internet gateway.
+- [ ] The NACL denies outbound traffic on ephemeral ports.
+- [x] The host-based firewall is denying SSH traffic.
 
 ### A company is setting up products to deploy in AWS Service Catalog. Management is concerned that when users launch products, elevated IAM privileges will be required to create resources. How should the company mitigate this concern?
 
 - [ ] Add a template constraint to each product in the portfolio.
-- [ ] Add a launch constraint to each product in the portfolio.
-- [x] Define resource update constraints for each product in the portfolio.
+- [x] Add a launch constraint to each product in the portfolio.
+- [ ] Define resource update constraints for each product in the portfolio.
 - [ ] Update the AWS CloudFormalion template backing the product to include a service role configuration.
 
 ### A company is configuring three Amazon EC2 instances with each instance in a separate Availability Zone. The EC2 instances wilt be used as transparent proxies for outbound internet traffic for ports 80 and 443 so the proxies can block traffic to certain internet destinations as required by the company's security policies. A Security Engineer completed the following: Set up the proxy software on the EC2 instances. Modified the route tables on the private subnets to use the proxy EC2 instances as the default route. Created a security group rule opening inbound port 80 and 443 TCP protocols on the proxy EC2 instance security group. However, the proxy EC2 instances are not successfully forwarding traffic to the internet. What should the Security Engineer do to make the proxy EC2 instances route traffic to the internet?
@@ -1427,10 +1427,10 @@ route to the NAT instance.
 
 ### A financial institution has the following security requirements: Cloud-based users must be contained in a separate authentication domain. Cloud-based users cannot access on-premises systems. As part of standing up a cloud environment, the financial institution is creating a number of Amazon managed databases and Amazon EC2 instances. An Active Directory service exists on-premises that has all the administrator accounts, and these must be able to access the databases and instances. How would the organization manage its resources in the MOST secure manner? (Choose TWO)
 
-- [ ] Configure an AWS Managed Microsoft AD to manage the cloud resources.
+- [x] Configure an AWS Managed Microsoft AD to manage the cloud resources.
 - [ ] Configure an additional on-premises Active Directory service to manage the cloud resources.
 - [ ] Establish a one-way trust relationship from the existing Active Directory to the new Active Directory service.
-- [ ] Establish a one-way trust relationship from the new Active Directory to the existing Active Directory service.
+- [x] Establish a one-way trust relationship from the new Active Directory to the existing Active Directory service.
 - [ ] Establish a two-way trust between the new and existing Active Directory services.
 
 ### An application developer is using an AWS Lambda function that must use AWS KMS to perform encrypt and decrypt operations for API keys that are less than 2 KB. Which key policy would allow the application to do this while granting least privilege?
@@ -2160,3 +2160,10 @@ API.
 - [x] Use imported keys for Set 1. Use AWS managed keys for Set 2. For Set 1, set an expiration period. AWS will automatically delete the keys after the expiration period has elapsed.
 - [ ] Use AWS managed keys for Set 1. Use imported keys for Set 2. For Set 1, set an expiration period and manually delete the keys after the expiration period has elapsed.
 - [ ] Use AWS managed keys for Set 1. Use imported keys for Set 2. For Set 1, set an expiration period. AWS will automatically delete the keys after the expiration period has elapsed.
+
+### A company operates a web application that runs on Amazon EC2 instances. The application listens on port 80 and port 443. The company uses an Application Load Balancer (ALB) with AWS WAF to terminate SSL and to forward traffic to the application instances only on port 80. The ALB is in public subnets that are associated with a network ACL that is named NACL. The application instances are in dedicated private subnets that are associated with a network ACL that is named NACL2. An Amazon RDS for PostgreSQL DB instance that uses port 5432 is in a dedicated private subnet that is associated with a network ACL that is named NACL3. All the network ACLs currently allow all inbound and outbound traffic. Which set of network ACL changes will increase the security of the application while ensuring functionality?
+
+- [ ] Make the following changes to NACL3: Add a rule that allows inbound traffic on port 5432 from NACL2. Add a rule that allows outbound traffic on ports 1024-65536 to NACL2. Remove the default rules that allow all inbound and outbound traffic.
+- [x] Make the following changes to NACL3: Add a rule that allows inbound traffic on port 5432 from the CIDR blocks of the application instance subnets. Add a rule that allows outbound traffic on ports 1024-65536 to the application instance subnets. Remove the default rules that allow all inbound and outbound traffic.
+- [ ] Make the following changes to NACL2: Add a rule that allows outbound traffic on port 5432 to the CIDR blocks of the RDS subnets. Remove the default rules that allow all inbound and outbound traffic.
+- [ ] Make the following changes to NACL2: Add a rule that allows inbound traffic on port 5432 from the CIDR blocks of the RDS subnets. Add a rule that allows outbound traffic on port 5432 to the RDS subnets.
