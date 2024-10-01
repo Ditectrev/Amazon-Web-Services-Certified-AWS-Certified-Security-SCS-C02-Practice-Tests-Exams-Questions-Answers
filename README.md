@@ -1435,25 +1435,37 @@ route to the NAT instance.
 
 ### An application developer is using an AWS Lambda function that must use AWS KMS to perform encrypt and decrypt operations for API keys that are less than 2 KB. Which key policy would allow the application to do this while granting least privilege?
 
-- [ ] Option A
-- [x] Option B
-- [ ] Option C
-- [ ] Option D
+- [ ] Option A.
+![Question 187 option A](images/question187_A.png)
+- [x] Option B.
+![Question 187 option B](images/question187_B.png)
+- [ ] Option C.
+![Question 187 option C](images/question187_C.png)
+- [ ] Option D.
+![Question 187 option D](images/question187_D.png)
+
+### A Developer is creating an AWS Lambda function that requires environment variables to store connection information and logging settings. The Developer is required to use an AWS KMS Customer Master Key (CMK) supplied by the Information Security department in order to adhere to company standards for securing Lambda environment variables. Which of the following are required for this configuration to work? (Choose two.)
+
+- [ ] The Developer must configure Lambda access to the VPC using the `--vpc-config` parameter.
+- [x] The Lambda function execution role must have the kms:Decrypt permission added in the AWS IAM policy.
+- [x] The KMS key policy must allow permissions for the Developer to use the KMS key.
+- [ ] The AWS IAM policy assigned to the Developer must have the kms:GenerateDataKey permission added.
+- [ ] The Lambda execution role must have the kms:Encrypt permission added in the AWS IAM policy.
 
 ### A Developer is building a serverless application that uses Amazon API Gateway as the front end. The application will not be publicly accessible. Other legacy applications running on Amazon EC2 will make calls to the application A Security Engineer Has been asked to review the security controls for authentication and authorization of the application. Which combination of actions would provide the MOST secure solution? (Select TWO)
 
 - [x] Configure an IAM policy that allows the least permissive actions to communicate with the API Gateway Attach the policy to the role used by the legacy EC2 instances.
 - [ ] Enable AWS WAF for API Gateway Configure rules to explicitly allow connections from the legacy EC2 instances.
-- [ ] Create a VPC endpoint for API Gateway Attach an IAM resource policy that allows the role of the legacy EC2 instances to call specific APIs.
+- [x] Create a VPC endpoint for API Gateway Attach an IAM resource policy that allows the role of the legacy EC2 instances to call specific APIs.
 - [ ] Create a usage plan Generate a set of API keys for each application that needs to call the API.
-- [x] Create a usage plan Generate a set of API keys for each application that needs to call the API.
+- [ ] Create a usage plan Generate a set of API keys for each application that needs to call the API.
 
 ### A company has an encrypted Amazon S3 bucket. An Application Developer has an IAM policy that allows access to the S3 bucket, but the Application Developer is unable to access objects within the bucket. What is a possible cause of the issue?
 
 - [ ] The S3 ACL for the S3 bucket fails to explicitly grant access to the Application Developer.
 - [ ] The AWS KMS key for the S3 bucket fails to list the Application Developer as an administrator.
-- [x] The S3 bucket policy fails to explicitly grant access to the Application Developer.
-- [ ] The S3 bucket policy explicitly denies access to the Application Developer.
+- [ ] The S3 bucket policy fails to explicitly grant access to the Application Developer.
+- [x] The S3 bucket policy explicitly denies access to the Application Developer.
 
 ### A company's web application is hosted on Amazon EC2 instances running behind an Application Load Balancer (ALB) in an Auto Scaling group. An AWS WAF web ACL is associated with the ALB. AWS CloudTrail is enabled, and stores logs in Amazon S3 and Amazon CloudWatch Logs. The operations team has observed some EC2 instances reboot at random. After rebooting, all access logs on the instances have been deleted. During an investigation, the operations team found that each reboot happened just after a PHP error occurred on the new-user-creation.php file. The operations team needs to view log information to determine if the company is being attacked. Which set of actions will identify the suspect attacker's IP address for future occurrences?
 
@@ -1464,12 +1476,12 @@ route to the NAT instance.
 
 ### After a recent security audit involving Amazon S3, a company has asked assistance reviewing its S3 buckets to determine whether data is properly secured. The first S3 bucket on the list has the following bucket policy. Is this bucket policy sufficient to ensure that the data is not publicity accessible?
 
-![Question 158](images/question158.png)
+![Question 192](images/question192.jpg)
 
-- [x] Yes, the bucket policy makes the whole bucket publicly accessible despite now the S3 bucket ACL or object ACLs are configured.
+- [ ] Yes, the bucket policy makes the whole bucket publicly accessible despite now the S3 bucket ACL or object ACLs are configured.
 - [ ] Yes, none of the data in the bucket is publicity accessible, regardless of how the S3 bucket ACL and object ACLs are configured.
 - [ ] No, the IAM user policy would need to be examined first to determine whether any data is publicly accessible.
-- [ ] No, the S3 bucket ACL and object ACLs need to be examined first to determine whether any data is publicly accessible.
+- [x] No, the S3 bucket ACL and object ACLs need to be examined first to determine whether any data is publicly accessible.
 
 ### A company's security engineer is configuring Amazon S3 permissions to ban all current and future public buckets However, the company hosts several websites directly off S3 buckets with public access enabled. The engineer needs to bock me pubic S3 buckets without causing any outages on me easting websites. The engineer has set up an Amazon CloudFrom distribution or each website. Which set or steps should the security engineer implement next?
 
