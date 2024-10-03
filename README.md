@@ -1539,7 +1539,7 @@ route to the NAT instance.
 
 - [ ] Enable server-side encryption with Amazon S3 managed encryption keys (SSE-S3) for the S3 bucket. Configure annual automatic key rotation. Use an S3 Batch Operations job with the COPY command to change all the objects in the S3 bucket to use the SSE-S3 key. Configure the EC2 instance profile with permissions to use the SSE-S3 key. Configure S3 data events to encrypt an object during a write operation.
 - [ ] Create a new AWS Key Management Service (AWS KMS) customer managed key. Configure annual automatic key rotation. Enable server-side encryption with AWS KMS keys (SSE-KMS) for the S3 bucket. Add a bucket policy to the S3 bucket to enforce SSE-KMS encryption. Configure the EC2 instance profile with permissions to use the customer managed key.
-- [x] Create a new AWS Key Management Service (AWS KMS) customer managed key. Configure annual automatic key rotation. Enable server-side encryption with AWS KMS keys (SSE-KMS) for the S3 bucket. Use an S3 Batch Operations job with the COPY command to change all the objects in the S3 bucket to use the customer managed key. Configure the EC2 instance profile with permissions to use the customer managed key. Most Voted
+- [x] Create a new AWS Key Management Service (AWS KMS) customer managed key. Configure annual automatic key rotation. Enable server-side encryption with AWS KMS keys (SSE-KMS) for the S3 bucket. Use an S3 Batch Operations job with the COPY command to change all the objects in the S3 bucket to use the customer managed key. Configure the EC2 instance profile with permissions to use the customer managed key.
 - [ ] Enable server-side encryption with Amazon S3 managed encryption keys (SSE-S3) for the S3 bucket. Configure annual automatic key rotation. Configure the EC2 instance profile with permissions to use the SSE-S3 key. Use the AWS CLI to copy the S3 objects in place by specifying the SSE-S3 key as the encryption key. Configure S3 data events to encrypt an object during a write operation.
 
 ### A Security Administrator at a university is configuring a fleet of Amazon EC2 instances. The EC2 instances are shared among students, and non-root SSH access is allowed. The Administrator is concerned about students attacking other AWS account resources by using the EC2 instance metadata service. What can the Administrator do to protect against this potential attack?
@@ -1605,24 +1605,38 @@ route to the NAT instance.
 
 ### A security engineer must develop an encryption tool for a company. The company requires a cryptographic solution that supports the ability to perform cryptographic erasure on all resources protected by the key material in 15 minutes or less. Which AWS Key Management Service (AWS KMS) key solution will allow the security engineer to meet these requirements?
 
-- [ ] Use Imported key material with CMK.
+- [x] Use imported key material with CMK.
 - [ ] Use an AWS KMS CMK.
-- [x] Use an AWS managed CMK.
+- [ ] Use an AWS managed CMK.
 - [ ] Use an AWS KMS customer managed CMK.
+
+### A company plans to use AWS Key Management Service (AWS KMS) to implement an encryption strategy to protect data at rest. The company requires client-side encryption for company projects. The company is currently conducting multiple projects to test the company's use of AWS KMS. These tests have led to a sudden increase in the company's AWS resource consumption. The test projects include applications that issue multiple requests each second to KMS endpoints for encryption activities. The company needs to develop a solution that does not throttle the company's ability to use AWS KMS. The solution must improve key usage for client-side encryption and must be cost optimized. Which solution will meet these requirements?
+
+- [ ] Use keyrings with the AWS Encryption SDK. Use each keyring individually or combine keyrings into a multi-keyring. Decrypt the data by using a keyring that has the primary key in the multi-keyring.
+- [x] Use data key caching. Use the local cache that the AWS Encryption SDK provides with a caching cryptographic materials manager.
+- [ ] Use KMS key rotation. Use a local cache in the AWS Encryption SDK with a caching cryptographic materials manager.
+- [ ] Use keyrings with the AWS Encryption SDK. Use each keyring individually or combine keyrings into a multi-keyring. Use any of the wrapping keys in the multi-keyring to decrypt the data.
 
 ### A company is using AWS Organizations to manage multiple AWS member accounts. All of these accounts have Amazon GuardDuty enabled in all Regions. The company's AW5 Security Operations Center has a centralized security account for logging and monitoring. One of the member accounts has received an excessively high bill A security engineer discovers that a compromised Amazon EC2 instance is being used to mine crypto currency. The Security Operations Center did not receive a GuardDuty finding in the central security account. but there was a GuardDuty finding in the account containing the compromised EC2 instance. The security engineer needs to ensure an GuardDuty finding are available in the security account. What should the security engineer do to resolve this issue?
 
 - [ ] Set up an Amazon CloudWatch Event rule to forward ail GuardDuty findings to the security account Use an AWS Lambda function as a target to raise findings.
 - [ ] Set up an Amazon CloudWatch Events rule to forward all GuardDuty findings to the security account Use an AWS Lambda function as a target to raise findings in AWS Security Hub.
 - [ ] Check that GuardDuty in the security account is able to assume a role in the compromised account using the GuardDuty fast findings permission Schedule an Amazon CloudWatch Events rule and an AWS Lambda function to periodically check for GuardDuty findings.
-- [ ] Use the aws GuardDuty get-members AWS CLI command m the security account to see if the account is listed Send an invitation from GuardDuty m the security account to GuardDuty in the compromised account Accept the invitation to forward all future GuardDuty findings.
+- [x] Use the aws GuardDuty `get-members` AWS CLI command m the security account to see if the account is listed Send an invitation from GuardDuty m the security account to GuardDuty in the compromised account Accept the invitation to forward all future GuardDuty findings.
 
-### An external Auditor finds that a company's user passwords have no minimum length. The company is currently using two identity providers: AWS IAM federated with on-premises Active Directory. Amazon Cognito user pools to accessing an AWS Cloud application developed by the company. Which combination o1 actions should the Security Engineer take to solve this issue? (Select TWO)
+### A company's on-premises data center forwards DNS logs to a third-party security incident events management (SIEM) solution that alerts on suspicious behavior. The company wants to introduce a similar capability to its AWS accounts that includes automatic remediation. The company expects to double in size within the next few months. Which solution meets the company's current and future logging requirements?
 
-- [x] Update the password length policy In the on-premises Active Directory configuration.
-- [ ] Update the password length policy In the IAM configuration.
-- [x] Enforce an IAM policy In Amazon Cognito and AWS IAM with a minimum password length condition.
-- [ ] Update the password length policy in the Amazon Cognito configuration.
+- [x] Enable Amazon GuardDuty and AWS Security Hub in all Regions and all accounts. Designate a master security account to receive all alerts from the child accounts. Set up specific rules within Amazon EventBridge to trigger an AWS Lambda function for remediation steps.
+- [ ] Ingest all AWS CloudTrail logs, VPC Flow Logs, and DNS logs into a single Amazon S3 bucket in a designated security account. Use the current on-premises SIEM to monitor the logs and send a notification to an Amazon SNS topic to alert the security team of remediation steps.
+- [ ] Ingest all AWS CloudTrail logs, VPC Flow Logs, and DNS logs into a single Amazon S3 bucket in a designated security account. Launch an Amazon EC2 instance and install the current SIEM to monitor the logs and send a notification to an Amazon SNS topic to alert the security team of remediation steps.
+- [ ] Enable Amazon GuardDuty and AWS Security Hub in all Regions and all accounts. Designate a master security account to receive all alerts from the child accounts. Create an AWS Organizations SCP that denies access to certain API calls that are on an ignore list.
+
+### An external auditor finds that a company's user passwords have no minimum length. The company is currently using two identity providers: AWS IAM federated with on-premises Active Directory. Amazon Cognito user pools to accessing an AWS Cloud application developed by the company. Which combination o1 actions should the Security Engineer take to solve this issue? (Select TWO)
+
+- [x] Update the password length policy in the on-premises Active Directory configuration.
+- [ ] Update the password length policy in the IAM configuration.
+- [ ] Enforce an IAM policy in Amazon Cognito and AWS IAM with a minimum password length condition.
+- [x] Update the password length policy in the Amazon Cognito configuration.
 - [ ] Create an SCP with AWS Organizations that enforces a minimum password length for AWS IAM and Amazon Cognito.
 
 ### A Developer signed in to a new account within an AWS Organizations organizations unit (OU) containing multiple accounts. Access to the Amazon S3 service is restricted with the following SCP: How can the Security Engineer provide the Developer with Amazon S3 access without affecting other accounts?
