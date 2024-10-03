@@ -1526,20 +1526,27 @@ route to the NAT instance.
 - [ ] An AWS managed CMK.
 - [ ] Operating system-native encryption that uses GnuPG.
 
-### A company's application runs on Amazon EC2 and stores data in an Amazon S3 bucket The company wants additional security controls in place to limit the likelihood of accidental exposure of data to external parties. Which combination of actions will meet this requirement? (Select THREE)
+### A company's application runs on Amazon EC2 and stores data in an Amazon S3 bucket. The company wants additional security controls in place to limit the likelihood of accidental exposure of data to external parties. Which combination of actions will meet this requirement? (Select THREE)
 
 - [ ] Encrypt the data in Amazon S3 using server-side encryption with Amazon S3 managed encryption keys (SSE-S3)
 - [x] Encrypt the data in Amazon S3 using server-side encryption with AWS KMS managed encryption keys (SSE-KMS)
-- [x] Create a new Amazon S3 VPC endpoint and modify the VPC's routing tables to use the new endpoint.
-- [ ] Use the Amazon S3 Block Public Access feature.
+- [ ] Create a new Amazon S3 VPC endpoint and modify the VPC's routing tables to use the new endpoint.
+- [x] Use the Amazon S3 Block Public Access feature.
 - [x] Configure the bucket policy to allow access from the application instances only.
 - [ ] Use a NACL to filter traffic to Amazon S3.
 
+### A company’s application runs on an Amazon EC2 instance and stores objects in an Amazon S3 bucket. The EC2 instance is using an instance profile that provides access to read and write objects in the S3 bucket. The S3 bucket contains objects and has not been configured for any encryption at rest. The company is adopting a new security policy that mandates encryption at rest for all S3 buckets, encryption at rest for all objects in S3 buckets, and key rotation once every year. What should a security engineer do to meet these requirements?
+
+- [ ] Enable server-side encryption with Amazon S3 managed encryption keys (SSE-S3) for the S3 bucket. Configure annual automatic key rotation. Use an S3 Batch Operations job with the COPY command to change all the objects in the S3 bucket to use the SSE-S3 key. Configure the EC2 instance profile with permissions to use the SSE-S3 key. Configure S3 data events to encrypt an object during a write operation.
+- [ ] Create a new AWS Key Management Service (AWS KMS) customer managed key. Configure annual automatic key rotation. Enable server-side encryption with AWS KMS keys (SSE-KMS) for the S3 bucket. Add a bucket policy to the S3 bucket to enforce SSE-KMS encryption. Configure the EC2 instance profile with permissions to use the customer managed key.
+- [x] Create a new AWS Key Management Service (AWS KMS) customer managed key. Configure annual automatic key rotation. Enable server-side encryption with AWS KMS keys (SSE-KMS) for the S3 bucket. Use an S3 Batch Operations job with the COPY command to change all the objects in the S3 bucket to use the customer managed key. Configure the EC2 instance profile with permissions to use the customer managed key. Most Voted
+- [ ] Enable server-side encryption with Amazon S3 managed encryption keys (SSE-S3) for the S3 bucket. Configure annual automatic key rotation. Configure the EC2 instance profile with permissions to use the SSE-S3 key. Use the AWS CLI to copy the S3 objects in place by specifying the SSE-S3 key as the encryption key. Configure S3 data events to encrypt an object during a write operation.
+
 ### A Security Administrator at a university is configuring a fleet of Amazon EC2 instances. The EC2 instances are shared among students, and non-root SSH access is allowed. The Administrator is concerned about students attacking other AWS account resources by using the EC2 instance metadata service. What can the Administrator do to protect against this potential attack?
 
-- [x] Disable the EC2 instance metadata service.
+- [ ] Disable the EC2 instance metadata service.
 - [ ] Log all student SSH interactive session activity.
-- [ ] Implement ip tables-based restrictions on the instances.
+- [x] Implement iptables-based restrictions on the instances.
 - [ ] Install the Amazon Inspector agent on the instances.
 
 ### An employee accidentally exposed an AWS access key and secret access key during a public presentation. The company Security Engineer immediately disabled the key. How can the Engineer assess the impact of the key exposure and ensure that the credentials were not misused? (Choose TWO)
@@ -1552,26 +1559,49 @@ route to the NAT instance.
 
 ### A company has several production AWS accounts and a central security AWS account. The security account is used for centralized monitoring and has IAM privileges to all resources in every corporate account. All of the company's Amazon S3 buckets are tagged with a value denoting the data classification of their contents. A Security Engineer is deploying a monitoring solution in the security account that will enforce bucket policy compliance. The system must monitor S3 buckets in all production accounts and confirm that any policy change is in accordance with the bucket's data classification. If any change is out of compliance; the Security team must be notified quickly. Which combination of actions would build the required solution? (Choose THREE)
 
-- [ ] Configure Amazon CloudWatch Events in the production accounts to send all S3 events to the security account event bus.
+- [x] Configure Amazon CloudWatch Events in the production accounts to send all S3 events to the security account event bus.
 - [ ] Enable Amazon GuardDuty in the security account. and join the production accounts as members.
-- [ ] Configure an Amazon CloudWatch Events rule in the security account to detect S3 bucket creation or modification events.
-- [x] Enable AWS Trusted Advisor and activate email notifications for an email address assigned to the security contact.
+- [x] Configure an Amazon CloudWatch Events rule in the security account to detect S3 bucket creation or modification events.
+- [ ] Enable AWS Trusted Advisor and activate email notifications for an email address assigned to the security contact.
 - [x] Invoke an AWS Lambda function in the security account to analyze S3 bucket settings in response to S3 events, and send non-compliance notifications to the Security team.
-- [x] Configure event notifications on S3 buckets for PUT; POST, and DELETE events.
+- [ ] Configure event notifications on S3 buckets for PUT; POST, and DELETE events.
 
 ### A security engineer is auditing a production system and discovers several additional IAM roles that are not required and were not previously documented during the last audit 90 days ago. The engineer is trying to find out who created these IAM roles and when they were created. The solution must have the lowest operational overhead. Which solution will meet this requirement?
 
-- [x] Import AWS CloudTrail logs from Amazon S3 into an Amazon Elasticsearch Service cluster, and search through the combined logs for CreateRole events.
+- [ ] Import AWS CloudTrail logs from Amazon S3 into an Amazon Elasticsearch Service cluster, and search through the combined logs for CreateRole events.
 - [ ] Create a table in Amazon Athena for AWS CloudTrail events. Query the table in Amazon Athena for CreateRole events.
-- [ ] Use AWS Config to look up the configuration timeline for the additional IAM roles and view the linked AWS CloudTrail event.
+- [x] Use AWS Config to look up the configuration timeline for the additional IAM roles and view the linked AWS CloudTrail event.
 - [ ] Download the credentials report from the IAM console to view the details for each IAM entity, including the creation dates.
+
+### A company has a new AWS account that does not have AWS CloudTrail configured. The account has an IAM access key that was issued by AWS Security Token Service (AWS STS). A security engineer discovers that the IAM access key has been compromised within the last 24 hours. The security engineer must stop the compromised IAM access key from being used. The security engineer also must determine which activities the key has been used for so far. What should the security engineer do to meet these requirements?
+
+- [ ] In the CloudTrail console, under CloudTrail event history, search by access key for the compromised key, with the correlated events, and identify which IAM user the key belongs to. In the IAM console, revoke all active sessions for that IAM user.
+- [ ] Create a new CloudTrail trail. In the CloudTrail console, under CloudTrail event history, search by access key for the compromised key, view the correlated events, and identify which IAM user the key belongs to. In the IAM console, revoke all active sessions for that IAM user.
+- [ ] Create a new CloudTrail trail. In the CloudTrail console, under CloudTrail event history, search by access key for the compromised key, view the correlated events, and identify which IAM role the key belongs to. In the IAM console, delete that IAM role.
+- [x] In the CloudTrail console, under CloudTrail event history, search by access key for the compromised key, view the correlated events, and identify which IAM role the key belongs to. In the IAM console, revoke all active sessions for that IAM role.
 
 ### After multiple compromises of its Amazon EC2 instances, a company's Security Officer is mandating that memory dumps of compromised instances be captured for further analysis. A Security Engineer just received an EC2 abuse notification report from AWS stating that an EC2 instance running the most recent. Windows Server 2019 Base AMI is compromised. How should the Security Engineer collect a memory dump of the EC2 instance for forensic analysis?
 
-- [x] Give consent to the AWS Security team to dump the memory core on the compromised instance and provide it to AWS Support for analysis.
+- [ ] Give consent to the AWS Security team to dump the memory core on the compromised instance and provide it to AWS Support for analysis.
 - [ ] Review memory dump data that the AWS Systems Manager Agent sent to Amazon CloudWatch Logs.
-- [ ] Download and run the EC2Rescue for Windows Server utility from AWS.
+- [x] Download and run the EC2Rescue for Windows Server utility from AWS.
 - [ ] Reboot the EC2 Windows Server, enter safe mode, and select memory dump.
+
+### A Security Engineer received an AWS Abuse Notice listing EC2 instance IDs that are reportedly abusing other hosts. Which action should the Engineer take based on this situation? (Choose three.)
+
+- [ ] Use AWS Artifact to capture an exact image of the state of each instance.
+- [x] Create EBS Snapshots of each of the volumes attached to the compromised instances.
+- [x] Capture a memory dump.
+- [ ] Log in to each instance with administrative credentials to restart the instance.
+- [x] Revoke all network ingress and egress except for to/from a forensics workstation.
+- [ ] Run Auto Recovery for Amazon EC2.
+
+### A company had one of its Amazon EC2 key pairs compromised. A Security Engineer must identify which current Linux EC2 instances were deployed and used the compromised key pair. How can this task be accomplished?
+
+- [x] Obtain the list of instances by directly querying Amazon EC2 using: `aws ec2 describe-instances –fi1ters "Name=key-name,Values=KEYNAMEHERE"`.
+- [ ] Obtain the fingerprint for the key pair from the AWS Management Console, then search for the fingerprint in the Amazon Inspector logs.
+- [ ] Obtain the output from the EC2 instance metadata using: `curl http: //169.254.169.254/latest/meta-data/public- keys/0/`.
+- [ ] Obtain the fingerprint for the key pair from the AWS Management Console, then search for the fingerprint in Amazon CloudWatch Logs using: `aws logs filter-log-events`.
 
 ### A security engineer must develop an encryption tool for a company. The company requires a cryptographic solution that supports the ability to perform cryptographic erasure on all resources protected by the key material in 15 minutes or less. Which AWS Key Management Service (AWS KMS) key solution will allow the security engineer to meet these requirements?
 
@@ -1610,13 +1640,6 @@ route to the NAT instance.
 - [ ] Create a managed IAM policy for the permissions required. Reference the IAM policy as a permissions boundary within the development team's IAM role.
 - [ ] Enable AWS Organizations Create an SCP that allows the IAM CreateUser action but that has a condition that prevents API calls other than those required by the development team.
 - [ ] Create an IAM policy with a deny on the IAMCreateUser action and assign the policy to the development team. Use a ticket system to allow the developers to request new IAM roles for their applications. The IAM roles will then be created by the security team.
-
-### A company had one of its Amazon EC2 key pairs compromised. A Security Engineer must identify which current Linux EC2 instances were deployed and used the compromised key pair. How can this task be accomplished?
-
-- [x] Obtain the list of instances by directly querying Amazon EC2 using: aws ec2 describe-instances –fi1ters "Name=key-name,Values=KEYNAMEHERE".
-- [ ] Obtain the fingerprint for the key pair from the AWS Management Console, then search for the fingerprint in the Amazon Inspector logs.
-- [ ] Obtain the output from the EC2 instance metadata using: curl http: //169.254.169.254/latest/meta-data/public- keys/0/.
-- [ ] Obtain the fingerprint for the key pair from the AWS Management Console, then search for the fingerprint in Amazon CloudWatch Logs using: aws logs filter-log-events.
 
 ### A Developer reported that AWS CloudTrail was disabled on their account. A Security Engineer investigated the account and discovered the event was undetected by the current security solution. The Security Engineer must recommend a solution that will detect future changes to the CloudTrail configuration and send alerts when changes occur. What should the Security Engineer do to meet these requirements?
 
@@ -2406,15 +2429,6 @@ API.
 - [x] Use AWS services that replicate data across regions, and re-wrap the data encryption key created in the source region by using the CMK in the target region so that the target region's CMK can decrypt the database encryption key.
 - [ ] Configure the target region's AWS service to communicate with the source region's AWS KMS so that it can decrypt the resource in the target region.
 
-### A Security Engineer received an AWS Abuse Notice listing EC2 instance IDs that are reportedly abusing other hosts. Which action should the Engineer take based on this situation? (Choose three.)
-
-- [ ] Use AWS Artifact to capture an exact image of the state of each instance.
-- [x] Create EBS Snapshots of each of the volumes attached to the compromised instances.
-- [x] Capture a memory dump.
-- [ ] Log in to each instance with administrative credentials to restart the instance.
-- [x] Revoke all network ingress and egress except for to/from a forensics workstation.
-- [ ] Run Auto Recovery for Amazon EC2.
-
 ### A Security Administrator is configuring an Amazon S3 bucket and must meet the following security requirements: Encryption in transit Encryption at rest Logging of all object retrievals in AWS CloudTrail Which of the following meet these security requirements? (Choose three.)
 
 - [x] Specify ג€aws:SecureTransportג€: ג€trueג€ within a condition in the S3 bucket policy.
@@ -2973,15 +2987,6 @@ API.
 - [x] Configure automatic rotation of credentials in AWS Secrets Manager.
 - [ ] Store the credential in an encrypted string parameter in AWS Systems Manager Parameter Store. Grant permission to the instance role associated with the EC2 instance to access the parameter and the AWS KMS key that is used to encrypt it.
 - [x] Configure the Java application to catch a connection failure and make a call to AWS Secrets Manager to retrieve updated credentials when the password is rotated. Grant permission to the instance role associated with the EC2 instance to access Secrets Manager.
-
-### A company has several production AWS accounts and a central security AWS account. The security account is used for centralized monitoring and has IAM privileges to all resources in every corporate account. All of the company's Amazon S3 buckets are tagged with a value denoting the data classification of their contents. A Security Engineer is deploying a monitoring solution in the security account that will enforce bucket policy compliance. The system must monitor S3 buckets in all production accounts and confirm that any policy change is in accordance with the bucket's data classification. If any change is out of compliance, the Security team must be notified quickly. Which combination of actions would build the required solution? (Choose three.)
-
-- [ ] Configure Amazon CloudWatch Events in the production accounts to send all S3 events to the security account event bus.
-- [ ] Enable Amazon GuardDuty in the security account, and join the production accounts as members.
-- [x] Configure an Amazon CloudWatch Events rule in the security account to detect S3 bucket creation or modification events.
-- [ ] Enable AWS Trusted Advisor and activate email notifications for an email address assigned to the security contact.
-- [x]  Invoke an AWS Lambda function in the security account to analyze S3 bucket settings in response to S3 events, and send non-compliance notifications to the Security team.
-- [x] Configure event notifications on S3 buckets for PUT, POST, and DELETE events.
 
 ### A company plans to migrate a sensitive dataset to Amazon S3. A Security Engineer must ensure that the data is encrypted at rest. The encryption solution must enable the company to generate its own keys without needing to manage key storage or the encryption process. What should the Security Engineer use to accomplish this?
 
