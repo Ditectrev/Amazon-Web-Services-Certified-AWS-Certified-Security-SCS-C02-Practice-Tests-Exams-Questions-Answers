@@ -1641,27 +1641,42 @@ route to the NAT instance.
 
 ### A Developer signed in to a new account within an AWS Organizations organizations unit (OU) containing multiple accounts. Access to the Amazon S3 service is restricted with the following SCP: How can the Security Engineer provide the Developer with Amazon S3 access without affecting other accounts?
 
-![Question 175](images/question175.png)
+![Question 214](images/question214.png)
 
 - [ ] Move the SCP to the root OU of Organizations to remove the restriction to access Amazon S3.
-- [x] Add an IAM policy for the Developer, which grants S3 access.
-- [ ] Create a new OU without applying the SCP restricting S3 access. Move the Developer account to this new OU.
+- [ ] Add an IAM policy for the Developer, which grants S3 access.
+- [x] Create a new OU without applying the SCP restricting S3 access. Move the Developer account to this new OU.
 - [ ] Add an allow list for the Developer account for the S3 service.
 
 ### A company's development team is designing an application using AWS Lambda and Amazon Elastic Container Service (Amazon ECS). The development team needs to create IAM roles to support these systems. The company's security team wants to allow the developers to build IAM roles directly, but the security team wants to retain control over the permissions the developers can delegate to those roles. The development team needs access to more permissions than those required for the application's AWS services. The solution must minimize management overhead. How should the security team prevent privilege escalation for both teams?
 
-- [x] Enable AWS CloudTrail. Create a Lambda function that monitors the event history for privilege escalation events and notifies the security team.
-- [ ] Create a managed IAM policy for the permissions required. Reference the IAM policy as a permissions boundary within the development team's IAM role.
+- [ ] Enable AWS CloudTrail. Create a Lambda function that monitors the event history for privilege escalation events and notifies the security team.
+- [x] Create a managed IAM policy for the permissions required. Reference the IAM policy as a permissions boundary within the development team's IAM role.
 - [ ] Enable AWS Organizations Create an SCP that allows the IAM CreateUser action but that has a condition that prevents API calls other than those required by the development team.
 - [ ] Create an IAM policy with a deny on the IAMCreateUser action and assign the policy to the development team. Use a ticket system to allow the developers to request new IAM roles for their applications. The IAM roles will then be created by the security team.
 
+### A company that uses AWS Organizations is migrating workloads to AWS. The company's application team determines that the workloads will use Amazon EC2 instances, Amazon S3 buckets, Amazon DynamoDB tables, and Application Load Balancers. For each resource type, the company mandates that deployments must comply with the following requirements: All EC2 instances must be launched from approved AWS accounts. All DynamoDB tables must be provisioned with a standardized naming convention. All infrastructure that is provisioned in any accounts in the organization must be deployed by AWS CloudFormation templates. Which combination of steps should the application team take to meet these requirements? (Choose two.)
+
+- [x] Create CloudFormation templates in an administrator AWS account. Share the stack sets with an application AWS account. Restrict the template to be used specifically by the application AWS account.
+- [ ] Create CloudFormation templates in an application AWS account. Share the output with an administrator AWS account ta review compliant resources. Restrict output to only the administrator AWS account.
+- [ ] Use permissions boundaries to prevent the application AWS account from provisioning specific resources unless conditions for the internal compliance requirements are met.
+- [x] Use SCPs to prevent the application AWS account from provisioning specific resources unless conditions for the internal compliance requirements are met.
+- [ ] Activate AWS Config managed rules for each service in the application AWS account.
+
 ### A Developer reported that AWS CloudTrail was disabled on their account. A Security Engineer investigated the account and discovered the event was undetected by the current security solution. The Security Engineer must recommend a solution that will detect future changes to the CloudTrail configuration and send alerts when changes occur. What should the Security Engineer do to meet these requirements?
 
-- [x] Use AWS Resource Access Manager (AWS RAM) to monitor the AWS CloudTrail configuration. Send notifications using Amazon SNS.
-- [ ] Create an Amazon CloudWatch Events rule to monitor Amazon GuardDuty findings.
+- [ ] Use AWS Resource Access Manager (AWS RAM) to monitor the AWS CloudTrail configuration. Send notifications using Amazon SNS.
+- [x] Create an Amazon CloudWatch Events rule to monitor Amazon GuardDuty findings.
 Send email notifications using Amazon SNS.
 - [ ] Update security contact details in AWS account settings for AWS Support to send alerts when suspicious activity is detected.
 - [ ] Use Amazon Inspector to automatically detect security issues. Send alerts using Amazon SNS.
+
+### A company suspects that an attacker has exploited an overly permissive role to export credentials from Amazon EC2 instance metadata. The company uses Amazon GuardDuty and AWS Audit Manager. The company has enabled AWS CloudTrail logging and Amazon CloudWatch logging for all of its AWS accounts. A security engineer must determine if the credentials were used to access the company's resources from an external account. Which solution will provide this information?
+
+- [x] Review GuardDuty findings to find `InstanceCredentialExfiltration` events.
+- [ ] Review assessment reports in the Audit Manager console to find `InstanceCredentialExfiltration` events.
+- [ ] Review CloudTrail logs for `GetSessionToken` API calls to AWS Security Token Service (AWS STS) that come from an account ID from outside the company.
+- [ ] Review CloudWatch logs for `GetSessionToken` API calls to AWS Security Token Service (AWS STS) that come from an account ID from outside the company.
 
 ### A security engineer need to ensure their company's uses of AWS meets AWS security best practices. As part of this, the AWS account root user must not be used for daily work. The root user must be monitored for use, and the Security team must be alerted as quickly as possible if the root user is used. Which solution meets these requirements?
 
@@ -1669,6 +1684,13 @@ Send email notifications using Amazon SNS.
 - [ ] Set up an Amazon CloudWatch Events rule that triggers an Amazon SNS notification logs from S3 and generate notifications using Amazon SNS.
 - [ ] Set up a rule in AWS config to trigger root user events. Trigger an AWS Lambda function and generate notifications using Amazon SNS.
 - [ ] Use Amazon Inspector to monitor the usage of the root user and generate notifications using Amazon SNS.
+
+### A security engineer has enabled AWS Security Hub in their AWS account, and has enabled the Center for Internet Security (CIS) AWS Foundations compliance standard. No evaluation results on compliance are returned in the Security Hub console after several hours. The engineer wants to ensure that Security Hub can evaluate their resources for CIS AWS Foundations compliance. Which steps should the security engineer take to meet these requirements?
+
+- [ ] Add full Amazon Inspector IAM permissions to the Security Hub service role to allow it to perform the CIS compliance evaluation.
+- [ ] Ensure that AWS Trusted Advisor is enabled in the account, and that the Security Hub service role has permissions to retrieve the Trusted Advisor security- related recommended actions.
+- [x] Ensure that AWS Config is enabled in the account, and that the required AWS Config rules have been created for the CIS compliance evaluation.
+- [ ] Ensure that the correct trail in AWS CloudTrail has been configured for monitoring by Security Hub, and that the Security Hub service role has permissions to perform the GetObject operation on CloudTrail's Amazon S3 bucket.
 
 ### A company always needs its Amazon Elastic Block Store (Amazon EBS) volumes to be encrypted During a security incident. EBS snapshots of suspicious instances are shared to a forensics account for analysis A security engineer attempting to share a suspicious EBS snapshot to the forensics account receives the following error `"Unable to share snapshot: An error occurred (OperationNotPermitted) when calling the ModifySnapshotAttribute operation: Encrypted snapshots with EBS default key cannot be shared`. Which combination of steps should the security engineer take in the incident account to complete the sharing operation? (Select THREE)
 
