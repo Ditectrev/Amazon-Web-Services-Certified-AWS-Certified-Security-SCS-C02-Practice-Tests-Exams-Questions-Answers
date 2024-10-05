@@ -1692,6 +1692,14 @@ Send email notifications using Amazon SNS.
 - [x] Ensure that AWS Config is enabled in the account, and that the required AWS Config rules have been created for the CIS compliance evaluation.
 - [ ] Ensure that the correct trail in AWS CloudTrail has been configured for monitoring by Security Hub, and that the Security Hub service role has permissions to perform the GetObject operation on CloudTrail's Amazon S3 bucket.
 
+### A company has secured the AWS account root user for its AWS account by following AWS best practices. The company also has enabled AWS CloudTrail, which is sending its logs to Amazon S3. A security engineer wants to receive notification in near-real time if a user uses the AWS account root user credentials to sign in to the AWS Management Console. Which solutions will provide this notification? (Choose two.)
+
+- [ ] Use AWS Trusted Advisor and its security evaluations for the root account. Configure an Amazon EventBridge event rule that is invoked by the Trusted Advisor API. Configure the rule to target an Amazon Simple Notification Service (Amazon SNS) topic. Subscribe any required endpoints to the SNS topic so that these endpoints can receive notification.
+- [ ] Use AWS IAM Access Analyzer. Create an Amazon Cloud Watch Logs metric filter to evaluate log entries from Access Analyzer that detect a successful root account login. Create an Amazon CloudWatch alarm that monitors whether a root login has occurred. Configure the CloudWatch alarm to notify an Amazon Simple Notification Service (Amazon SNS) topic when the alarm enters the ALARM state. Subscribe any required endpoints to this SNS topic so that these endpoints can receive notification.
+- [x] Configure AWS CloudTrail to send its logs to Amazon CloudWatch Logs. Configure a metric filter on the CloudWatch Logs log group used by CloudTrail to evaluate log entries for successful root account logins. Create an Amazon CloudWatch alarm that monitors whether a root login has occurred. Configure the CloudWatch alarm to notify an Amazon Simple Notification Service (Amazon SNS) topic when the alarm enters the ALARM state. Subscribe any required endpoints to this SNS topic so that these endpoints can receive notification.
+- [ ] Configure AWS CloudTrail to send log notifications to an Amazon Simple Notification Service (Amazon SNS) topic. Create an AWS Lambda function that parses the CloudTrail notification for root login activity and notifies a separate SNS topic that contains the endpoints that should receive notification. Subscribe the Lambda function to the SNS topic that is receiving log notifications from CloudTrail.
+- [x] Configure an Amazon EventBridge event rule that runs when Amazon CloudWatch API calls are recorded for a successful root login. Configure the rule to target an Amazon Simple Notification Service (Amazon SNS) topic. Subscribe any required endpoints to the SNS topic so that these endpoints can receive notification.
+
 ### A company always needs its Amazon Elastic Block Store (Amazon EBS) volumes to be encrypted During a security incident. EBS snapshots of suspicious instances are shared to a forensics account for analysis A security engineer attempting to share a suspicious EBS snapshot to the forensics account receives the following error `"Unable to share snapshot: An error occurred (OperationNotPermitted) when calling the ModifySnapshotAttribute operation: Encrypted snapshots with EBS default key cannot be shared`. Which combination of steps should the security engineer take in the incident account to complete the sharing operation? (Select THREE)
 
 - [x] Create a customer managed CMK Copy the EBS snapshot encrypting the destination snapshot using the new CMK.
@@ -1699,21 +1707,28 @@ Send email notifications using Amazon SNS.
 - [ ] Create an Amazon EC2 instance. Attach the encrypted and suspicious EBS volume. Copy data from the suspicious volume to an unencrypted volume. Snapshot the unencrypted volume.
 - [ ] Copy the EBS snapshot to the new decrypted snapshot.
 - [ ] Restore a volume from the suspicious EBS snapshot. Create an unencrypted EBS volume of the same size.
-- [ ] Share the target EBS snapshot with the forensics account.
+- [x] Share the target EBS snapshot with the forensics account.
+
+### A company is testing an application that runs on an Amazon EC2 Linux instance. A single 500 GB Amazon Elastic Block Store (Amazon EBS) General Purpose SSO (gp2) volume is attached to the EC2 instance. The company will deploy the application on multiple EC2 instances in an Auto Scaling group. All instances require access to the data that is stored in the EBS volume. The company needs a highly available and resilient solution that does not introduce significant changes to the application's code. Which solution will meet these requirements?
+
+- [ ] Provision an EC2 instance that uses NFS server software. Attach a single 500 GB gp2 EBS volume to the instance.
+- [ ] Provision an Amazon FSx for Windows File Server file system. Configure the file system as an SMB file store within a single Availability Zone.
+- [ ] Provision an EC2 instance with two 250 GB Provisioned IOPS SSD EBS volumes.
+- [x] Provision an Amazon Elastic File System (Amazon EFS) file system. Configure the file system to use General Purpose performance mode.
 
 ### A Security Engineer has launched multiple Amazon EC2 instances from a private AMI using an AWS CloudFormation template. The Engineer notices instances terminating right after they are launched. What could be causing these terminations?
 
-- [ ] The IAM user launching those instances is missing ec2:Runinstances permission.
-- [ ] The AMI used as encrypted and the IAM does not have the required AWS KMS permissions.
-- [x] The instance profile used with the EC2 instances in unable to query instance metadata.
+- [ ] The IAM user launching those instances is missing `ec2:Runinstances` permission.
+- [x] The AMI used as encrypted and the IAM does not have the required AWS KMS permissions.
+- [ ] The instance profile used with the EC2 instances in unable to query instance metadata.
 - [ ] AWS currently does not have sufficient capacity in the Region.
 
 ### A Security Engineer has discovered that, although encryption was enabled on the Amazon S3 bucket example bucket, anyone who has access to the bucket has the ability to retrieve the files. The Engineer wants to limit access to each IAM user can access an assigned folder only. What should the Security Engineer do to achieve this?
 
 - [ ] Use envelope encryption with the AWS-managed CMK aws/s3.
-- [x] Create a customer-managed CMK with a key policy granting `kms:Decrypt` based on the `'${aws:username}'` variable.
+- [ ] Create a customer-managed CMK with a key policy granting `kms:Decrypt` based on the `'${aws:username}'` variable.
 - [ ] Create a customer-managed CMK for each user. Add each user as a key user in their corresponding key policy.
-- [ ] Change the applicable IAM policy to grant S3 access to `'Resource': 'arn:aws:s3:::examplebucket/${aws:username}/*'`.
+- [x] Change the applicable IAM policy to grant S3 access to `'Resource': 'arn:aws:s3:::examplebucket/${aws:username}/*'`.
 
 ### Users report intermittent availability of a web application hosted on AWS. Monitoring systems report an excess of abnormal network traffic followed by high CPU utilization on the application web tier. Which of the following techniques will improve the availability of the application? (Select TWO)
 
