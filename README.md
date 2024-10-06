@@ -1740,12 +1740,12 @@ Send email notifications using Amazon SNS.
 
 ### An AWS account administrator created an IAM group and applied the following managed policy to require that each individual user authenticate using multi-factor authentication: After implementing the policy, the administrator receives reports that users are unable to perform Amazon EC2 commands using the AWS CLI. What should the administrator do to resolve this problem while still enforcing multi-factor authentication?
 
-![Question 185](images/question185.png)
+![Question 227](images/question227.png)
 
-- [ ] Change the value of aws MultiFactorAuthPresent to true.
-- [ ] Instruct users to run the aws sts get-session-token CLI command and pass the multi-factor authentication ―serial-number and ―token-code parameters. Use these resulting values to make API/CLI calls.
+- [ ] Change the value of `aws:MultiFactorAuthPresent` to `true`.
+- [x] Instruct users to run the `aws sts get-session-token` CLI command and pass the multi-factor authentication `―-serial-number` and `-―token-code` parameters. Use these resulting values to make API/CLI calls.
 - [ ] Implement federated API/CLI access using SAML 2.0, then configure the identity provider to enforce multi-factor authentication.
-- [x] Create a role and enforce multi-factor authentication in the role trust policy Instruct users to run the sts assume-role CLI command and pass –serial-number and ―token-code parameters Store the resulting values in environment variables. Add `sts:AssumeRole` to NotAction in the policy.
+- [ ] Create a role and enforce multi-factor authentication in the role trust policy Instruct users to run the `aws sts assume-role` CLI command and pass `–-serial-number` and `―-token-code` parameters Store the resulting values in environment variables. Add `sts:AssumeRole` to NotAction in the policy.
 
 ### The Security Engineer is managing a traditional three-tier web application that is running on Amazon EC2 instances. The application has become the target of increasing numbers of malicious attacks from the Internet. What steps should the Security Engineer take to check for known vulnerabilities and limit the attack surface? (Choose TWO)
 
@@ -2317,10 +2317,10 @@ API.
 
 ### A company will store sensitive documents in three Amazon S3 buckets based on a data classification scheme of `Sensitive,` `Confidential,` and `Restricted.` The security solution must meet all of the following requirements:  Each object must be encrypted using a unique key. Items that are stored in the `Restricted` bucket require two-factor authentication for decryption. AWS KMS must automatically rotate encryption keys annually. Which of the following meets these requirements?
 
-- [x] Create a Customer Master Key (CMK) for each data classification type, and enable the rotation of it annually. For the ג€Restrictedג€ CMK, define the MFA policy within the key policy. Use S3 SSE-KMS to encrypt the objects.
-- [ ]  Create a CMK grant for each data classification type with EnableKeyRotation and MultiFactorAuthPresent set to true. S3 can then use the grants to encrypt each object with a unique CMK.
+- [x] Create a Customer Master Key (CMK) for each data classification type, and enable the rotation of it annually. For the "Restricted" CMK, define the MFA policy within the key policy. Use S3 SSE-KMS to encrypt the objects.
+- [ ]  Create a CMK grant for each data classification type with EnableKeyRotation and MultiFactorAuthPresent set to `true`. S3 can then use the grants to encrypt each object with a unique CMK.
 - [ ] Create a CMK for each data classification type, and within the CMK policy, enable rotation of it annually, and define the MFA policy. S3 can then create DEK grants to uniquely encrypt each object within the S3 bucket.
-- [ ] Create a CMK with unique imported key material for each data classification type, and rotate them annually. For the ג€Restrictedג€ key material, define the MFA policy in the key policy. Use S3 SSE-KMS to encrypt the objects.
+- [ ] Create a CMK with unique imported key material for each data classification type, and rotate them annually. For the "Restricted" key material, define the MFA policy in the key policy. Use S3 SSE-KMS to encrypt the objects.
 
 ### An organization wants to deploy a three-tier web application whereby the application servers run on Amazon EC2 instances. These EC2 instances need access to credentials that they will use to authenticate their SQL connections to an Amazon RDS DB instance. Also, AWS Lambda functions must issue queries to the RDS database by using the same database credentials. The credentials must be stored so that the EC2 instances and the Lambda functions can access them. No other access is allowed. The access logs must record when the credentials were accessed and by whom. What should the Security Engineer do to meet these requirements?
 
@@ -2345,10 +2345,10 @@ API.
 
 ### An organization is using Amazon CloudWatch Logs with agents deployed on its Linux Amazon EC2 instances. The agent configuration files have been checked and the application log files to be pushed are configured correctly. A review has identified that logging from specific instances is missing. Which steps should be taken to troubleshoot the issue? (Choose two.)
 
-- [ ] Use an EC2 run command to confirm that the ג€awslogsג€ service is running on all instances.
+- [ ] Use an EC2 run command to confirm that the "awslogs" service is running on all instances.
 - [x] Verify that the permissions used by the agent allow creation of log groups/streams and to put log events.
 - [x] Check whether any application log entries were rejected because of invalid time stamps by reviewing /var/cwlogs/rejects.log.
-- [ ] Check that the trust relationship grants the service ג€cwlogs.amazonaws.comג€ permission to write objects to the Amazon S3 staging bucket.
+- [ ] Check that the trust relationship grants the service "cwlogs.amazonaws.com" permission to write objects to the Amazon S3 staging bucket.
 - [ ] Verify that the time zone on the application servers is in UTC.
 
 ### A Security Engineer must design a solution that enables the incident Response team to audit for changes to a user's IAM permissions in the case of a security incident. How can this be accomplished?
@@ -2370,13 +2370,13 @@ API.
 - [ ] kms:GenerateDataKey.
 - [ ] kms:Decrypt.
 - [x] kms:CreateGrant.
-- [ ] ג€Conditionג€: { ג€Boolג€: { ג€kms:ViaServiceג€: ג€ec2.us-west-2.amazonaws.comג€ } }.
-- [x] ג€Conditionג€: { ג€Boolג€: { ג€kms:GrantIsForAWSResourceג€: true } }.
+- [ ] "Condition": { "Bool": { "kms:ViaService": "ec2.us-west-2.amazonaws.com" } }.
+- [x] "Condition": { "Bool": { "kms:GrantIsForAWSResource": true } }.
 
 ### A Security Administrator has a website hosted in Amazon S3. The Administrator has been given the following requirements: Users may access the website by using an Amazon CloudFront distribution. Users may not access the website directly by using an Amazon S3 URL. Which configurations will support these requirements? (Choose two.)
 
 - [x] Associate an origin access identity with the CloudFront distribution.
-- [ ] Implement a ג€Principalג€: ג€cloudfront.amazonaws.comג€ condition in the S3 bucket policy.
+- [ ] Implement a "Principal": "cloudfront.amazonaws.com" condition in the S3 bucket policy.
 - [x] Modify the S3 bucket permissions so that only the origin access identity can access the bucket contents.
 - [ ] Implement security groups so that the S3 bucket can be accessed only by using the intended CloudFront distribution.
 - [ ] Configure the S3 bucket policy so that it is accessible only through VPC endpoints, and place the CloudFront distribution into the specified VPC.
@@ -2454,7 +2454,7 @@ API.
 
 ### A Security Administrator is performing a log analysis as a result of a suspected AWS account compromise. The Administrator wants to analyze suspicious AWS CloudTrail log files but is overwhelmed by the volume of audit logs being generated. What approach enables the Administrator to search through the logs MOST efficiently?
 
-- [ ] Implement a ג€write-onlyג€ CloudTrail event filter to detect any modifications to the AWS account resources.
+- [ ] Implement a "write-only" CloudTrail event filter to detect any modifications to the AWS account resources.
 - [ ] Configure Amazon Macie to classify and discover sensitive data in the Amazon S3 bucket that contains the CloudTrail audit logs.
 - [x] Configure Amazon Athena to read from the CloudTrail S3 bucket and query the logs to examine account activities.
 - [ ] Enable Amazon S3 event notifications to trigger an AWS Lambda function that sends an email alarm when there are new CloudTrail API entries.
@@ -2482,7 +2482,7 @@ API.
 
 ### A Security Administrator is configuring an Amazon S3 bucket and must meet the following security requirements: Encryption in transit Encryption at rest Logging of all object retrievals in AWS CloudTrail Which of the following meet these security requirements? (Choose three.)
 
-- [x] Specify ג€aws:SecureTransportג€: ג€trueג€ within a condition in the S3 bucket policy.
+- [x] Specify "aws:SecureTransport": "true" within a condition in the S3 bucket policy.
 - [ ] Enable a security group for the S3 bucket that allows port 443, but not port 80.
 - [x] Set up default encryption for the S3 bucket.
 - [ ] Enable Amazon CloudWatch Logs for the AWS account.
@@ -2573,7 +2573,7 @@ API.
 
 ### A Security Engineer has been asked to create an automated process to disable IAM user access keys that are more than three months old. Which of the following options should the Security Engineer use?
 
-- [x] In the AWS Console, choose the IAM service and select ג€Usersג€. Review the ג€Access Key Ageג€ column.
+- [x] In the AWS Console, choose the IAM service and select "Users". Review the "Access Key Age" column.
 - [ ] Define an IAM policy that denies access if the key age is more than three months and apply to all users.
 - [ ] Write a script that uses the GenerateCredentialReport, GetCredentialReport, and UpdateAccessKey APIs.
 - [ ] Create an Amazon CloudWatch alarm to detect aged access keys and use an AWS Lambda function to disable the keys older than 90 days.
@@ -2718,9 +2718,9 @@ API.
 ### An organization is using AWS CloudTrail, Amazon CloudWatch Logs, and Amazon CloudWatch to send alerts when new access keys are created. However, the alerts are no longer appearing in the Security Operations mail box. Which of the following actions would resolve this issue?
 
 - [ ] In CloudTrail, verify that the trail logging bucket has a log prefix configured.
-- [ ] In Amazon SNS, determine whether the ג€Account spend limitג€ has been reached for this alert.
+- [ ] In Amazon SNS, determine whether the "Account spend limit" has been reached for this alert.
 - [ ] In SNS, ensure that the subscription used by these alerts has not been deleted.
-- [x] In CloudWatch, verify that the alarm threshold ג€consecutive periodsג€ value is equal to, or greater than 1.
+- [x] In CloudWatch, verify that the alarm threshold "consecutive periods" value is equal to, or greater than 1.
 
 ### A Security Engineer must add additional protection to a legacy web application by adding the following HTTP security headers: -Content Security-Policy -X-Frame-Options -X-XSS-Protection The Engineer does not have access to the source code of the legacy web application. Which of the following approaches would meet this requirement?
 
@@ -2732,7 +2732,7 @@ API.
 ### During a security event, it is discovered that some Amazon EC2 instances have not been sending Amazon CloudWatch logs. Which steps can the Security Engineer take to troubleshoot this issue? (Choose two.)
 
 - [x] Connect to the EC2 instances that are not sending the appropriate logs and verify that the CloudWatch Logs agent is running.
-- [x] Log in to the AWS account and select CloudWatch Logs. Check for any monitored EC2 instances that are in the ג€Alertingג€ state and restart them using the EC2 console.
+- [x] Log in to the AWS account and select CloudWatch Logs. Check for any monitored EC2 instances that are in the "Alerting" state and restart them using the EC2 console.
 - [ ] Verify that the EC2 instances have a route to the public AWS API endpoints.
 - [ ] Connect to the EC2 instances that are not sending logs. Use the command prompt to verify that the right permissions have been set for the Amazon SNS topic.
 - [ ] Verify that the network access control lists and security groups of the EC2 instances have the access to send logs over SNMP.
@@ -2771,10 +2771,10 @@ API.
 
 ![Question 360](images/question360.png)
 
-- [x] Change the ג€Resourceג€ from ג€arn: aws:s3:::Bucketג€ to ג€arn:aws:s3:::Bucket/*ג€.
-- [ ] Change the ג€Principalג€ from ג€*ג€ to {AWS:ג€arn:aws:iam: : account-number: user/usernameג€}.
-- [ ] Change the ג€Versionג€ from ג€2012-10-17ג€ to the last revised date of the policy.
-- [ ] Change the ג€Actionג€ from [ג€s3:*ג€] to [ג€s3:GetObjectג€, ג€s3:ListBucketג€].
+- [x] Change the "Resource" from "arn: aws:s3:::Bucket" to "arn:aws:s3:::Bucket/*".
+- [ ] Change the "Principal" from "*" to {AWS:"arn:aws:iam: : account-number: user/username"}.
+- [ ] Change the "Version" from "2012-10-17" to the last revised date of the policy.
+- [ ] Change the "Action" from ["s3:*"] to ["s3:GetObject", "s3:ListBucket"].
 
 ### The Security Engineer has discovered that a new application that deals with highly sensitive data is storing Amazon S3 objects with the following key pattern, which itself contains highly sensitive data. Pattern: "randomID_datestamp_PII.csv" Example: "1234567_12302017_000-00-0000 csv" The bucket where these objects are being stored is using server-side encryption (SSE). Which solution is the most secure and cost-effective option to protect the sensitive data?
 
@@ -2929,9 +2929,9 @@ API.
 
 ### An application uses Amazon Cognito to manage end users' permissions when directly accessing AWS resources, including Amazon DynamoDB. A new feature request reads as follows: Provide a mechanism to mark customers as suspended pending investigation or suspended permanently. Customers should still be able to log in when suspended, but should not be able to make changes. The priorities are to reduce complexity and avoid potential for future security issues. Which approach will meet these requirements and priorities?
 
-- [x] Create a new database field ג€suspended_statusג€ and modify the application logic to validate that field when processing requests.
+- [x] Create a new database field "suspended_status" and modify the application logic to validate that field when processing requests.
 - [ ] Add suspended customers to second Cognito user pool and update the application login flow to check both user pools.
-- [ ] Use Amazon Cognito Sync to push out a ג€suspension_statusג€ parameter and split the IAM policy into normal users and suspended users.
+- [ ] Use Amazon Cognito Sync to push out a "suspension_status" parameter and split the IAM policy into normal users and suspended users.
 - [ ] Move suspended customers to a second Cognito group and define an appropriate IAM access policy for the group.
 
 ### A company stores data on an Amazon EBS volume attached to an Amazon EC2 instance. The data is asynchronously replicated to an Amazon S3 bucket. Both the EBS volume and the S3 bucket are encrypted with the same AWS KMS Customer Master Key (CMK). A former employee scheduled a deletion of that CMK before leaving the company. The company's Developer Operations department learns about this only after the CMK has been deleted. Which steps must be taken to address this situation?
