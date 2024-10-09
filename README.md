@@ -1535,7 +1535,7 @@ route to the NAT instance.
 - [x] Configure the bucket policy to allow access from the application instances only.
 - [ ] Use a NACL to filter traffic to Amazon S3.
 
-### A company’s application runs on an Amazon EC2 instance and stores objects in an Amazon S3 bucket. The EC2 instance is using an instance profile that provides access to read and write objects in the S3 bucket. The S3 bucket contains objects and has not been configured for any encryption at rest. The company is adopting a new security policy that mandates encryption at rest for all S3 buckets, encryption at rest for all objects in S3 buckets, and key rotation once every year. What should a security engineer do to meet these requirements?
+### A company's application runs on an Amazon EC2 instance and stores objects in an Amazon S3 bucket. The EC2 instance is using an instance profile that provides access to read and write objects in the S3 bucket. The S3 bucket contains objects and has not been configured for any encryption at rest. The company is adopting a new security policy that mandates encryption at rest for all S3 buckets, encryption at rest for all objects in S3 buckets, and key rotation once every year. What should a security engineer do to meet these requirements?
 
 - [ ] Enable server-side encryption with Amazon S3 managed encryption keys (SSE-S3) for the S3 bucket. Configure annual automatic key rotation. Use an S3 Batch Operations job with the COPY command to change all the objects in the S3 bucket to use the SSE-S3 key. Configure the EC2 instance profile with permissions to use the SSE-S3 key. Configure S3 data events to encrypt an object during a write operation.
 - [ ] Create a new AWS Key Management Service (AWS KMS) customer managed key. Configure annual automatic key rotation. Enable server-side encryption with AWS KMS keys (SSE-KMS) for the S3 bucket. Add a bucket policy to the S3 bucket to enforce SSE-KMS encryption. Configure the EC2 instance profile with permissions to use the customer managed key.
@@ -1769,11 +1769,18 @@ Send email notifications using Amazon SNS.
 - [ ] Use Amazon Athena and Amazon QuickSight to build reports off of AWS CloudTrail Create a daily Amazon CloudWatch trigger to run the report dally and email It using Amazon SNS.
 - [ ] Use AWS Artifact's prebuilt reports and subscriptions Subscribe the Director of Information Security to the reports by adding the Director as the security alternate contact for each account.
 
+### A company wants to deploy a continuous security threat-detection service at scale to automatically analyze all the company's member accounts in AWS Organizations within the `ap-east-1` Region. The company's organization includes a management account, a security account, and many member accounts. When the company creates a new member account, the threat-detection service should automatically analyze the new account so that the company can review any findings from the security account. Which solution uses AWS security best practices and meets these requirements with the LEAST effort?
+
+- [x] Activate Amazon GuardDuty in `ap-east-1`. Designate the security account as the GuardDuty delegated administrator by using the console.
+- [ ] Activate Amazon GuardDuty in `ap-east-1` with trusted access to AWS Organizations. Designate the management account as the GuardDuty organization administrator.
+- [ ] Activate AWS Security Hub in `ap-east-1`. Designate the management account as the Security Hub delegated administrator by using the console.
+- [ ] Activate AWS Control Tower in `ap-east-1` with trusted access to AWS Organizations. Designate the security account as the organization administrator.
+
 ### Two Amazon EC2 instances in different subnets should be able to connect to each other but cannot. It has been confirmed that other hosts in the same subnets are able to communicate successfully, and that security groups have valid ALLOW rules in place to permit this traffic. Which of the following troubleshooting steps should be performed?
 
-- [ ] Check inbound and outbound security groups, looking for DENY rules.
-- [ ] Check inbound and outbound Network ACL rules, looking for DENY rules.
-- [x] Review the rejected packet reason codes in the VPC Flow Logs.
+- [ ] Check inbound and outbound security groups, looking for `DENY` rules.
+- [x] Check inbound and outbound Network ACL rules, looking for `DENY` rules.
+- [ ] Review the rejected packet reason codes in the VPC Flow Logs.
 - [ ] Use AWS X-Ray to trace the end-to-end application flow.
 
 ### A company's Security Officer is concerned about the risk of AWS account root user logins and has assigned a Security Engineer to implement a notification solution for near-real-time alerts upon account root user logins. How should the Security Engineer meet these requirements?
@@ -1782,6 +1789,29 @@ Send email notifications using Amazon SNS.
 - [x] Run AWS CloudTrail logs through Amazon CloudWatch Events to detect account roo4 user logins and trigger an AWS Lambda function to send an Amazon SNS notification to the Security team's distribution list.
 - [ ] Save AWS CloudTrail logs to an Amazon S3 bucket in the Security team's account Process the CloudTrail logs with the Security Engineer's logging solution for account root user logins Send an Amazon SNS notification to the Security team upon encountering the account root user login events.
 - [ ] Save VPC Plow Logs to an Amazon S3 bucket in the Security team's account and process the VPC Flow Logs with their logging solutions for account root user logins Send an Amazon SNS notification to the Security team upon encountering the account root user login events.
+
+### A company has many member accounts in an organization in AWS Organizations. The company is concerned about the potential for misuse of the AWS account root user credentials for member accounts in the organization. To address this potential misuse, the company wants to ensure that even if the account root user credentials are compromised, the account is still protected. Which solution will meet this requirement?
+
+- [x] Block service access by using SCPs for the root user.
+- [ ] Remove the password for the root user.
+- [ ] Delete access keys for the root user.
+- [ ] Create an Amazon CloudWatch Events rule to detect any AWS account root user API events.
+
+### A company's Chief Security Officer has requested that a Security Analyst review and improve the security posture of each company AWS account. The Security Analyst decides to do this by improving AWS account root user security. Which actions should the Security Analyst take to meet these requirements? (Choose three.)
+
+- [x] Delete the access keys for the account root user in every account.
+- [ ] Create an admin IAM user with administrative privileges and delete the account root user in every account.
+- [x] Implement a strong password to help protect account-level access to the AWS Management Console by the account root user.
+- [x] Enable multi-factor authentication (MFA) on every account root user in all accounts.
+- [ ] Create a custom IAM policy to limit permissions to required actions for the account root user and attach the policy to the account root user.
+- [ ] Attach an IAM role to the account root user to make use of the automated credential rotation in AWS STS.
+
+### A security engineer needs to ensure their company's use of AWS meets AWS security best practices. As part of this, the AWS account root user must not be used for daily work. The root user must be monitored for use, and the security team must be alerted as quickly as possible if the root user is used. Which solution meets these requirements?
+
+- [x] Set up an Amazon CloudWatch Events rule that triggers an Amazon SNS notification.
+- [ ] Create root user access keys. Use an AWS Lambda function to parse AWS CloudTrail logs from Amazon S3 and generate notifications using Amazon SNS.
+- [ ] Set up a rule in AWS Config to trigger root user events. Trigger an AWS Lambda function and generate notifications using Amazon SNS.
+- [ ] Use Amazon Inspector to monitor the usage of the root user and generate notifications using Amazon SNS.
 
 ### A company has multiple AWS accounts that are part of AW5 Organizations. The company's Security team wants to ensure that even those Administrators with full access to the company's AWS accounts are unable to access the company's Amazon S3 buckets How should this be accomplished?
 
@@ -2240,7 +2270,7 @@ API.
 - [ ] Create an IAM policy that has an `aws:RequestedRegion` condition that allows the desired actions. Attach the policy only to the users who are in the designated Region.
 - [x] Create an SCP that has an `aws:RequestedRegion` condition that denies actions that are not in the designated Region. Attach the SCP to the AWS account in AWS Organizations.
 
-### A security engineer is evaluating a company’s use of AWS Key Management Service (AWS KMS). The security engineer must implement a hybrid solution with two sets of keys to meet the following requirements: Set 1: The company needs granular control over the keys so that the company can maintain a copy of the keys in the key management infrastructure and reimport the keys at any time. The company needs the ability to set the expiration period to 3 days for the keys. Set 2: No restrictions exist regarding immediate key deletion. A waiting period of 14 days is acceptable for keys to be marked deleted. Which solution will meet these requirements?
+### A security engineer is evaluating a company's use of AWS Key Management Service (AWS KMS). The security engineer must implement a hybrid solution with two sets of keys to meet the following requirements: Set 1: The company needs granular control over the keys so that the company can maintain a copy of the keys in the key management infrastructure and reimport the keys at any time. The company needs the ability to set the expiration period to 3 days for the keys. Set 2: No restrictions exist regarding immediate key deletion. A waiting period of 14 days is acceptable for keys to be marked deleted. Which solution will meet these requirements?
 
 - [ ] Use imported keys for Set 1. Use AWS managed keys for Set 2. For Set 1, set an expiration period and manually delete the keys after the expiration period has elapsed.
 - [x] Use imported keys for Set 1. Use AWS managed keys for Set 2. For Set 1, set an expiration period. AWS will automatically delete the keys after the expiration period has elapsed.
