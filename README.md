@@ -1829,24 +1829,45 @@ Send email notifications using Amazon SNS.
 
 ### An organization policy states that all encryption keys must be automatically rotated every 12 months. Which AWS Key Management Service (KMS) key type should be used to meet this requirement?
 
-- [ ] AWS managed Customer Master Key (CMK)
-- [x] Customer managed CMK with AWS generated key material.
+- [x] AWS managed Customer Master Key (CMK)
+- [ ] Customer managed CMK with AWS generated key material.
 - [ ] Customer managed CMK with imported key material.
 - [ ] AWS managed data key.
 
+### A company has decided to use AWS Key Management Service (AWS KMS) for all of its encryption keys. The company plans to create all of its keys as customer managed CMKs and will not import any encryption keys. The company must rotate its encryption keys once every 12 months. Which solution will meet these requirements?
+
+- [ ] Change the customer managed CMK key policy to enable automatic key rotation.
+- [ ] Use AWS managed CMKs instead of customer managed CMKs so that AWS will rotate the keys automatically.
+- [ ] Invoke an AWS Lambda function regularly to rotate the backing key of each customer managed CMK.
+- [x] Enable automatic key rotation for each customer managed CMK after it has been created in AWS KMS.
+
+### A company has a customer master key (CMK) with imported key materials. Company policy requires that all encryption keys must be rotated every year. What can be done to implement the above policy?
+
+- [ ] Enable automatic key rotation annually for the CMK.
+- [ ] Use AWS Command Line Interface to create an AWS Lambda function to rotate the existing CMK annually.
+- [ ] Import new key material to the existing CMK and manually rotate the CMK.
+- [x] Create a new CMK, import new key material to it, and point the key alias to the new CMK.
+
 ### A security engineer is responsible for providing secure access to AWS resources for thousands of developer in a company's corporate identity provider (idp). The developers access a set of AWS services from the corporate premises using IAM credential. Due to the velum of require for provisioning new IAM users, it is taking a long time to grant access permissions. The security engineer receives reports that developer are sharing their IAM credentials with others to avoid provisioning delays. The causes concern about overall security for the security engineer. Which actions will meet the program requirements that address security?
 
-- [ ] Create an Amazon CloudWatch alarm for AWS CloudTrail Events Create a metric filter to send a notification when me same set of IAM credentials is used by multiple developer.
-- [x] Create a federation between AWS and the existing corporate IdP Leverage IAM roles to provide federated access to AWS resources
-- [ ] Create a VPN tunnel between the corporate premises and the VPC Allow permissions to all AWS services only if it originates from corporate premises.
-- [ ] Create multiple IAM rotes for each IAM user Ensure that users who use the same IAM credentials cannot assume the same IAM role at the same time.
+- [ ] Create an Amazon CloudWatch alarm for AWS CloudTrail Events. Create a metric filter to send a notification when me same set of IAM credentials is used by multiple developer.
+- [x] Create a federation between AWS and the existing corporate IdP. Leverage IAM roles to provide federated access to AWS resources
+- [ ] Create a VPN tunnel between the corporate premises and the VPC. Allow permissions to all AWS services only if it originates from corporate premises.
+- [ ] Create multiple IAM rotes for each IAM user. Ensure that users who use the same IAM credentials cannot assume the same IAM role at the same time.
 
 ### A company requires that SSH commands used to access its AWS instance be traceable to the user who executed each command. How should a Security Engineer accomplish this?
 
-- [ ] Allow inbound access on port 22 at the security group attached to the instance Use AWS Systems Manager Session Manager for shell access to Amazon EC2 instances with the user tag defined Enable Amazon CloudWatch togging for Systems Manager sessions.
-- [x] Use Amazon S3 to securely store one Privacy Enhanced Mail Certificate (PEM file) for each user Allow Amazon EC2 to read from Amazon S3 and import every user that wants to use SSH to access EC2 instances Allow inbound access on port 22 at the security group attached to the instance Install the Amazon CloudWatch agent on the EC2 instance and configure it to ingest audit logs for the instance.
-- [ ] Deny inbound access on port 22 at the security group attached to the instance Use AWS Systems Manager Session Manager for shell access to Amazon EC2 instances with the user tag defined Enable Amazon CloudWatch togging for Systems Manager sessions.
-- [ ] Use Amazon S3 to securely store one Privacy Enhanced Mall Certificate (PEM fie) for each team or group Allow Amazon EC2 to read from Amazon S3 and import every user that wants to use SSH to access EC2 instances Allow inbound access on pod 22 at the security group attached to the instance Install the Amazon CloudWatch agent on the EC2 instance and configure it to ingest audit logs for the instance.
+- [ ] Allow inbound access on port 22 at the security group attached to the instance. Use AWS Systems Manager Session Manager for shell access to Amazon EC2 instances with the user tag defined. Enable Amazon CloudWatch togging for Systems Manager sessions.
+- [ ] Use Amazon S3 to securely store one Privacy Enhanced Mail Certificate (PEM file) for each user. Allow Amazon EC2 to read from Amazon S3 and import every user that wants to use SSH to access EC2 instances. Allow inbound access on port 22 at the security group attached to the instance. Install the Amazon CloudWatch agent on the EC2 instance and configure it to ingest audit logs for the instance.
+- [x] Deny inbound access on port 22 at the security group attached to the instance. Use AWS Systems Manager Session Manager for shell access to Amazon EC2 instances with the user tag defined. Enable Amazon CloudWatch togging for Systems Manager sessions.
+- [ ] Use Amazon S3 to securely store one Privacy Enhanced Mall Certificate (PEM file) for each team or group. Allow Amazon EC2 to read from Amazon S3 and import every user that wants to use SSH to access EC2 instances. Allow inbound access on pod 22 at the security group attached to the instance. Install the Amazon CloudWatch agent on the EC2 instance and configure it to ingest audit logs for the instance.
+
+### A company has a requirement that no Amazon EC2 security group can allow SSH access from the CIDR block 0.0.0.0/0. The company wants to monitor compliance with this requirement at all times and wants to receive a near-real-time notification if any security group is noncompliant. A security engineer has configured AWS Config and will use the restricted-ssh managed rule to monitor the security groups. What should the security engineer do next to meet these requirements?
+
+- [ ] Configure AWS Config to send its configuration snapshots to an Amazon S3 bucket. Create an AWS Lambda function to run on a PutEvent to the S3 bucket. Configure the Lambda function to parse the snapshot for a compliance change to the restricted-ssh managed rule. Configure the Lambda function to send a notification to an Amazon Simple Notification Service (Amazon SNS) topic if a change is discovered.
+- [x] Configure an Amazon EventBridge (Amazon CloudWatch Events) event rule that is invoked by a compliance change event from AWS Config for the restricted-ssh managed rule. Configure the event rule to target an Amazon Simple Notification Service (Amazon SNS) topic that will provide a notification.
+- [ ] Configure AWS Config to push all its compliance notifications to Amazon CloudWatch Logs. Configure a CloudWatch Logs metric filter on the AWS Config log group to look for a compliance notification change on the restricted-ssh managed rule. Create an Amazon CloudWatch alarm on the metric filter to send a notification to an Amazon Simple Notification Service (Amazon SNS) topic if the alarm is in the ALARM state.
+- [ ] Configure an Amazon CloudWatch alarm on the CloudWatch metric for the restricted-ssh managed rule. Configure the CloudWatch alarm to send a notification to an Amazon Simple Notification Service (Amazon SNS) topic if the alarm is in the ALARM state.
 
 ### A company's information security team wants to analyze Amazon EC2 performance and utilization data in the near-real time for anomalies. A Sec Engineer is responsible for log aggregation. The Engineer must collect logs from all of the company's AWS accounts in centralized location to perform the analysis. How should the Security Engineer do this? Log in to each account four te a day and filter the AWS CloudTrail log data, then copy and paste the logs in to the Amazon S3 bucket in the destination account.
 
@@ -2358,13 +2379,6 @@ API.
 - [ ] Store the database credentials in AWS KMS. Create an IAM role with access to KMS by using the EC2 and Lambda service principals in the role's trust policy. Add the role to an EC2 instance profile. Attach the instance profile to the EC2 instances and the Lambda function.
 - [ ] Store the database credentials in AWS Secrets Manager. Create an IAM role with access to Secrets Manager by using the EC2 and Lambda service principals in the role's trust policy. Add the role to an EC2 instance profile. Attach the instance profile to the EC2 instances and the Lambda function.
 - [x]  Store the database credentials in AWS Secrets Manager. Create an IAM role with access to Secrets Manager by using the EC2 and Lambda service principals in the role's trust policy. Add the role to an EC2 instance profile. Attach the instance profile to the EC2 instances. Set up Lambda to use the new role for execution.
-
-### A company has a customer master key (CMK) with imported key materials. Company policy requires that all encryption keys must be rotated every year. What can be done to implement the above policy?
-
-- [ ] Enable automatic key rotation annually for the CMK.
-- [ ] Use AWS Command Line Interface to create an AWS Lambda function to rotate the existing CMK annually.
-- [ ] Import new key material to the existing CMK and manually rotate the CMK.
-- [x] Create a new CMK, import new key material to it, and point the key alias to the new CMK.
 
 ### A water utility company uses a number of Amazon EC2 instances to manage updates to a fleet of 2,000 Internet of Things (IoT) field devices that monitor water quality. These devices each have unique access credentials. An operational safety policy requires that access to specific credentials is independently auditable. What is the MOST cost-effective way to manage the storage of credentials?
 
