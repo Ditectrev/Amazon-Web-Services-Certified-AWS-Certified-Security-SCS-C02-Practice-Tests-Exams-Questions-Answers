@@ -1923,13 +1923,13 @@ Send email notifications using Amazon SNS.
 ### An company is using AWS Secrets Manager to store secrets that are encrypted using a CMK and are stored in the security account 111122223333. One of the company's production accounts. 444455556666, must to retrieve the secret values from the security account 111122223333. A security engineer needs to apply a policy to the secret in the security account based on least privilege access so the production account can retrieve the secret value only. Which policy should the security engineer apply?
 
 - [x] Option A.
-![Question 203 option A](images/question203_1.png)
+![Question 252 option A](images/question252_1.png)
 - [ ] Option B.
-![Question 203 option B](images/question203_2.png)
+![Question 252 option B](images/question252_2.png)
 - [ ] Option C.
-![Question 203 option C](images/question203_3.png)
+![Question 252 option C](images/question252_3.png)
 - [ ] Option D.
-![Question 203 option D](images/question203_4.png)
+![Question 252 option D](images/question252_4.png)
 
 ### A company's policy requires that all API keys be encrypted and stored separately from source code in a centralized security account. This security account is managed by the company's security team. However, an audit revealed that an API key is stored with the source code of an AWS Lambda function in an AWS CodeCommit repository in the DevOps account. How should the security team securely store the API key?
 
@@ -1953,10 +1953,17 @@ Send email notifications using Amazon SNS.
 - [x] Add a route to the route table associated with the subnet that hosts the logging server that targets the peering connection.
 - [ ] Add a route to the route table associated with the subnet that hosts the Web server that targets the peering connection.
 
+### A Systems Engineer is troubleshooting the connectivity of a test environment that includes a virtual security appliance deployed inline. In addition to using the virtual security appliance, the Development team wants to use security groups and network ACLs to accomplish various security requirements in the environment. What configuration is necessary to allow the virtual security appliance to route the traffic?
+
+- [ ] Disable network ACLs.
+- [ ] Configure the security appliance's elastic network interface for promiscuous mode.
+- [x] Disable the Network Source/Destination check on the security appliance's elastic network interface.
+- [ ] Place the security appliance in the public subnet with the internet gateway.
+
 ### A company's Security Engineer is copying all application logs to centralized Amazon S3 buckets. Currently, each of the company's application is in its own AWS account, and logs are pushed into S3 buckets associated with each account. The Engineer will deploy an AWS Lambda function into each account that copies the relevant log files to the centralized S3 bucket. The Security Engineer is unable to access the log files in the centralized S3 bucket. The Engineer's IAM user policy from the centralized account looks like this. The centralized S3 bucket policy looks like this. Why is the Security Engineer unable to access the log files?
 
-![Question 246 part 1](images/question246_1.png)
-![Question 246 part 2](images/question246_2.png)
+![Question 257 part 1](images/question257_1.png)
+![Question 257 part 2](images/question257_2.png)
 
 - [ ] The S3 bucket policy does not explicitly allow the Security Engineer access to the objects in the bucket.
 - [x] The object ACLs are not being updated to allow the users within the centralized account to access the objects.
@@ -1965,8 +1972,8 @@ Send email notifications using Amazon SNS.
 
 ### A Security Engineer has created an Amazon CloudWatch event that invokes an AWS Lambda function daily. The Lambda function runs an Amazon Athena query that checks AWS CloudTrail logs in Amazon S3 to detect whether any IAM user accounts or credentials have been created in the past 30 days. The results of the Athena query are created in the same S3 bucket. The Engineer runs a test execution of the Lambda function via the AWS Console, and the function runs successfully. After several minutes, the Engineer finds that his Athena query has failed with the error message: `Insufficient Permissions`. The IAM permissions of the Security Engineer and the Lambda function are shown below. Security Engineer. Lambda function execution role. What is causing the error?
 
-![Question 247 part 1](images/question247_1.png)
-![Question 247 part 2](images/question247_2.png)
+![Question 258 part 1](images/question258_1.png)
+![Question 258 part 2](images/question258_2.png)
 
 - [ ] The Lambda function does not have permissions to start the Athena query execution.
 - [ ] The Security Engineer does not have permissions to start the Athena query execution.
@@ -1989,16 +1996,16 @@ Send email notifications using Amazon SNS.
 
 ### A security engineer needs to create an Amazon S3 bucket policy to grant least privilege read access to IAM user accounts that are named User1, User2 and User3. These IAM user accounts are members of the AuthorizedPeople IAM group. The security engineer drafts the following S3 bucket policy. When the security engineer tries to add the policy to the S3 bucket, the following message appears: `Missing required field Principal.` The security engineer is adding a Principal element to the policy. The addition must provide read access to only User1, User2 and User3. Which solution meets these requirements?
 
-![Question 250](images/question250.jpg)
+![Question 261](images/question261.jpg)
 
 - [x] Option A.
-![Question 250 option A](images/question250_A.png)
+![Question 261 option A](images/question261_A.png)
 - [ ] Option B.
-![Question 250 option B](images/question250_B.png)
+![Question 261 option B](images/question261_B.png)
 - [ ] Option C.
-![Question 250 option C](images/question250_C.png)
+![Question 261 option C](images/question261_C.png)
 - [ ] Option D.
-![Question 250 option D](images/question250_D.png)
+![Question 261 option D](images/question261_D.png)
 
 ### A company has decided to move its fleet of Linux-based web server instances to an Amazon EC2 Auto Scaling group. Currently, the instances are static and are launched manually. When an administrator needs to view log files, the administrator uses SSH to establish a connection to the instances and retrieves the logs manually. The company often needs to query the logs to produce results about application sessions and user issues. The company does not want its new automatically scaling architecture to result in the loss of any log files when instances are scaled in. Which combination of steps should a security engineer take to meet these requirements MOST cost-effectively? (Choose two.)
 
@@ -2061,7 +2068,7 @@ Send email notifications using Amazon SNS.
 
 ### A company wants to establish separate AWS Key Management Service (AWS KMS) keys to use for different AWS services. The company's security engineer created the following key policy to allow the infrastructure deployment team to create encrypted Amazon Elastic Block Store (Amazon EBS) volumes by assuming the InfrastructueDeployment IAM role. The security engineer recently discovered that IAM roles other than the InfrastructureDeployment role used this key for other services. Which change to the policy should the security engineer make to resolve these issues?
 
-![Question 256](images/question256.jpg)
+![Question 270](images/question270.jpg)
 
 - [ ] In the statement block that contains the Sid Allow use of the key, under the Condition block, change StringEquals to StringLike.
 - [x] In the policy document, remove the statement block that contains the Sid Enable IAM User Permissions. Add key management policies to the KMS policy.
@@ -2312,7 +2319,7 @@ API.
 
 ### The Security team believes that a former employee may have gained unauthorized access to AWS resources sometime in the past 3 months by using an identified access key. What approach would enable the Security team to find out what the former employee may have done within AWS?
 
-![Question 290](images/question290.png)
+![Question 304](images/question304.png)
 
 - [x] Use the AWS CloudTrail console to search for user activity.
 - [ ] Use the Amazon CloudWatch Logs console to filter CloudTrail data by user.
@@ -2749,14 +2756,6 @@ API.
 - [ ] Attach the AmazonSQSFullAccess managed policy to the role used by the instances.
 - [x] Verify that the role attached to the instances contains policies that allow access to the queue.
 
-### A company has a forensic logging use case whereby several hundred applications running on Docker on EC2 need to send logs to a central location. The Security Engineer must create a logging solution that is able to perform real-time analytics on the log files, grants the ability to replay events, and persists data. Which AWS Services, together, can satisfy this use case? (Choose two.)
-
-- [ ] Amazon Elasticsearch.
-- [x] Amazon Kinesis.
-- [ ] Amazon SQS.
-- [x] Amazon CloudWatch.
-- [ ] Amazon Athena.
-
 ### Which of the following is the most efficient way to automate the encryption of AWS CloudTrail logs using a Customer Master Key (CMK) in AWS KMS?
 
 - [ ] Use the KMS direct encrypt function on the log data every time a CloudTrail log is generated.
@@ -2877,13 +2876,6 @@ API.
 - [x] Create a virtual gateway for VPN connectivity for each employee, and restrict access to the workload from within the VPC.
 - [ ] Use a VPN appliance from the AWS Marketplace for users to connect to, and restrict workload access to traffic from that appliance.
 - [ ] Route all traffic to the workload through AWS WAF. Add each employee's home IP address into an AWS WAF rule, and block all other traffic.
-
-### A Systems Engineer is troubleshooting the connectivity of a test environment that includes a virtual security appliance deployed inline. In addition to using the virtual security appliance, the Development team wants to use security groups and network ACLs to accomplish various security requirements in the environment. What configuration is necessary to allow the virtual security appliance to route the traffic?
-
-- [ ] Disable network ACLs.
-- [ ] Configure the security appliance's elastic network interface for promiscuous mode.
-- [ ] Disable the Network Source/Destination check on the security appliance's elastic network interface.
-- [x] Place the security appliance in the public subnet with the internet gateway.
 
 ### A Security Architect is evaluating managed solutions for storage of encryption keys. The requirements are: -Storage is accessible by using only VPCs. -Service has tamper-evident controls. -Access logging is enabled. -Storage has high availability. Which of the following services meets these requirements?
 
