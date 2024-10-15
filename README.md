@@ -1447,10 +1447,10 @@ route to the NAT instance.
 ### A Developer is creating an AWS Lambda function that requires environment variables to store connection information and logging settings. The Developer is required to use an AWS KMS Customer Master Key (CMK) supplied by the Information Security department in order to adhere to company standards for securing Lambda environment variables. Which of the following are required for this configuration to work? (Choose two.)
 
 - [ ] The Developer must configure Lambda access to the VPC using the `--vpc-config` parameter.
-- [x] The Lambda function execution role must have the kms:Decrypt permission added in the AWS IAM policy.
+- [x] The Lambda function execution role must have the `kms:Decrypt` permission added in the AWS IAM policy.
 - [x] The KMS key policy must allow permissions for the Developer to use the KMS key.
-- [ ] The AWS IAM policy assigned to the Developer must have the kms:GenerateDataKey permission added.
-- [ ] The Lambda execution role must have the kms:Encrypt permission added in the AWS IAM policy.
+- [ ] The AWS IAM policy assigned to the Developer must have the `kms:GenerateDataKey` permission added.
+- [ ] The Lambda execution role must have the `kms:Encrypt` permission added in the AWS IAM policy.
 
 ### A Developer is building a serverless application that uses Amazon API Gateway as the front end. The application will not be publicly accessible. Other legacy applications running on Amazon EC2 will make calls to the application A Security Engineer Has been asked to review the security controls for authentication and authorization of the application. Which combination of actions would provide the MOST secure solution? (Select TWO)
 
@@ -2220,7 +2220,7 @@ API.
 - [ ] Create a key policy that allows the `kms:Decrypt` action only for Amazon S3 and DynamoDB. Create an SCP that denies the creation of S3 buckets and DynamoDB tables that are not encrypted with the key.
 - [ ] Create an IAM policy that denies the `kms:Decrypt` action for the key. Create a Lambda function than runs on a schedule to attach the policy to any new roles. Create an AWS Config rule to send alerts for resources that are not encrypted with the key.
 - [x] Create a key policy that allows the `kms:Decrypt` action only for Amazon S3, DynamoDB, Lambda, and Amazon EKS. Create an SCP that denies the creation of S3 buckets and DynamoDB tables that are not encrypted with the key.
-- [ ] Create a key policy that allows the kms:Decrypt action only for Amazon S3, DynamoDB, Lambda, and Amazon EKS. Create an AWS Config rule to send alerts for resources that are not encrypted with the key.
+- [ ] Create a key policy that allows the `kms:Decrypt` action only for Amazon S3, DynamoDB, Lambda, and Amazon EKS. Create an AWS Config rule to send alerts for resources that are not encrypted with the key.
 
 ### A security engineer is configuring AWS Config for an AWS account that uses a new IAM entity. When the security engineer tries to configure AWS Config rules and automatic remediation options, errors occur. In the AWS CloudTrail logs, the security engineer sees the following error message: `Insufficient delivery policy to s3 bucket: DOC-EXAMPLE-BUCKET, unable to write to bucket, provided s3 key prefix is 'null'.` Which combination of steps should the security engineer take to remediate this issue? (Choose two.)
 
@@ -2340,14 +2340,14 @@ API.
 - [x] AWS IAM roles.
 - [ ] AWS IAM access keys.
 
-### A company has contracted with a third party to audit several AWS accounts. To enable the audit, cross-account IAM roles have been created in each account targeted for audit. The Auditor is having trouble accessing some of the accounts. Which of the following may be causing this problem? (Choose three.).
+### A company has contracted with a third party to audit several AWS accounts. To enable the audit, cross-account IAM roles have been created in each account targeted for audit. The auditor is having trouble accessing some of the accounts. Which of the following may be causing this problem? (Choose three.)
 
-- [ ] The external ID used by the Auditor is missing or incorrect.
-- [ ] The Auditor is using the incorrect password.
-- [x] The Auditor has not been granted sts:AssumeRole for the role in the destination account.
-- [ ] The Amazon EC2 role used by the Auditor must be set to the destination account role.
-- [x] The secret key used by the Auditor is missing or incorrect.
-- [x] The role ARN used by the Auditor is missing or incorrect.
+- [x] The external ID used by the auditor is missing or incorrect.
+- [ ] The auditor is using the incorrect password.
+- [x] The auditor has not been granted `sts:AssumeRole` for the role in the destination account.
+- [ ] The Amazon EC2 role used by the auditor must be set to the destination account role.
+- [ ] The secret key used by the auditor is missing or incorrect.
+- [x] The role ARN used by the auditor is missing or incorrect.
 
 ### Compliance requirements state that all communications between company on-premises hosts and EC2 instances be encrypted in transit. Hosts use custom proprietary protocols for their communication, and EC2 instances need to be fronted by a load balancer for increased availability. Which of the following solutions will meet these requirements?
 
@@ -2365,16 +2365,16 @@ API.
 
 ### A Systems Engineer has been tasked with configuring outbound mail through Simple Email Service (SES) and requires compliance with current TLS standards. The mail application should be configured to connect to which of the following endpoints and corresponding ports?
 
-- [ ] email.us-east-1.amazonaws.com over port 8080.
-- [ ] email-pop3.us-east-1.amazonaws.com over port 995.
-- [x] email-smtp.us-east-1.amazonaws.com over port 587.
-- [ ] email-imap.us-east-1.amazonaws.com over port 993.
+- [ ] `email.us-east-1.amazonaws.com` over port 8080.
+- [ ] `email-pop3.us-east-1.amazonaws.com` over port 995.
+- [x] `email-smtp.us-east-1.amazonaws.com` over port 587.
+- [ ] `email-imap.us-east-1.amazonaws.com` over port 993.
 
 ### A threat assessment has identified a risk whereby an internal employee could exfiltrate sensitive data from production host running inside AWS (Account 1). The threat was documented as follows: Threat description: A malicious actor could upload sensitive data from Server X by configuring credentials for an AWS account (Account 2) they control and uploading data to an Amazon S3 bucket within their control. Server X has outbound internet access configured via a proxy server. Legitimate access to S3 is required so that the application can upload encrypted files to an S3 bucket. Server X is currently using an IAM instance role. The proxy server is not able to inspect any of the server communication due to TLS encryption. Which of the following options will mitigate the threat? (Choose two.)
 
 - [x] Bypass the proxy and use an S3 VPC endpoint with a policy that whitelists only certain S3 buckets within Account 1.
-- [ ] Block outbound access to public S3 endpoints on the proxy server.
-- [x] Configure Network ACLs on Server X to deny access to S3 endpoints.
+- [x] Block outbound access to public S3 endpoints on the proxy server.
+- [ ] Configure Network ACLs on Server X to deny access to S3 endpoints.
 - [ ] Modify the S3 bucket policy for the legitimate bucket to allow access only from the public IP addresses associated with the application server.
 - [ ] Remove the IAM instance role from the application server and save API access keys in a trusted and encrypted application config file.
 
@@ -2401,9 +2401,9 @@ API.
 
 ### An organization is using Amazon CloudWatch Logs with agents deployed on its Linux Amazon EC2 instances. The agent configuration files have been checked and the application log files to be pushed are configured correctly. A review has identified that logging from specific instances is missing. Which steps should be taken to troubleshoot the issue? (Choose two.)
 
-- [ ] Use an EC2 run command to confirm that the "awslogs" service is running on all instances.
+- [x] Use an EC2 run command to confirm that the "awslogs" service is running on all instances.
 - [x] Verify that the permissions used by the agent allow creation of log groups/streams and to put log events.
-- [x] Check whether any application log entries were rejected because of invalid time stamps by reviewing /var/cwlogs/rejects.log.
+- [ ] Check whether any application log entries were rejected because of invalid time stamps by reviewing /var/cwlogs/rejects.log.
 - [ ] Check that the trust relationship grants the service "cwlogs.amazonaws.com" permission to write objects to the Amazon S3 staging bucket.
 - [ ] Verify that the time zone on the application servers is in UTC.
 
@@ -2421,13 +2421,15 @@ API.
 - [ ] Use a NAT gateway to control ingress and egress according to the requirements.
 - [ ] Launch an EC2-based firewall product from the AWS Marketplace, and implement the required rules in that product.
 
-### An IAM user with fill EC2 permissions could bot start an Amazon EC2 instance after it was stopped for a maintenance task. Upon starting the instance, the instance state would change to `Pending`, but after a few seconds, it would switch back to `Stopped`. An inspection revealed that the instance has attached Amazon EBS volumes that were encrypted by using a Customer Master Key (CMK). When these encrypted volumes were detached, the IAM user was able to start the EC2 instances. The IAM user policy is as follows: What additional items need to be added to the IAM user policy? (Choose two.)
+### An IAM user with fill EC2 permissions could bot start an Amazon EC2 instance after it was stopped for a maintenance task. Upon starting the instance, the instance state would change to `Pending`, but after a few seconds, it would switch back to `Stopped`. An inspection revealed that the instance has attached Amazon EBS volumes that were encrypted by using a Customer Master Key (CMK). When these encrypted volumes were detached, the IAM user was able to start the EC2 instances. The IAM user policy is as follows. What additional items need to be added to the IAM user policy? (Choose two.)
 
-- [ ] kms:GenerateDataKey.
-- [ ] kms:Decrypt.
-- [x] kms:CreateGrant.
-- [ ] "Condition": { "Bool": { "kms:ViaService": "ec2.us-west-2.amazonaws.com" } }.
-- [x] "Condition": { "Bool": { "kms:GrantIsForAWSResource": true } }.
+![Question 318](images/question318.png)
+
+- [ ] `kms:GenerateDataKey`.
+- [ ] `kms:Decrypt`.
+- [x] `kms:CreateGrant`.
+- [ ] `"Condition": { "Bool": { "kms:ViaService": "ec2.us-west-2.amazonaws.com" } }`.
+- [x] `"Condition": { "Bool": { "kms:GrantIsForAWSResource": true } }`.
 
 ### A Security Administrator has a website hosted in Amazon S3. The Administrator has been given the following requirements: Users may access the website by using an Amazon CloudFront distribution. Users may not access the website directly by using an Amazon S3 URL. Which configurations will support these requirements? (Choose two.)
 
@@ -2998,18 +3000,10 @@ API.
 
 ### The AWS Systems Manager Parameter Store is being used to store database passwords used by an AWS Lambda function. Because this is sensitive data, the parameters are stored as type SecureString and protected by an AWS KMS key that allows access through IAM. When the function executes, this parameter cannot be retrieved as the result of an access denied error. Which of the following actions will resolve the access denied error?
 
-- [x] Update the ssm.amazonaws.com principal in the KMS key policy to allow kms: Decrypt.
+- [x] Update the ssm.amazonaws.com principal in the KMS key policy to allow `kms:Decrypt`.
 - [ ] Update the Lambda configuration to launch the function in a VPC.
-- [ ] Add a policy to the role that the Lambda function uses, allowing kms: Decrypt for the KMS key.
+- [ ] Add a policy to the role that the Lambda function uses, allowing `kms:Decrypt` for the KMS key.
 - [ ] Add lambda.amazonaws.com as a trusted entity on the IAM role that the Lambda function uses.
-
-### A company's security policy requires that VPC Flow Logs are enabled on all VPCs. A Security Engineer is looking to automate the process of auditing the VPC resources for compliance. What combination of actions should the Engineer take? (Choose two.)
-
-- [ ] Create an AWS Lambda function that determines whether Flow Logs are enabled for a given VPC.
-- [x] Create an AWS Config configuration item for each VPC in the company AWS account.
-- [ ] Create an AWS Config managed rule with a resource type of AWS:: Lambda:: Function.
-- [x] Create an Amazon CloudWatch Event rule that triggers on events emitted by AWS Config.
-- [ ] Create an AWS Config custom rule, and associate it with an AWS Lambda function that contains the evaluating logic.
 
 ### A Security Engineer is looking for a way to control access to data that is being encrypted under a CMK. The Engineer is also looking to use additional authenticated data (AAD) to prevent tampering with ciphertext. Which action would provide the required functionality?
 
@@ -3037,7 +3031,7 @@ API.
 ### The Accounting department at Example Corp. has made a decision to hire a third-party firm, AnyCompany, to monitor Example Corp.'s AWS account to help optimize costs. The Security Engineer for Example Corp. has been tasked with providing AnyCompany with access to the required Example Corp. AWS resources. The Engineer has created an IAM role and granted permission to AnyCompany's AWS account to assume this role. When customers contact AnyCompany, they provide their role ARN for validation. The Engineer is concerned that one of AnyCompany's other customers might deduce Example Corp.'s role ARN and potentially compromise the company's account. What steps should the Engineer perform to prevent this outcome?
 
 - [ ] Create an IAM user and generate a set of long-term credentials. Provide the credentials to AnyCompany. Monitor access in IAM access advisor and plan to rotate credentials on a recurring basis.
-- [x] Request an external ID from AnyCompany and add a condition with sts:Externald to the role's trust policy.
+- [x] Request an external ID from AnyCompany and add a condition with `sts:Externald` to the role's trust policy.
 - [ ] Require two-factor authentication by adding a condition to the role's trust policy with aws:MultiFactorAuthPresent.
 - [ ] Request an IP range from AnyCompany and add a condition with aws:SourceIp to the role's trust policy.
 
