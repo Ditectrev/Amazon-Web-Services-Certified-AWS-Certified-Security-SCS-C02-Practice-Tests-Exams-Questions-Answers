@@ -2474,8 +2474,8 @@ API.
 
 ### A company's database developer has just migrated an Amazon RDS database credential to be stored and managed by AWS Secrets Manager. The developer has also enabled rotation of the credential within the Secrets Manager console and set the rotation to change every 30 days. After a short period of time, a number of existing applications have failed with authentication errors. What is the MOST likely cause of the authentication errors?
 
-- [x] Migrating the credential to RDS requires that all access come through requests to the Secrets Manager.
-- [ ] Enabling rotation in Secrets Manager causes the secret to rotate immediately, and the applications are using the earlier credential.
+- [ ] Migrating the credential to RDS requires that all access come through requests to the Secrets Manager.
+- [x] Enabling rotation in Secrets Manager causes the secret to rotate immediately, and the applications are using the earlier credential.
 - [ ] The Secrets Manager IAM policy does not allow access to the RDS database.
 - [ ] The Secrets Manager IAM policy does not allow access for the applications.
 
@@ -2488,12 +2488,12 @@ API.
 
 ### A company recently experienced a DDoS attack that prevented its web server from serving content. The website is static and hosts only HTML, CSS, and PDF files that users download. Based on the architecture shown in the image, what is the BEST way to protect the site against future attacks while minimizing the ongoing operational overhead?
 
-![Question 312](images/question312.jpg)
+![Question 326](images/question326.jpg)
 
-- [x] Move all the files to an Amazon S3 bucket. Have the web server serve the files from the S3 bucket.
+- [ ] Move all the files to an Amazon S3 bucket. Have the web server serve the files from the S3 bucket.
 - [ ] Launch a second Amazon EC2 instance in a new subnet. Launch an Application Load Balancer in front of both instances.
 - [ ] Launch an Application Load Balancer in front of the EC2 instance. Create an Amazon CloudFront distribution in front of the Application Load Balancer.
-- [ ] Move all the files to an S3 bucket. Create a CloudFront distribution in front of the bucket and terminate the web server.
+- [x] Move all the files to an S3 bucket. Create a CloudFront distribution in front of the bucket and terminate the web server.
 
 ### The Information Technology department has stopped using Classic Load Balancers and switched to Application Load Balancers to save costs. After the switch, some users on older devices are no longer able to connect to the website. What is causing this situation?
 
@@ -2505,8 +2505,8 @@ API.
 ### A security team is responsible for reviewing AWS API call activity in the cloud environment for security violations. These events must be recorded and retained in a centralized location for both current and future AWS regions. What is the SIMPLEST way to meet these requirements?
 
 - [ ] Enable AWS Trusted Advisor security checks in the AWS Console, and report all security incidents for all regions.
-- [x] Enable AWS CloudTrail by creating individual trails for each region, and specify a single Amazon S3 bucket to receive log files for later analysis.
-- [ ] Enable AWS CloudTrail by creating a new trail and applying the trail to all regions. Specify a single Amazon S3 bucket as the storage location.
+- [ ] Enable AWS CloudTrail by creating individual trails for each region, and specify a single Amazon S3 bucket to receive log files for later analysis.
+- [x] Enable AWS CloudTrail by creating a new trail and applying the trail to all regions. Specify a single Amazon S3 bucket as the storage location.
 - [ ] Enable Amazon CloudWatch logging for all AWS services across all regions, and aggregate them to a single Amazon S3 bucket for later analysis.
 
 ### A Security Administrator is performing a log analysis as a result of a suspected AWS account compromise. The Administrator wants to analyze suspicious AWS CloudTrail log files but is overwhelmed by the volume of audit logs being generated. What approach enables the Administrator to search through the logs MOST efficiently?
@@ -2526,8 +2526,8 @@ API.
 ### During a recent internal investigation, it was discovered that all API logging was disabled in a production account, and the root user had created new API keys that appear to have been used several times. What could have been done to detect and automatically remediate the incident?
 
 - [ ] Using Amazon Inspector, review all of the API calls and configure the inspector agent to leverage SNS topics to notify security of the change to AWS CloudTrail, and revoke the new API keys for the root user.
-- [ ] Using AWS Config, create a config rule that detects when AWS CloudTrail is disabled, as well as any calls to the root user create-api-key. Then use a Lambda function to re-enable CloudTrail logs and deactivate the root API keys.
-- [x] Using Amazon CloudWatch, create a CloudWatch event that detects AWS CloudTrail deactivation and a separate Amazon Trusted Advisor check to automatically detect the creation of root API keys. Then use a Lambda function to enable AWS CloudTrail and deactivate the root API keys.
+- [x] Using AWS Config, create a config rule that detects when AWS CloudTrail is disabled, as well as any calls to the root user create-api-key. Then use a Lambda function to re-enable CloudTrail logs and deactivate the root API keys.
+- [ ] Using Amazon CloudWatch, create a CloudWatch event that detects AWS CloudTrail deactivation and a separate Amazon Trusted Advisor check to automatically detect the creation of root API keys. Then use a Lambda function to enable AWS CloudTrail and deactivate the root API keys.
 - [ ] Using Amazon CloudTrail, create a new CloudTrail event that detects the deactivation of CloudTrail logs, and a separate CloudTrail event that detects the creation of root API keys. Then use a Lambda function to enable CloudTrail and deactivate the root API keys.
 
 ### An application has a requirement to be resilient across not only Availability Zones within the application's primary region but also be available within another region altogether. Which of the following supports this requirement for AWS resources that are encrypted by AWS KMS?
