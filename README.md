@@ -2548,7 +2548,7 @@ API.
 
 ### What is the function of the following AWS Key Management Service (KMS) key policy attached to a customer master key (CMK)?
 
-![Question 322](images/question322.png)
+![Question 334](images/question334.png)
 
 - [ ] The Amazon WorkMail and Amazon SES services have delegated KMS encrypt and decrypt permissions to the ExampleUser principal in the 111122223333 account.
 - [ ] The ExampleUser principal can transparently encrypt and decrypt email exchanges specifically between ExampleUser and AWS.
