@@ -2557,17 +2557,27 @@ API.
 
 ### A Security Engineer who was reviewing AWS Key Management Service (AWS KMS) key policies found this statement in each key policy in the company AWS account. What does the statement allow?
 
-![Question 323](images/question323.png)
+![Question 335](images/question335.png)
 
 - [ ] All principals from all AWS accounts to use the key.
 - [ ] Only the root user from account 111122223333 to use the key.
 - [ ] All principals from account 111122223333 to use the key but only on Amazon S3.
 - [x] Only principals from account 111122223333 that have an IAM policy applied that grants access to this key to use the key.
 
+### The Security Engineer created a new AWS Key Management Service (AWS KMS) key with the following key policy: What are the effects of the key policy? (Choose two.)
+
+![Question 336](images/question336.png)
+
+- [x] The policy allows access for the AWS account 111122223333 to manage key access though IAM policies.
+- [ ] The policy allows all IAM users in account 111122223333 to have full access to the KMS key.
+- [x] The policy allows the root user in account 111122223333 to have full access to the KMS key.
+- [ ] The policy allows the KMS service-linked role in account 111122223333 to have full access to the KMS key.
+- [ ] The policy allows all IAM roles in account 111122223333 to have full access to the KMS key.
+
 ### A Software Engineer wrote a customized reporting service that will run on a fleet of Amazon EC2 instances. The company security policy states that application logs for the reporting service must be centrally collected. What is the MOST efficient way to meet these requirements?
 
 - [ ] Write an AWS Lambda function that logs into the EC2 instance to pull the application logs from the EC2 instance and persists them into an Amazon S3 bucket.
-- [ ] . Enable AWS CloudTrail logging for the AWS account, create a new Amazon S3 bucket, and then configure Amazon CloudWatch Logs to receive the application logs from CloudTrail.
+- [ ] Enable AWS CloudTrail logging for the AWS account, create a new Amazon S3 bucket, and then configure Amazon CloudWatch Logs to receive the application logs from CloudTrail.
 - [ ] Create a simple cron job on the EC2 instances that synchronizes the application logs to an Amazon S3 bucket by using rsync.
 - [x] Install the Amazon CloudWatch Logs Agent on the EC2 instances, and configure it to send the application logs to CloudWatch Logs.
 
@@ -2590,7 +2600,7 @@ API.
 
 - [ ] Add a statement to the IAM policy used by the application to allow logs:putLogEvents and logs:createLogStream.
 - [ ] Modify the IAM role used by the application by adding the CloudWatchFullAccess managed policy.
-- [x] Add a statement to the IAM policy used by the application to allow cloudwatch:putMetricData.
+- [x] Add a statement to the IAM policy used by the application to allow `cloudwatch:putMetricData`.
 - [ ] Add a trust relationship to the IAM role used by the application for cloudwatch.amazonaws.com.
 
 ### A Developer's laptop was stolen. The laptop was not encrypted, and it contained the SSH key used to access multiple Amazon EC2 instances. A SecurityEngineer has verified that the key has not been used, and has blocked port 22 to all EC2 instances while developing a response plan. How can the Security Engineer further protect currently running instances?
@@ -2648,16 +2658,6 @@ API.
 - [ ] Digitized files -> Amazon Kinesis Data Firehose -> Amazon S3 -> Amazon Athena.
 - [ ] Digitized files -> Amazon Kinesis Data Streams -> Kinesis Client Library consumer -> Amazon S3 -> Athena.
 - [ ] Digitized files -> Amazon Kinesis Data Firehose -> Amazon Elasticsearch.
-
-### The Security Engineer created a new AWS Key Management Service (AWS KMS) key with the following key policy: What are the effects of the key policy? (Choose two.)
-
-![Question 337](images/question337.png)
-
-- [x] The policy allows access for the AWS account 111122223333 to manage key access though IAM policies.
-- [x] The policy allows all IAM users in account 111122223333 to have full access to the KMS key.
-- [ ] The policy allows the root user in account 111122223333 to have full access to the KMS key.
-- [ ] The policy allows the KMS service-linked role in account 111122223333 to have full access to the KMS key.
-- [ ] The policy allows all IAM roles in account 111122223333 to have full access to the KMS key.
 
 ### A company uses AWS Organization to manage 50 AWS accounts. The finance staff members log in as AWS IAM users in the FinanceDept AWS account. The staff members need to read the consolidated billing information in the MasterPayer AWS account. They should not be able to view any other resources in the MasterPayer AWS account. IAM access to billing has been enabled in the MasterPayer account. Which of the following approaches grants the finance staff the permissions they require without granting any unnecessary permissions
 
