@@ -2619,8 +2619,8 @@ API.
 
 ### An application outputs logs to a text file. The logs must be continuously monitored for security incidents. Which design will meet the requirements with MINIMUM effort?
 
-- [x] Create a scheduled process to copy the component's logs into Amazon S3. Use S3 events to trigger a Lambda function that updates Amazon CloudWatch metrics with the log data. Set up CloudWatch alerts based on the metrics.
-- [ ] Install and configure the Amazon CloudWatch Logs agent on the application's EC2 instance. Create a CloudWatch metric filter to monitor the application logs. Set up CloudWatch alerts based on the metrics.
+- [ ] Create a scheduled process to copy the component's logs into Amazon S3. Use S3 events to trigger a Lambda function that updates Amazon CloudWatch metrics with the log data. Set up CloudWatch alerts based on the metrics.
+- [x] Install and configure the Amazon CloudWatch Logs agent on the application's EC2 instance. Create a CloudWatch metric filter to monitor the application logs. Set up CloudWatch alerts based on the metrics.
 - [ ] Create a scheduled process to copy the application log files to AWS CloudTrail. Use S3 events to trigger Lambda functions that update CloudWatch metrics with the log data. Set up CloudWatch alerts based on the metrics.
 - [ ] Create a file watcher that copies data to Amazon Kinesis when the application writes to the log file. Have Kinesis trigger a Lambda function to update Amazon CloudWatch metrics with the log data. Set up CloudWatch alerts based on the metrics.
 
@@ -2640,9 +2640,9 @@ API.
 
 ### A Security Engineer has been asked to create an automated process to disable IAM user access keys that are more than three months old. Which of the following options should the Security Engineer use?
 
-- [x] In the AWS Console, choose the IAM service and select "Users". Review the "Access Key Age" column.
+- [ ] In the AWS Console, choose the IAM service and select "Users". Review the "Access Key Age" column.
 - [ ] Define an IAM policy that denies access if the key age is more than three months and apply to all users.
-- [ ] Write a script that uses the GenerateCredentialReport, GetCredentialReport, and UpdateAccessKey APIs.
+- [x] Write a script that uses the GenerateCredentialReport, GetCredentialReport, and UpdateAccessKey APIs.
 - [ ] Create an Amazon CloudWatch alarm to detect aged access keys and use an AWS Lambda function to disable the keys older than 90 days.
 
 ### The InfoSec team has mandated that in the future only approved Amazon Machine Images (AMIs) can be used. How can the InfoSec team ensure compliance with this mandate?
@@ -2654,12 +2654,12 @@ API.
 
 ### A pharmaceutical company has digitized versions of historical prescriptions stored on premises. The company would like to move these prescriptions to AWS and perform analytics on the data in them. Any operation with this data requires that the data be encrypted in transit and at rest. Which application flow would meet the data protection requirements on AWS?
 
-- [x] Digitized files -> Amazon Kinesis Data Analytics.
-- [ ] Digitized files -> Amazon Kinesis Data Firehose -> Amazon S3 -> Amazon Athena.
+- [ ] Digitized files -> Amazon Kinesis Data Analytics.
+- [x] Digitized files -> Amazon Kinesis Data Firehose -> Amazon S3 -> Amazon Athena.
 - [ ] Digitized files -> Amazon Kinesis Data Streams -> Kinesis Client Library consumer -> Amazon S3 -> Athena.
 - [ ] Digitized files -> Amazon Kinesis Data Firehose -> Amazon Elasticsearch.
 
-### A company uses AWS Organization to manage 50 AWS accounts. The finance staff members log in as AWS IAM users in the FinanceDept AWS account. The staff members need to read the consolidated billing information in the MasterPayer AWS account. They should not be able to view any other resources in the MasterPayer AWS account. IAM access to billing has been enabled in the MasterPayer account. Which of the following approaches grants the finance staff the permissions they require without granting any unnecessary permissions
+### A company uses AWS Organization to manage 50 AWS accounts. The finance staff members log in as AWS IAM users in the FinanceDept AWS account. The staff members need to read the consolidated billing information in the MasterPayer AWS account. They should not be able to view any other resources in the MasterPayer AWS account. IAM access to billing has been enabled in the MasterPayer account. Which of the following approaches grants the finance staff the permissions they require without granting any unnecessary permissions?
 
 - [ ] Create an IAM group for the finance users in the FinanceDept account, then attach the AWS managed ReadOnlyAccess IAM policy to the group.
 - [ ] Create an IAM group for the finance users in the MasterPayer account, then attach the AWS managed ReadOnlyAccess IAM policy to the group.
@@ -2673,14 +2673,6 @@ API.
 - [ ] Verify that the 0.0.0.0/0 route in the route table for the web server subnet points to the virtual security appliance.
 - [x] Verify the registered targets in the ALB.
 - [ ] Verify that the 0.0.0.0/0 route in the public subnet points to a NAT gateway.
-
-### A company has multiple production AWS accounts. Each account has AWS CloudTrail configured to log to a single Amazon S3 bucket in a central account. Two of the production accounts have trails that are not logging anything to the S3 bucket. Which steps should be taken to troubleshoot the issue? (Choose three.)
-
-- [x] Verify that the log file prefix is set to the name of the S3 bucket where the logs should go.
-- [x] Verify that the S3 bucket policy allows access for CloudTrail from the production AWS account IDs.
-- [ ] Create a new CloudTrail configuration in the account, and configure it to log to the account's S3 bucket.
-- [ ] Open the global CloudTrail configuration in the master account, and verify that the storage location is set to the correct S3 bucket.
-- [x] Confirm in the CloudTrail Console that the S3 bucket name is set correctly.
 
 ### Amazon CloudWatch Logs agent is successfully delivering logs to the CloudWatch Logs service. However, logs stop being delivered after the associated log stream has been active for a specific number of hours. What steps are necessary to identify the cause of this phenomenon? (Choose two.)
 
