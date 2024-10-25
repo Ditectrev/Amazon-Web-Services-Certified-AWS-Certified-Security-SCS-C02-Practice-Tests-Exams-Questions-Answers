@@ -2676,11 +2676,11 @@ API.
 
 ### Amazon CloudWatch Logs agent is successfully delivering logs to the CloudWatch Logs service. However, logs stop being delivered after the associated log stream has been active for a specific number of hours. What steps are necessary to identify the cause of this phenomenon? (Choose two.)
 
-- [ ] Ensure that file permissions for monitored files that allow the CloudWatch Logs agent to read the file have not been modified.
+- [x] Ensure that file permissions for monitored files that allow the CloudWatch Logs agent to read the file have not been modified.
 - [x] Verify that the OS Log rotation rules are compatible with the configuration requirements for agent streaming.
 - [ ] Configure an Amazon Kinesis producer to first put the logs into Amazon Kinesis Streams.
 - [ ] Create a CloudWatch Logs metric to isolate a value that changes at least once during the period before logging stops.
-- [x] Use AWS CloudFormation to dynamically create and maintain the configuration file for the CloudWatch Logs agent.
+- [ ] Use AWS CloudFormation to dynamically create and maintain the configuration file for the CloudWatch Logs agent.
 
 ### A company has deployed a custom DNS server in AWS. The Security Engineer wants to ensure that Amazon EC2 instances cannot use the Amazon-provided DNS. How can the Security Engineer block access to the Amazon-provided DNS in the VPC?
 
@@ -2691,8 +2691,8 @@ API.
 
 ### Which of the following minimizes the potential attack surface for applications?
 
-- [ ] Use security groups to provide stateful firewalls for Amazon EC2 instances at the hypervisor level.
-- [x] Use network ACLs to provide stateful firewalls at the VPC level to prevent access to any specific AWS resource.
+- [x] Use security groups to provide stateful firewalls for Amazon EC2 instances at the hypervisor level.
+- [ ] Use network ACLs to provide stateful firewalls at the VPC level to prevent access to any specific AWS resource.
 - [ ] Use AWS Direct Connect for secure trusted connections between EC2 instances within private subnets.
 - [ ] Design network security in a single layer within the perimeter network (also known as DMZ, demilitarized zone, and screened subnet) to facilitate quicker responses to threats.
 
@@ -2700,14 +2700,15 @@ API.
 
 - [ ] Use custom route tables to prevent malicious traffic from routing to the instances.
 - [ ] Update security groups to deny traffic from the originating source IP addresses.
-- [x] Use network ACLs.
-- [ ] Install intrusion prevention software (IPS) on each instance.
+- [ ] Use network ACLs.
+- [x] Install intrusion prevention software (IPS) on each instance.
 
 ### A company plans to move most of its IT infrastructure to AWS. They want to leverage their existing on-premises Active Directory as an identity provider for AWS. Which combination of steps should a Security Engineer take to federate the company's on-premises Active Directory with AWS? (Choose two.)
 
 - [x] Create IAM roles with permissions corresponding to each Active Directory group.
 - [ ] Create IAM groups with permissions corresponding to each Active Directory group.
-- [x] Configure Amazon Cloud Directory to support a SAML provider.
+- [ ] Configure Amazon Cloud Directory to support a SAML provider.
+- [x] Configure Active Directory to add relying party trust between Active Directory and AWS.
 - [ ] Configure Amazon Cognito to add relying party trust between Active Directory and AWS.
 
 ### A security alert has been raised for an Amazon EC2 instance in a customer account that is exhibiting strange behavior. The Security Engineer must first isolate the EC2 instance and then use tools for further investigation. What should the Security Engineer use to isolate and research this event? (Choose three.)
@@ -2719,19 +2720,11 @@ API.
 - [ ] AWS Firewall Manager.
 - [x] Security groups.
 
-### A financial institution has the following security requirements: Cloud-based users must be contained in a separate authentication domain. Cloud-based users cannot access on-premises systems. As part of standing up a cloud environment, the financial institution is creating a number of Amazon managed databases and Amazon EC2 instances. An Active Directory service exists on-premises that has all the administrator accounts, and these must be able to access the databases and instances. How would the organization manage its resources in the MOST secure manner? (Choose two.)
-
-- [ ] Configure an AWS Managed Microsoft AD to manage the cloud resources.
-- [x] Configure an additional on-premises Active Directory service to manage the cloud resources.
-- [x] Establish a one-way trust relationship from the existing Active Directory to the new Active Directory service.
-- [ ] Establish a one-way trust relationship from the new Active Directory to the existing Active Directory service.
-- [ ] Establish a two-way trust between the new and existing Active Directory services.
-
 ### An organization wants to be alerted when an unauthorized Amazon EC2 instance in its VPC performs a network port scan against other instances in the VPC. When the Security team performs its own internal tests in a separate account by using pre-approved third-party scanners from the AWS Marketplace, the Security team also then receives multiple Amazon GuardDuty events from Amazon CloudWatch alerting on its test activities. How can the Security team suppress alerts about authorized security tests while still receiving alerts about the unauthorized activity?
 
 - [ ] Use a filter in AWS CloudTrail to exclude the IP addresses of the Security team's EC2 instances.
-- [ ] Add the Elastic IP addresses of the Security team's EC2 instances to a trusted IP list in Amazon GuardDuty.
-- [x] Install the Amazon Inspector agent on the EC2 instances that the Security team uses.
+- [x] Add the Elastic IP addresses of the Security team's EC2 instances to a trusted IP list in Amazon GuardDuty.
+- [ ] Install the Amazon Inspector agent on the EC2 instances that the Security team uses.
 - [ ] Grant the Security team's EC2 instances a role with permissions to call Amazon GuardDuty API operations.
 
 ### An organization is moving non-business-critical applications to AWS while maintaining a mission-critical application in an on-premises data center. An on-premises application must share limited confidential information with the applications in AWS. The internet performance is unpredictable. Which configuration will ensure continued connectivity between sites MOST securely?
@@ -2760,8 +2753,8 @@ API.
 
 - [ ] In CloudTrail, verify that the trail logging bucket has a log prefix configured.
 - [ ] In Amazon SNS, determine whether the "Account spend limit" has been reached for this alert.
-- [ ] In SNS, ensure that the subscription used by these alerts has not been deleted.
-- [x] In CloudWatch, verify that the alarm threshold "consecutive periods" value is equal to, or greater than 1.
+- [x] In SNS, ensure that the subscription used by these alerts has not been deleted.
+- [ ] In CloudWatch, verify that the alarm threshold "consecutive periods" value is equal to, or greater than 1.
 
 ### A Security Engineer must add additional protection to a legacy web application by adding the following HTTP security headers: -Content Security-Policy -X-Frame-Options -X-XSS-Protection The Engineer does not have access to the source code of the legacy web application. Which of the following approaches would meet this requirement?
 
