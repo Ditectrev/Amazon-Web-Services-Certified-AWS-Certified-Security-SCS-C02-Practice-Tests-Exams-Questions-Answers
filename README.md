@@ -1881,7 +1881,7 @@ Send email notifications using Amazon SNS.
 - [ ] The log files fail integrity validation and automatically are marked as unavailable.
 - [x] The KMS key policy does not grant the Security Engineer's IAM user or role permissions to decrypt with it.
 - [ ] The bucket is set up to use server-side encryption with Amazon S3-managed keys (SSE-S3) as the default and does not allow SSE-KMS-encrypted files.
-- [ ] An IAM policy applicable to the Security Engineer's IAM user or role denies access to the "CloudTrail/" prefix in the Amazon S3 bucket.
+- [ ] An IAM policy applicable to the Security Engineer's IAM user or role denies access to the `CloudTrail/` prefix in the Amazon S3 bucket.
 
 ### A security engineer has created an Amazon Cognito user pool. The engineer needs to manually verify the ID and access token sent by the application for troubleshooting purposes. What is the MOST secure way to accomplish this?
 
@@ -2105,7 +2105,7 @@ Send email notifications using Amazon SNS.
 
 ### An Amazon EC2 Auto Scaling group launches Amazon Linux EC2 instances and installs the Amazon CloudWatch agent to publish logs to Amazon CloudWatch Logs. The EC2 instances launch with an IAM role that has an IAM policy attached. The policy provides access to publish custom metrics to CloudWatch. The EC2 instances run in a private subnet inside a VPC The VPC provides access to the internet for private subnets through a NAT gateway. A security engineer notices that no logs are being published to CloudWatch Logs for the EC2 instances that the Auto Scaling group launches. The security engineer validates that the CloudWatch Logs agent is running and is configured properly on the EC2 instances. In addition, the security engineer validates that network communications are working properly to AWS services. What can the security engineer do to ensure that the logs are published to CloudWatch Logs?
 
-- [x] Configure the IAM policy in use by the IAM role to have access to the required cloudwatch: API actions that will publish logs.
+- [x] Configure the IAM policy in use by the IAM role to have access to the required `cloudwatch: API` actions that will publish logs.
 - [ ] Adjust the Amazon EC2 Auto Scaling service-linked role to have permissions to write to CloudWatch Logs.
 - [ ] Configure the IAM policy in use by the IAM role to have access to the required AWS logs: API actions that will publish logs.
 - [ ] Add an interface VPC endpoint to provide a route to CloudWatch Logs.
@@ -2150,9 +2150,9 @@ API.
 
 ### A security engineer is configuring a mechanism to send an alert when three or more failed sign-in attempts to the AWS Management Console occur during a 5-minute period. The security engineer creates a trail in AWS CloudTrail to assist in this work. Which solution will meet these requirements?
 
-- [ ] In CloudTrail, turn on Insights events on the trail. Configure an alarm on the insight with eventName matching ConsoleLogin and errorMessage matching "Failed authentication''. Configure a threshold of 3 and a period of 5 minutes.
-- [x] Configure CloudTrail to send events to Amazon CloudWatch Logs. Create a metric filter for the relevant log group. Create a filter pattern with eventName matching ConsoleLogin and errorMessage matching "Failed authentication". Create a CloudWatch alarm with a threshold of 3 and a period of 5 minutes.
-- [ ] Create an Amazon Athena table from the CloudTrail events. Run a query for eventName matching ConsoleLogin and for errorMessage matching "Failed authentication". Create a notification action from the query to send an Amazon Simple Notification Service (Amazon SNS) notification when the count equals 3 within a period of 5 minutes.
+- [ ] In CloudTrail, turn on Insights events on the trail. Configure an alarm on the insight with eventName matching ConsoleLogin and errorMessage matching `Failed authentication`. Configure a threshold of 3 and a period of 5 minutes.
+- [x] Configure CloudTrail to send events to Amazon CloudWatch Logs. Create a metric filter for the relevant log group. Create a filter pattern with eventName matching ConsoleLogin and errorMessage matching `Failed authentication`. Create a CloudWatch alarm with a threshold of 3 and a period of 5 minutes.
+- [ ] Create an Amazon Athena table from the CloudTrail events. Run a query for eventName matching ConsoleLogin and for errorMessage matching `Failed authentication`. Create a notification action from the query to send an Amazon Simple Notification Service (Amazon SNS) notification when the count equals 3 within a period of 5 minutes.
 - [ ] In AWS Identity and Access Management Access Analyzer, create a new analyzer. Configure the analyzer to send an Amazon Simple Notification Service (Amazon SNS) notification when a failed sign-in event occurs 3 times for any IAM user within a period of 5 minutes.
 
 ### A company's security engineer receives an abuse notification from AWS. The notification indicates that someone is hosting malware from the company's AWS account. After investigation, the security engineer finds a new Amazon S3 bucket that an IAM user created without authorization. Which combination of steps should the security engineer take to MINIMIZE the consequences of this compromise? (Choose three.)
@@ -2380,10 +2380,10 @@ API.
 
 ### A company will store sensitive documents in three Amazon S3 buckets based on a data classification scheme of `Sensitive,` `Confidential,` and `Restricted.` The security solution must meet all of the following requirements:  Each object must be encrypted using a unique key. Items that are stored in the `Restricted` bucket require two-factor authentication for decryption. AWS KMS must automatically rotate encryption keys annually. Which of the following meets these requirements?
 
-- [x] Create a Customer Master Key (CMK) for each data classification type, and enable the rotation of it annually. For the "Restricted" CMK, define the MFA policy within the key policy. Use S3 SSE-KMS to encrypt the objects.
+- [x] Create a Customer Master Key (CMK) for each data classification type, and enable the rotation of it annually. For the `Restricted` CMK, define the MFA policy within the key policy. Use S3 SSE-KMS to encrypt the objects.
 - [ ] Create a CMK grant for each data classification type with EnableKeyRotation and MultiFactorAuthPresent set to `true`. S3 can then use the grants to encrypt each object with a unique CMK.
 - [ ] Create a CMK for each data classification type, and within the CMK policy, enable rotation of it annually, and define the MFA policy. S3 can then create DEK grants to uniquely encrypt each object within the S3 bucket.
-- [ ] Create a CMK with unique imported key material for each data classification type, and rotate them annually. For the "Restricted" key material, define the MFA policy in the key policy. Use S3 SSE-KMS to encrypt the objects.
+- [ ] Create a CMK with unique imported key material for each data classification type, and rotate them annually. For the `Restricted` key material, define the MFA policy in the key policy. Use S3 SSE-KMS to encrypt the objects.
 
 ### An organization wants to deploy a three-tier web application whereby the application servers run on Amazon EC2 instances. These EC2 instances need access to credentials that they will use to authenticate their SQL connections to an Amazon RDS DB instance. Also, AWS Lambda functions must issue queries to the RDS database by using the same database credentials. The credentials must be stored so that the EC2 instances and the Lambda functions can access them. No other access is allowed. The access logs must record when the credentials were accessed and by whom. What should the Security Engineer do to meet these requirements?
 
@@ -2401,10 +2401,10 @@ API.
 
 ### An organization is using Amazon CloudWatch Logs with agents deployed on its Linux Amazon EC2 instances. The agent configuration files have been checked and the application log files to be pushed are configured correctly. A review has identified that logging from specific instances is missing. Which steps should be taken to troubleshoot the issue? (Choose two.)
 
-- [x] Use an EC2 run command to confirm that the "awslogs" service is running on all instances.
+- [x] Use an EC2 run command to confirm that the `awslogs` service is running on all instances.
 - [x] Verify that the permissions used by the agent allow creation of log groups/streams and to put log events.
 - [ ] Check whether any application log entries were rejected because of invalid time stamps by reviewing /var/cwlogs/rejects.log.
-- [ ] Check that the trust relationship grants the service "cwlogs.amazonaws.com" permission to write objects to the Amazon S3 staging bucket.
+- [ ] Check that the trust relationship grants the service `cwlogs.amazonaws.com` permission to write objects to the Amazon S3 staging bucket.
 - [ ] Verify that the time zone on the application servers is in UTC.
 
 ### A Security Engineer must design a solution that enables the incident Response team to audit for changes to a user's IAM permissions in the case of a security incident. How can this be accomplished?
@@ -2511,7 +2511,7 @@ API.
 
 ### A Security Administrator is performing a log analysis as a result of a suspected AWS account compromise. The Administrator wants to analyze suspicious AWS CloudTrail log files but is overwhelmed by the volume of audit logs being generated. What approach enables the Administrator to search through the logs MOST efficiently?
 
-- [ ] Implement a "write-only" CloudTrail event filter to detect any modifications to the AWS account resources.
+- [ ] Implement a `write-only` CloudTrail event filter to detect any modifications to the AWS account resources.
 - [ ] Configure Amazon Macie to classify and discover sensitive data in the Amazon S3 bucket that contains the CloudTrail audit logs.
 - [x] Configure Amazon Athena to read from the CloudTrail S3 bucket and query the logs to examine account activities.
 - [ ] Enable Amazon S3 event notifications to trigger an AWS Lambda function that sends an email alarm when there are new CloudTrail API entries.
@@ -2539,7 +2539,7 @@ API.
 
 ### A Security Administrator is configuring an Amazon S3 bucket and must meet the following security requirements: Encryption in transit Encryption at rest Logging of all object retrievals in AWS CloudTrail Which of the following meet these security requirements? (Choose three.)
 
-- [x] Specify "aws:SecureTransport": "true" within a condition in the S3 bucket policy.
+- [x] Specify `"aws:SecureTransport": "true"` within a condition in the S3 bucket policy.
 - [ ] Enable a security group for the S3 bucket that allows port 443, but not port 80.
 - [x] Set up default encryption for the S3 bucket.
 - [ ] Enable Amazon CloudWatch Logs for the AWS account.
@@ -2640,7 +2640,7 @@ API.
 
 ### A Security Engineer has been asked to create an automated process to disable IAM user access keys that are more than three months old. Which of the following options should the Security Engineer use?
 
-- [ ] In the AWS Console, choose the IAM service and select "Users". Review the "Access Key Age" column.
+- [ ] In the AWS Console, choose the IAM service and select `Users`. Review the `Access Key Age` column.
 - [ ] Define an IAM policy that denies access if the key age is more than three months and apply to all users.
 - [x] Write a script that uses the GenerateCredentialReport, GetCredentialReport, and UpdateAccessKey APIs.
 - [ ] Create an Amazon CloudWatch alarm to detect aged access keys and use an AWS Lambda function to disable the keys older than 90 days.
@@ -2752,11 +2752,11 @@ API.
 ### An organization is using AWS CloudTrail, Amazon CloudWatch Logs, and Amazon CloudWatch to send alerts when new access keys are created. However, the alerts are no longer appearing in the Security Operations mail box. Which of the following actions would resolve this issue?
 
 - [ ] In CloudTrail, verify that the trail logging bucket has a log prefix configured.
-- [ ] In Amazon SNS, determine whether the "Account spend limit" has been reached for this alert.
+- [ ] In Amazon SNS, determine whether the `Account spend limit` has been reached for this alert.
 - [x] In SNS, ensure that the subscription used by these alerts has not been deleted.
-- [ ] In CloudWatch, verify that the alarm threshold "consecutive periods" value is equal to, or greater than 1.
+- [ ] In CloudWatch, verify that the alarm threshold `consecutive periods` value is equal to, or greater than 1.
 
-### A Security Engineer must add additional protection to a legacy web application by adding the following HTTP security headers: -Content Security-Policy -X-Frame-Options -X-XSS-Protection The Engineer does not have access to the source code of the legacy web application. Which of the following approaches would meet this requirement?
+### A Security Engineer must add additional protection to a legacy web application by adding the following HTTP security headers: `-Content Security-Policy -X-Frame-Options -X-XSS-Protection`. The Engineer does not have access to the source code of the legacy web application. Which of the following approaches would meet this requirement?
 
 - [ ] Configure an Amazon Route 53 routing policy to send all web traffic that does not include the required headers to a black hole.
 - [x] Implement an AWS Lambda@Edge origin response function that inserts the required headers.
@@ -2766,17 +2766,17 @@ API.
 ### During a security event, it is discovered that some Amazon EC2 instances have not been sending Amazon CloudWatch logs. Which steps can the Security Engineer take to troubleshoot this issue? (Choose two.)
 
 - [x] Connect to the EC2 instances that are not sending the appropriate logs and verify that the CloudWatch Logs agent is running.
-- [x] Log in to the AWS account and select CloudWatch Logs. Check for any monitored EC2 instances that are in the "Alerting" state and restart them using the EC2 console.
-- [ ] Verify that the EC2 instances have a route to the public AWS API endpoints.
+- [ ] Log in to the AWS account and select CloudWatch Logs. Check for any monitored EC2 instances that are in the `Alerting` state and restart them using the EC2 console.
+- [x] Verify that the EC2 instances have a route to the public AWS API endpoints.
 - [ ] Connect to the EC2 instances that are not sending logs. Use the command prompt to verify that the right permissions have been set for the Amazon SNS topic.
 - [ ] Verify that the network access control lists and security groups of the EC2 instances have the access to send logs over SNMP.
 
 ### A Security Engineer discovers that developers have been adding rules to security groups that allow SSH and RDP traffic from 0.0.0.0/0 instead of the organization firewall IP. What is the most efficient way to remediate the risk of this activity?
 
 - [ ] Delete the internet gateway associated with the VPC.
-- [x] Use network access control lists to block source IP addresses matching 0.0.0.0/0.
+- [ ] Use network access control lists to block source IP addresses matching 0.0.0.0/0.
 - [ ] Use a host-based firewall to prevent access from all but the organization's firewall IP.
-- [ ] Use AWS Config rules to detect 0.0.0.0/0 and invoke an AWS Lambda function to update the security group with the organization's firewall IP.
+- [x] Use AWS Config rules to detect 0.0.0.0/0 and invoke an AWS Lambda function to update the security group with the organization's firewall IP.
 
 ### In response to the past DDoS attack experiences, a Security Engineer has set up an Amazon CloudFront distribution for an Amazon S3 bucket. There is concern that some users may bypass the CloudFront distribution and access the S3 bucket directly. What must be done to prevent users from accessing the S3 objects directly by using URLs?
 
@@ -2791,39 +2791,46 @@ API.
 - [ ] Create IAM groups with permissions corresponding to each Active Directory group.
 - [x] Create a SAML provider with IAM.
 - [ ] Create a SAML provider with Amazon Cloud Directory.
-- [x] Configure AWS as a trusted relying party for the Active Directory
+- [x] Configure AWS as a trusted relying party for the Active Directory.
 - [ ] Configure IAM as a trusted relying party for Amazon Cloud Directory.
+
+### A Security Analyst attempted to troubleshoot the monitoring of suspicious security group changes. The Analyst was told that there is an Amazon CloudWatch alarm in place for these AWS CloudTrail log events. The Analyst tested the monitoring setup by making a configuration change to the security group but did not receive any alerts. Which of the following troubleshooting steps should the Analyst perform?
+
+- [ ] Ensure that CloudTrail and S3 bucket access logging is enabled for the Analyst's AWS account.
+- [x] Verify that a metric filter was created and then mapped to an alarm. Check the alarm notification action.
+- [ ] Check the CloudWatch dashboards to ensure that there is a metric configured with an appropriate dimension for security group changes.
+- [ ] Verify that the Analyst's account is mapped to an IAM policy that includes permissions for `cloudwatch: GetMetricStatistics` and `Cloudwatch: ListMetrics`.
 
 ### Example.com hosts its internal document repository on Amazon EC2 instances. The application runs on EC2 instances and previously stored the documents on encrypted Amazon EBS volumes. To optimize the application for scale, example.com has moved the files to Amazon S3. The security team has mandated that all the files are securely deleted from the EBS volume, and it must certify that the data is unreadable before releasing the underlying disks. Which of the following methods will ensure that the data is unreadable by anyone else?
 
 - [ ] Change the volume encryption on the EBS volume to use a different encryption mechanism. Then, release the EBS volumes back to AWS.
 - [ ] Release the volumes back to AWS. AWS immediately wipes the disk after it is deprovisioned.
-- [ ] Delete the encryption key used to encrypt the EBS volume. Then, release the EBS volumes back to AWS.
-- [x] Delete the data by using the operating system delete commands. Run Quick Format on the drive and then release the EBS volumes back to AWS.
+- [x] Delete the encryption key used to encrypt the EBS volume. Then, release the EBS volumes back to AWS.
+- [ ] Delete the data by using the operating system delete commands. Run Quick Format on the drive and then release the EBS volumes back to AWS.
 
 ### A Systems Administrator has written the following Amazon S3 bucket policy designed to allow access to an S3 bucket for only an authorized AWS IAM user from the IP address range 10.10.10.0/24: When trying to download an object from the S3 bucket from 10.10.10.40, the IAM user receives an access denied message. What does the Administrator need to change to grant access to the user?
 
-![Question 360](images/question360.png)
+![Question 369](images/question369.png)
 
-- [x] Change the "Resource" from "arn: aws:s3:::Bucket" to "arn:aws:s3:::Bucket/*".
-- [ ] Change the "Principal" from "*" to {AWS:"arn:aws:iam: : account-number: user/username"}.
-- [ ] Change the "Version" from "2012-10-17" to the last revised date of the policy.
-- [ ] Change the "Action" from ["s3:*"] to ["s3:GetObject", "s3:ListBucket"].
+- [x] Change the `Resource` from `arn: aws:s3:::Bucket` to `arn:aws:s3:::Bucket/*`.
+- [ ] Change the `Principal` from `*` to {AWS:`arn:aws:iam: : account-number: user/username`}.
+- [ ] Change the `Version` from `2012-10-17` to the last revised date of the policy.
+- [ ] Change the `Action` from `["s3:*"]` to `["s3:GetObject", "s3:ListBucket"]`.
 
 ### The Security Engineer has discovered that a new application that deals with highly sensitive data is storing Amazon S3 objects with the following key pattern, which itself contains highly sensitive data. Pattern: "randomID_datestamp_PII.csv" Example: "1234567_12302017_000-00-0000 csv" The bucket where these objects are being stored is using server-side encryption (SSE). Which solution is the most secure and cost-effective option to protect the sensitive data?
 
 - [ ] Remove the sensitive data from the object name, and store the sensitive data using S3 user-defined metadata.
-- [x] Add an S3 bucket policy that denies the action s3:GetObject.
-- [ ] Use a random and unique S3 object key, and create an S3 metadata index in Amazon DynamoDB using client-side encrypted attributes.
+- [ ] Add an S3 bucket policy that denies the action `s3:GetObject`.
+- [x] Use a random and unique S3 object key, and create an S3 metadata index in Amazon DynamoDB using client-side encrypted attributes.
 - [ ] Store all sensitive objects in Binary Large Objects (BLOBS) in an encrypted Amazon RDS instance.
 
 ### AWS CloudTrail is being used to monitor API calls in an organization. An audit revealed that CloudTrail is failing to deliver events to Amazon S3 as expected. What initial actions should be taken to allow delivery of CloudTrail events to S3? (Choose two.)
 
-- [ ] Verify that the S3 bucket policy allow CloudTrail to write objects.
+- [x] Verify that the S3 bucket policy allow CloudTrail to write objects.
 - [ ] Verify that the IAM role used by CloudTrail has access to write to Amazon CloudWatch Logs.
 - [ ] Remove any lifecycle policies on the S3 bucket that are archiving objects to Amazon Glacier.
 - [x] Verify that the S3 bucket defined in CloudTrail exists.
-- [x] Verify that the log file prefix defined in CloudTrail exists in the S3 bucket.
+- [ ] Verify that the log file prefix defined in CloudTrail exists in the S3 bucket.
 
 ### Due to new compliance requirements, a Security Engineer must enable encryption with customer-provided keys on corporate data that is stored in DynamoDB. The company wants to retain full control of the encryption keys. Which DynamoDB feature should the Engineer use to achieve compliance'?
 
