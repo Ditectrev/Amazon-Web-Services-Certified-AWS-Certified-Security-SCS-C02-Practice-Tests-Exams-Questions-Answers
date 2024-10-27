@@ -2837,24 +2837,24 @@ API.
 - [ ] Use AWS Certificate Manager to request a certificate. Use that certificate to encrypt data prior to uploading it to DynamoDB.
 - [ ] Enable S3 server-side encryption with the customer-provided keys. Upload the data to Amazon S3, and then use S3Copy to move all data to DynamoDB
 - [ ] Create a KMS master key. Generate per-record data keys and use them to encrypt data prior to uploading it to DynamoDS. Dispose of the cleartext and encrypted data keys after encryption without storing.
-- [X] Use the DynamoDB Java encryption client to encrypt data prior to uploading it to DynamoDB.
+- [x] Use the DynamoDB Java encryption client to encrypt data prior to uploading it to DynamoDB.
 
 ### A Security Engineer must design a system that can detect whether a file on an Amazon EC2 host has been modified. The system must then alert the Security Engineer of the modification. What is the MOST efficient way to meet these requirements?
 
 - [ ] Install antivirus software and ensure that signatures are up-to-date. Configure Amazon CloudWatch alarms to send alerts for security events.
-- [ ] Install host-based IDS software to check for file integrity. Export the logs to Amazon CloudWatch Logs for monitoring and alerting.
+- [x] Install host-based IDS software to check for file integrity. Export the logs to Amazon CloudWatch Logs for monitoring and alerting.
 - [ ] Export system log files to Amazon S3. Parse the log files using an AWS Lambda function that will send alerts of any unauthorized system login attempts through Amazon SNS.
-- [X] Use Amazon CloudWatch Logs to detect file system changes. If a change is detected, automatically terminate and recreate the instance from the most recent AMI. Use Amazon SNS to send notification of the event.
+- [ ] Use Amazon CloudWatch Logs to detect file system changes. If a change is detected, automatically terminate and recreate the instance from the most recent AMI. Use Amazon SNS to send notification of the event.
 
 ### A company has multiple VPCs in their account that are peered, as shown in the diagram. A Security Engineer wants to perform penetration tests of the Amazon EC2 instances in all three VPCs. How can this be accomplished? (Choose two.)
 
-![Question 365](images/question365.png)
+![Question 374](images/question374.jpg)
 
 - [ ] Deploy a pre-authorized scanning engine from the AWS Marketplace into VPC B, and use it to scan instances in all three VPCs. Do not complete the penetration test request form.
-- [ ] Deploy a pre-authorized scanning engine from the Marketplace into each VPC, and scan instances in each VPC from the scanning engine in that VPC. Do not complete the penetration test request form.
-- [x] Create a VPN connection from the data center to VPC A. Use an on-premises scanning engine to scan the instances in all three VPCs. Complete the penetration test request form for all three VPCs.
-- [ ] Create a VPN connection from the data center to each of the three VPCs. Use an on-premises scanning engine to scan the instances in each VPC. Do not complete the penetration test request form.
-- [x] Create a VPN connection from the data center to each of the three VPCs. Use an on-premises scanning engine to scan the instances in each VPC. Complete the penetration test request form for all three VPCs.
+- [x] Deploy a pre-authorized scanning engine from the Marketplace into each VPC, and scan instances in each VPC from the scanning engine in that VPC. Do not complete the penetration test request form.
+- [ ] Create a VPN connection from the data center to VPC A. Use an on-premises scanning engine to scan the instances in all three VPCs. Complete the penetration test request form for all three VPCs.
+- [x] Create a VPN connection from the data center to each of the three VPCs. Use an on-premises scanning engine to scan the instances in each VPC. Do not complete the penetration test request form.
+- [ ] Create a VPN connection from the data center to each of the three VPCs. Use an on-premises scanning engine to scan the instances in each VPC. Complete the penetration test request form for all three VPCs.
 
 ### For compliance reasons, an organization limits the use of resources to three specific AWS regions. It wants to be alerted when any resources are launched in unapproved regions. Which of the following approaches will provide alerts on any resources launched in an unapproved region?
 
@@ -2866,21 +2866,21 @@ API.
 ### A company runs an application on AWS that needs to be accessed only by employees. Most employees work from the office, but others work remotely or travel. How can the Security Engineer protect this workload so that only employees can access it?
 
 - [ ] Add each employee's home IP address to the security group for the application so that only those users can access the workload.
-- [x] Create a virtual gateway for VPN connectivity for each employee, and restrict access to the workload from within the VPC.
-- [ ] Use a VPN appliance from the AWS Marketplace for users to connect to, and restrict workload access to traffic from that appliance.
+- [ ] Create a virtual gateway for VPN connectivity for each employee, and restrict access to the workload from within the VPC.
+- [x] Use a VPN appliance from the AWS Marketplace for users to connect to, and restrict workload access to traffic from that appliance.
 - [ ] Route all traffic to the workload through AWS WAF. Add each employee's home IP address into an AWS WAF rule, and block all other traffic.
 
-### A Security Architect is evaluating managed solutions for storage of encryption keys. The requirements are: -Storage is accessible by using only VPCs. -Service has tamper-evident controls. -Access logging is enabled. -Storage has high availability. Which of the following services meets these requirements?
+### A Security Architect is evaluating managed solutions for storage of encryption keys. The requirements are: Storage is accessible by using only VPCs. Service has tamper-evident controls. Access logging is enabled. Storage has high availability. Which of the following services meets these requirements?
 
 - [ ] Amazon S3 with default encryption.
 - [x] AWS CloudHSM.
 - [ ] Amazon DynamoDB with server-side encryption.
 - [ ] AWS Systems Manager Parameter Store.
 
-### An AWS account includes two S3 buckets: bucket1 and bucket2. The bucket2 does not have a policy defined, but bucket1 has the following bucket policy: In addition, the same account has an IAM User named `alice`, with the following IAM policy. Which buckets can user `alice` access?
+### An AWS account includes two S3 buckets: bucket1 and bucket2. The bucket2 does not have a policy defined, but bucket1 has the following bucket policy. In addition, the same account has an IAM User named `alice`, with the following IAM policy. Which buckets can user `alice` access?
 
-![Question 370](images/question370_1.png)
-![Question 370](images/question370_2.png)
+![Question 378 part 1](images/question378_1.png)
+![Question 378 part 2](images/question378_2.png)
 
 - [ ] Bucket1 only.
 - [ ] Bucket2 only.
@@ -2891,8 +2891,8 @@ API.
 
 - [ ] Change the key policy permissions associated with the KMS CMK for each application when it must access the data in Amazon S3.
 - [ ] Have each application assume an IAM role that provides permissions to use the AWS Certificate Manager CMK.
-- [ ] Have each application use a grant on the KMS CMK to add or remove specific access controls on the KMS CMK.
-- [x] Have each application use an IAM policy in a user context to have specific access permissions on the KMS CMK.
+- [x] Have each application use a grant on the KMS CMK to add or remove specific access controls on the KMS CMK.
+- [ ] Have each application use an IAM policy in a user context to have specific access permissions on the KMS CMK.
 
 ### The Security Engineer is given the following requirements for an application that is running on Amazon EC2 and managed by using AWS CloudFormation templates with EC2 Auto Scaling groups: -Have the EC2 instances bootstrapped to connect to a backend database. -Ensure that the database credentials are handled securely. -Ensure that retrievals of database credentials are logged. Which of the following is the MOST efficient way to meet these requirements?
 
