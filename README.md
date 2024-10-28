@@ -2903,24 +2903,24 @@ API.
 
 ### A company has two AWS accounts, each containing one VPC. The first VPC has a VPN connection with its corporate network. The second VPC, without a VPN, hosts an Amazon Aurora database cluster in private subnets. Developers manage the Aurora database from a bastion host in a public subnet as shown in the image. A security review has flagged this architecture as vulnerable, and a Security Engineer has been asked to make this design more secure. The company has a short deadline and a second VPN connection to the Aurora account is not possible. How can the Security Engineer securely set up the bastion host?
 
-![Question 373](images/question373.jpg)
+![Question 381](images/question381.jpg)
 
-- [ ] Move the bastion host to the VPC with VPN connectivity. Create a VPC peering relationship between the bastion host VPC and Aurora VPC.
-- [x] Create an SSH port forwarding tunnel on the Developer's workstation to the bastion host to ensure that only authorized SSH clients can access the bastion host.
+- [x] Move the bastion host to the VPC with VPN connectivity. Create a VPC peering relationship between the bastion host VPC and Aurora VPC.
+- [ ] Create an SSH port forwarding tunnel on the Developer's workstation to the bastion host to ensure that only authorized SSH clients can access the bastion host.
 - [ ] Move the bastion host to the VPC with VPN connectivity. Create a cross-account trust relationship between the bastion VPC and Aurora VPC, and update the Aurora security group for the relationship.
 - [ ] Create an AWS Direct Connect connection between the corporate network and the Aurora account, and adjust the Aurora security group for this connection.
 
 ### An organization operates a web application that serves users globally. The application runs on Amazon EC2 instances behind an Application Load Balancer. There is an Amazon CloudFront distribution in front of the load balancer, and the organization uses AWS WAF. The application is currently experiencing a volumetric attack whereby the attacker is exploiting a bug in a popular mobile game. The application is being flooded with HTTP requests from all over the world with the User-Agent set to the following string: Mozilla/5.0 (compatible; ExampleCorp; ExampleGame/1.22; Mobile/1.0) What mitigation can be applied to block attacks resulting from this bug while continuing to service legitimate requests?
 
-- [ ] Create a rule in AWS WAF rules with conditions that block requests based on the presence of ExampleGame/1.22 in the User-Agent header.
+- [x] Create a rule in AWS WAF rules with conditions that block requests based on the presence of ExampleGame/1.22 in the User-Agent header.
 - [ ] Create a geographic restriction on the CloudFront distribution to prevent access to the application from most geographic regions.
-- [x] Create a rate-based rule in AWS WAF to limit the total number of requests that the web application services.
+- [ ] Create a rate-based rule in AWS WAF to limit the total number of requests that the web application services.
 - [ ] Create an IP-based blacklist in AWS WAF to block the IP addresses that are originating from requests that contain ExampleGame/1.22 in the User-Agent header.
 
 ### Some highly sensitive analytics workloads are to be moved to Amazon EC2 hosts. Threat modeling has found that a risk exists where a subnet could be maliciously or accidentally exposed to the internet. Which of the following mitigations should be recommended?
 
-- [ ] Use AWS Config to detect whether an Internet Gateway is added and use an AWS Lambda function to provide auto-remediation.
-- [x] Within the Amazon VPC configuration, mark the VPC as private and disable Elastic IP addresses.
+- [x] Use AWS Config to detect whether an Internet Gateway is added and use an AWS Lambda function to provide auto-remediation.
+- [ ] Within the Amazon VPC configuration, mark the VPC as private and disable Elastic IP addresses.
 - [ ] Use IPv6 addressing exclusively on the EC2 hosts, as this prevents the hosts from being accessed from the internet.
 - [ ] Move the workload to a Dedicated Host, as this provides additional network security controls and monitoring.
 
@@ -2929,7 +2929,7 @@ API.
 - [ ] Request KMS to provide the stored unencrypted data key and then use the retrieved data key to decrypt the data.
 - [ ] Keep the plaintext data key stored in Amazon DynamoDB protected with IAM policies. Query DynamoDB to retrieve the data key to decrypt the data.
 - [ ] Use the Encrypt API to store an encrypted version of the data key with another customer managed key. Decrypt the data key and use it to decrypt the data when required.
-- [ ] Store the encrypted data key alongside the encrypted data. Use the Decrypt API to retrieve the data key to decrypt the data when required.
+- [x] Store the encrypted data key alongside the encrypted data. Use the Decrypt API to retrieve the data key to decrypt the data when required.
 
 ### An organization receives an alert that indicates that an EC2 instance behind an ELB Classic Load Balancer has been compromised. What techniques will limit lateral movement and allow evidence gathering?
 
@@ -2941,18 +2941,18 @@ API.
 ### A Development team has asked for help configuring the IAM roles and policies in a new AWS account. The team using the account expects to have hundreds of master keys and therefore does not want to manage access control for customer master keys (CMKs). Which of the following will allow the team to manage AWS KMS permissions in IAM without the complexity of editing individual key policies?
 
 - [ ] The account's CMK key policy must allow the account's IAM roles to perform KMS EnableKey.
-- [ ] Newly created CMKs must have a key policy that allows the root principal to perform all actions.
+- [x] Newly created CMKs must have a key policy that allows the root principal to perform all actions.
 - [ ] Newly created CMKs must allow the root principal to perform the kms CreateGrant API operation.
-- [x] Newly created CMKs must mirror the IAM policy of the KMS key administrator.
+- [ ] Newly created CMKs must mirror the IAM policy of the KMS key administrator.
 
 ### An Amazon EC2 instance is part of an EC2 Auto Scaling group that is behind an Application Load Balancer (ALB). It is suspected that the EC2 instance has been compromised. Which steps should be taken to investigate the suspected compromise? (Choose three.)
 
-- [x] Detach the elastic network interface from the EC2 instance.
-- [ ] Initiate an Amazon Elastic Block Store volume snapshot of all volumes on the EC2 instance.
+- [ ] Detach the elastic network interface from the EC2 instance.
+- [x] Initiate an Amazon Elastic Block Store volume snapshot of all volumes on the EC2 instance.
 - [ ] Disable any Amazon Route 53 health checks associated with the EC2 instance.
-- [ ] De-register the EC2 instance from the ALB and detach it from the Auto Scaling group.
+- [x] De-register the EC2 instance from the ALB and detach it from the Auto Scaling group.
 - [x] Attach a security group that has restrictive ingress and egress rules to the EC2 instance.
-- [x] Add a rule to an AWS WAF to block access to the EC2 instance.
+- [ ] Add a rule to an AWS WAF to block access to the EC2 instance.
 
 ### A Security Engineer is implementing a solution to allow users to seamlessly encrypt Amazon S3 objects without having to touch the keys directly. The solution must be highly scalable without requiring continual management. Additionally, the organization must be able to immediately delete the encryption keys. Which solution meets these requirements?
 
