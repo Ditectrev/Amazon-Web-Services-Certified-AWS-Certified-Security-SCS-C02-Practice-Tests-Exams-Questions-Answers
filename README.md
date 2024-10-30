@@ -908,7 +908,7 @@ Manager Agent on the ECS container instances. Run an inventory report.
 - [ ] Import a new third-party certificate into AWS Identity and Access Management (IAM). Export the certificate from IAM. Associate the certificate with the ALB and the EC2 instances.
 - [x] Import a new third-party certificate into AWS Certificate Manager (ACM). Associate the certificate with the ALB. Install the certificate on the EC2 instances.
 
-### While securing the connection between a company's VPC and its on-premises data center, a security engineer sent a ping command from an on-premises host (IP address 203.0.113.12) to an Amazon EC2 instance (IP address 172.31.16.139). The ping command did not return a response. The flow log in the VPC showed the following: What action should be performed to allow the ping to work?
+### While securing the connection between a company's VPC and its on-premises data center, a security engineer sent a ping command from an on-premises host (IP address 203.0.113.12) to an Amazon EC2 instance (IP address 172.31.16.139). The ping command did not return a response. The flow log in the VPC showed the following. What action should be performed to allow the ping to work?
 
 ![Question 118](images/question118.jpg)
 
@@ -2018,9 +2018,9 @@ Send email notifications using Amazon SNS.
 ### A company maintains sensitive data in an Amazon S3 bucket that must be protected using an AWS KMS CMK. The company requires that keys be rotated automatically every year. How should the bucket be configured?
 
 - [ ] Select server-side encryption with Amazon S3-managed keys (SSE-S3) and select an AWS-managed CMK.
-- [x] Select Amazon S3-AWS KMS managed encryption keys (S3-KMS) and select a customer-managed CMK with key rotation enabled.
+- [ ] Select Amazon S3-AWS KMS managed encryption keys (S3-KMS) and select a customer-managed CMK with key rotation enabled.
 - [ ] Select server-side encryption with Amazon S3-managed keys (SSE-S3) and select a customer-managed CMK that has imported key material.
-- [ ] Select server-side encryption with AWS KMS-managed keys (SSE-KMS) and select an alias to an AWS-managed CMK.
+- [x] Select server-side encryption with AWS KMS-managed keys (SSE-KMS) and select an alias to an AWS-managed CMK.
 
 ### A company maintains an open-source application that is hosted on a public GitHub repository. While creating a new commit to the repository, an engineer uploaded their AWS access key and secret access keys. The engineer reported the mistake to a manager, and the manager immediately disabled the access key. The company needs to assess the impact of the exposed access key. A security engineer must recommend a solution that requires the least possible managerial overhead. Which solution meets these requirements?
 
@@ -2963,10 +2963,10 @@ API.
 
 ### An application uses Amazon Cognito to manage end users' permissions when directly accessing AWS resources, including Amazon DynamoDB. A new feature request reads as follows: Provide a mechanism to mark customers as suspended pending investigation or suspended permanently. Customers should still be able to log in when suspended, but should not be able to make changes. The priorities are to reduce complexity and avoid potential for future security issues. Which approach will meet these requirements and priorities?
 
-- [x] Create a new database field "suspended_status" and modify the application logic to validate that field when processing requests.
+- [ ] Create a new database field `suspended_status` and modify the application logic to validate that field when processing requests.
 - [ ] Add suspended customers to second Cognito user pool and update the application login flow to check both user pools.
-- [ ] Use Amazon Cognito Sync to push out a "suspension_status" parameter and split the IAM policy into normal users and suspended users.
-- [ ] Move suspended customers to a second Cognito group and define an appropriate IAM access policy for the group.
+- [ ] Use Amazon Cognito Sync to push out a `suspension_status` parameter and split the IAM policy into normal users and suspended users.
+- [x] Move suspended customers to a second Cognito group and define an appropriate IAM access policy for the group.
 
 ### A company stores data on an Amazon EBS volume attached to an Amazon EC2 instance. The data is asynchronously replicated to an Amazon S3 bucket. Both the EBS volume and the S3 bucket are encrypted with the same AWS KMS Customer Master Key (CMK). A former employee scheduled a deletion of that CMK before leaving the company. The company's Developer Operations department learns about this only after the CMK has been deleted. Which steps must be taken to address this situation?
 
@@ -2985,25 +2985,25 @@ API.
 ### A company has Windows Amazon EC2 instances in a VPC that are joined to on-premises Active Directory servers for domain services. The security team has enabled Amazon GuardDuty on the AWS account to alert on issues with the instances. During a weekly audit of network traffic, the Security Engineer notices that one of the EC2 instances is attempting to communicate with a known command-and- control server but failing. This alert does not show up in GuardDuty. Why did GuardDuty fail to alert to this behavior?
 
 - [ ] GuardDuty did not have the appropriate alerts activated.
-- [ ] GuardDuty does not see these DNS requests.
-- [x] GuardDuty only monitors active network traffic flow for command-and-control activity.
+- [x] GuardDuty does not see these DNS requests.
+- [ ] GuardDuty only monitors active network traffic flow for command-and-control activity.
 - [ ] GuardDuty does not report on command-and-control activity.
 
 ### The AWS Systems Manager Parameter Store is being used to store database passwords used by an AWS Lambda function. Because this is sensitive data, the parameters are stored as type SecureString and protected by an AWS KMS key that allows access through IAM. When the function executes, this parameter cannot be retrieved as the result of an access denied error. Which of the following actions will resolve the access denied error?
 
-- [x] Update the ssm.amazonaws.com principal in the KMS key policy to allow `kms:Decrypt`.
+- [ ] Update the ssm.amazonaws.com principal in the KMS key policy to allow `kms:Decrypt`.
 - [ ] Update the Lambda configuration to launch the function in a VPC.
-- [ ] Add a policy to the role that the Lambda function uses, allowing `kms:Decrypt` for the KMS key.
+- [x] Add a policy to the role that the Lambda function uses, allowing `kms:Decrypt` for the KMS key.
 - [ ] Add lambda.amazonaws.com as a trusted entity on the IAM role that the Lambda function uses.
 
 ### A Security Engineer is looking for a way to control access to data that is being encrypted under a CMK. The Engineer is also looking to use additional authenticated data (AAD) to prevent tampering with ciphertext. Which action would provide the required functionality?
 
 - [ ] Pass the key alias to AWS KMS when calling Encrypt and Decrypt API actions.
 - [ ] Use IAM policies to restrict access to Encrypt and Decrypt API actions.
-- [ ] Use kms:EncryptionContext as a condition when defining IAM policies for the CMK.
+- [ ] Use `kms:EncryptionContext` as a condition when defining IAM policies for the CMK.
 - [x] Use key policies to restrict access to the appropriate IAM groups.
 
-### An application makes calls to AWS services using the AWS SDK. The application runs on Amazon EC2 instances with an associated IAM role. When the application attempts to access an object within an Amazon S3 bucket; the Administrator receives the following error message: HTTP 403: Access Denied.Which combination of steps should the Administrator take to troubleshoot this issue? (Choose three.)
+### An application makes calls to AWS services using the AWS SDK. The application runs on Amazon EC2 instances with an associated IAM role. When the application attempts to access an object within an Amazon S3 bucket; the Administrator receives the following error message: `HTTP 403: Access Denied`. Which combination of steps should the Administrator take to troubleshoot this issue? (Choose three.)
 
 - [ ] Confirm that the EC2 instance's security group authorizes S3 access.
 - [x] Verify that the KMS key policy allows decrypt access for the KMS key for this IAM principle.
@@ -3016,8 +3016,8 @@ API.
 
 - [ ] Use AWS Certificate Manager to generate certificates from a public certificate authority and deploy them to all the containers.
 - [ ] Create a self-signed certificate in one container and use AWS Secrets Manager to distribute the certificate to the other containers to establish trust.
-- [ ] Use AWS Certificate Manager Private Certificate Authority (ACM PCA) to create a subordinate certificate authority, then create the private keys in the containers and sign them using the ACM PCA API.
-- [x] Use AWS Certificate Manager Private Certificate Authority (ACM PCA) to create a subordinate certificate authority, then use AWS Certificate Manager to generate the private certificates and deploy them to all the containers.
+- [x] Use AWS Certificate Manager Private Certificate Authority (ACM PCA) to create a subordinate certificate authority, then create the private keys in the containers and sign them using the ACM PCA API.
+- [ ] Use AWS Certificate Manager Private Certificate Authority (ACM PCA) to create a subordinate certificate authority, then use AWS Certificate Manager to generate the private certificates and deploy them to all the containers.
 
 ### The Accounting department at Example Corp. has made a decision to hire a third-party firm, AnyCompany, to monitor Example Corp.'s AWS account to help optimize costs. The Security Engineer for Example Corp. has been tasked with providing AnyCompany with access to the required Example Corp. AWS resources. The Engineer has created an IAM role and granted permission to AnyCompany's AWS account to assume this role. When customers contact AnyCompany, they provide their role ARN for validation. The Engineer is concerned that one of AnyCompany's other customers might deduce Example Corp.'s role ARN and potentially compromise the company's account. What steps should the Engineer perform to prevent this outcome?
 
@@ -3048,9 +3048,9 @@ API.
 - [x] Configure the SAML identity provider to add the Amazon Cognito user pool as a relying party.
 - [ ] Configure an Amazon Cognito identity pool to integrate with social login providers.
 - [ ] Update DynamoDB to store the user email addresses and passwords.
-- [x] Update API Gateway to use a COGNITO_USER_POOLS authorizer.
+- [x] Update API Gateway to use a `COGNITO_USER_POOLS` authorizer.
 
-### While securing the connection between a company's VPC and its on-premises data center, a Security Engineer sent a ping command from an on-premises host (IP address 203.0.113.12) to an Amazon EC2 instance (IP address 172.31.16.139). The ping command did not return a response. The flow log in the VPC showed the following: 2 123456789010 eni-1235b8ca 203.0.113.12 172.31.16.139 0 0 1 4 336 1432917027 1432917142 ACCEPT OK 2 123456789010 eni-1235b8ca 172.31.16.139 203.0.113.12 0 0 1 4 336 1432917094 1432917142 REJECT OK What action should be performed to allow the ping to work?
+### While securing the connection between a company's VPC and its on-premises data center, a Security Engineer sent a ping command from an on-premises host (IP address 203.0.113.12) to an Amazon EC2 instance (IP address 172.31.16.139). The ping command did not return a response. The flow log in the VPC showed the following: `2 123456789010 eni-1235b8ca 203.0.113.12 172.31.16.139 0 0 1 4 336 1432917027 1432917142 ACCEPT OK 2 123456789010 eni-1235b8ca 172.31.16.139 203.0.113.12 0 0 1 4 336 1432917094 1432917142 REJECT OK`. What action should be performed to allow the ping to work?
 
 - [ ] In the security group of the EC2 instance, allow inbound ICMP traffic.
 - [ ] In the security group of the EC2 instance, allow outbound ICMP traffic.
@@ -3067,10 +3067,10 @@ API.
 
 ### A company plans to migrate a sensitive dataset to Amazon S3. A Security Engineer must ensure that the data is encrypted at rest. The encryption solution must enable the company to generate its own keys without needing to manage key storage or the encryption process. What should the Security Engineer use to accomplish this?
 
-- [ ] Server-side encryption with Amazon S3-managed keys (SSE-S3)
-- [x] Server-side encryption with AWS KMS-managed keys (SSE-KMS)
-- [ ] Server-side encryption with customer-provided keys (SSE-C)
-- [ ] Client-side encryption with an AWS KMS-managed CMK
+- [ ] Server-side encryption with Amazon S3-managed keys (SSE-S3).
+- [x] Server-side encryption with AWS KMS-managed keys (SSE-KMS).
+- [ ] Server-side encryption with customer-provided keys (SSE-C).
+- [ ] Client-side encryption with an AWS KMS-managed CMK.
 
 ### A Security Engineer is defining the logging solution for a newly developed product. Systems Administrators and Developers need to have appropriate access to event log files in AWS CloudTrail to support and troubleshoot the product. Which combination of controls should be used to protect against tampering with and unauthorized access to log files? (Choose two.)
 
