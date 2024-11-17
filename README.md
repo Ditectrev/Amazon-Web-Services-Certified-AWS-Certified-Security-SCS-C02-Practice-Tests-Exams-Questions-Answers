@@ -1305,7 +1305,7 @@ credentials. Use the Secrets Manager rotate-secret command in the AWS CLI to for
 - [ ] Use Macie to detect an active DDoS event. Create Amazon CloudWatch alarms that respond to Macie findings.
 - [ ] Use Amazon Inspector to review resources and to invoke Amazon CloudWatch alarms for any resources that are vulnerable to DDoS attacks.
 - [ ] Create an Amazon CloudWatch alarm that monitors Firewall Manager metrics for an active DDoS event.
-- [ ] Create an Amazon CloudWatch alarm that monitors Shield Advanced metrics for an active DDoS event.
+- [x] Create an Amazon CloudWatch alarm that monitors Shield Advanced metrics for an active DDoS event.
 
 **[⬆ Back to Top](#table-of-contents)**
 
