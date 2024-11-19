@@ -40,7 +40,49 @@ Yes, we have a little commission from that link. Therefore, by using that link, 
 1. Always happy to answer your questions on Udemy's Q&A's and outside :)
 2. Failed? Please submit a screenshot of your exam result and request a refund (via our upcoming platform, not possible on Udemy); we'll always accept it.
 3. Learn about topics, such as:
-   - ...
+   - Access Control;
+   - Access Control Lists (ACL);
+   - Amazon Athena;
+   - Amazon CloudFront;
+   - Amazon CloudWatch;
+   - Amazon DynamoDB;
+   - Amazon Elastic Block Store (Amazon EBS);
+   - Amazon Elastic Compute Cloud (Amazon EC2);
+   - Amazon GuardDuty;
+   - Amazon Inspector;
+   - Amazon Kinesis;
+   - Amazon Relational Database Service (Amazon RDS);
+   - Amazon Resource Names (ARN);
+   - Amazon Route 53;
+   - Amazon Simple Notification Service (Amazon SNS);
+   - Amazon Simple Storage Service (Amazon S3);
+   - Amazon Simple Queue Service (Amazon SQS);
+   - Application Load Balancer (ALB);
+   - Authentication & Authorization;
+   - Availability Zones;
+   - AWS Certificate Manager (ACM);
+   - AWS CloudHSM;
+   - AWS CloudFormation;
+   - AWS CloudTrail;
+   - AWS Config;
+   - AWS Direct Connect;
+   - AWS Identity and Access Management (AWS IAM);
+   - AWS Key Management Service (AWS KMS);
+   - AWS Lambda;
+   - AWS Organizations;
+   - AWS Systems Manager;
+   - AWS Trusted Advisor;
+   - AWS Web Application Firewall (AWS WAF)
+   - Cipher Suites;
+   - Compliancy, Governance, Identity & Privacy;
+   - Customer Master Key (CMK);
+   - Inbound Data Traffic & Outbound Data Traffic;
+   - Network Address Translations (NAT);
+   - Public & Private Cloud;
+   - Secure Sockets Layer (SSL);
+   - Service Control Policies (SCP);
+   - Transport Layer Security (TLS);
+   - Virtual Private Clouds (VPC);
    - **Much More!**
 4. Questions are similar to the actual exam, without duplications (like in other courses ;-)).
 5. The Practice Tests Exams simulate the actual exam's content, timing, and percentage required to pass the exam.
