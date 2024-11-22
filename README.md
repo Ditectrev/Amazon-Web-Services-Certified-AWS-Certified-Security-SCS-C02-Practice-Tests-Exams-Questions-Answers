@@ -9,8 +9,8 @@ There are many ways to support us; in exchange, you'll get this material in a pr
 - ❤️ [shop.ditectrev.com, in EPUB or PDF formats, with answers marked](https://shop.ditectrev.com/product/amazon-web-services-certified-aws-certified-security-specialty-scs-c02-practice-tests-exams-questions-answers),
 - ❤️ [shop.ditectrev.com, in EPUB or PDF formats, without answers marked](https://shop.ditectrev.com/product/amazon-web-services-certified-aws-certified-security-specialty-scs-c02-practice-tests-exams-questions-no-answers),
 - 📖 [Udemy is the only one to have explanations for questions](https://www.udemy.com/user/social-ditectrev/),
-- 📚 [Google Play Books, in PDF format, with answers marked](https://play.google.com/store/books/collection/cluster?gsr=SheCARQKEAoMT0I0VUVRQUFRQkFKEAkQBA%3D%3D:S:ANO1ljI626g),
-- 📚 [Google Play Books, in PDF format, without answers marked](https://play.google.com/store/books/collection/cluster?gsr=SheCARQKEAoMT0I0VUVRQUFRQkFKEAkQBA%3D%3D:S:ANO1ljI626g),
+- 📚 [Google Play Books, in PDF format, with answers marked](https://play.google.com/store/books/details?id=gBkzEQAAQBAJ),
+- 📚 [Google Play Books, in PDF format, without answers marked](https://play.google.com/store/books/details?id=fhkzEQAAQBAJ),
 - 🛍️ [Etsy, in PDF format, with answers marked](https://ditectrev.etsy.com/listing/1829330235),
 - 🛍️ [Etsy, in PDF format, without answers marked](https://ditectrev.etsy.com/listing/1829330255),
 - 🛒 [eBay, in PDF format, with answers marked](https://www.ebay.com/itm/405192569290?mkcid=16&mkevt=1&mkrid=711-127632-2357-0&ssspo=_ptbuk3gqdw&sssrc=2380676&ssuid=_ptbuk3gqdw&widget_ver=artemis&media=COPY),
@@ -3455,8 +3455,6 @@ API.
 **[⬆ Back to Top](#table-of-contents)**
 
 ### The Security team believes that a former employee may have gained unauthorized access to AWS resources sometime in the past 3 months by using an identified access key. What approach would enable the Security team to find out what the former employee may have done within AWS?
-
-![Question 304](images/question304.png)
 
 - [x] Use the AWS CloudTrail console to search for user activity.
 - [ ] Use the Amazon CloudWatch Logs console to filter CloudTrail data by user.
